@@ -20,8 +20,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const mainRoutes = require('./routes/mainRoutes');
 const authRoutes = require('./routes/authRoutes');
 
-app.use('/auth', authRoutes);    // Các route sẽ thành /auth/auth/auth/login, /auth/auth/auth/sign_up
-app.use('/', mainRoutes);        // Trang chính
+app.use('/auth', authRoutes);    
+app.use('/', mainRoutes);        
 
 
 app.listen(port, () => {

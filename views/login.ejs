@@ -5,7 +5,7 @@
   <title>Đăng nhập</title>
   <link rel="stylesheet" href="/css/style.css">
   <style>
-/* RESET */
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,6 @@
 }
 
 
-/* MAIN LOGIN AREA */
 .main {
   display: flex;
   justify-content: center;
@@ -22,7 +21,7 @@
   background: #fff8f6;
 }
 
-/* LOGIN CONTAINER */
+
 .login-container {
   background: #fff;
   padding: 30px 30px 20px;
@@ -89,7 +88,7 @@
   text-decoration: underline;
 }
 
-/* ANIMATION */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -148,12 +147,12 @@
   </div> 
   <script>
   function handleLogin(e) {
-    e.preventDefault(); // Không cho form gửi đi tự động
+    e.preventDefault(); 
 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
-    // Gửi POST tới server (Node.js xử lý bên backend)
+
     fetch('/auth/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -161,9 +160,7 @@
     })
     .then(res => {
       if (res.ok) {
-        // Lưu username vào localStorage
         localStorage.setItem("loggedInUser", username);
-        // Chuyển về trang chủ
         window.location.href = "/";
       } else {
         alert("Sai tên đăng nhập hoặc mật khẩu!");
