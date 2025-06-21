@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* MAIN LOGIN AREA */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+  background: #fff8f6;
+}
+
+/* LOGIN CONTAINER */
+.login-container {
+  background: #fff;
+  padding: 30px 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 320px;
+  animation: fadeIn 0.5s ease;
+}
+
+.login-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 24px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: border-color 0.3s;
+}
+
+.login-container input:focus {
+  border-color: #ff6f61;
+  outline: none;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: rgb(159,168,218);
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.login-container button:hover {
+  background-color: rgb(159,168,218);
+}
+
+.note {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.note a {
+  color: #ff6f61;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.note a:hover {
+  text-decoration: underline;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="abc">
+        <div><img src="/image/owl.png" width="50"></div>
+        <a href="/">
+          <div class="name">Toeic <br>learning</div>
+        </a>
+    </div>    
+    <nav class="top-nav">
+      <a href="/" >Home</a>
+      <a href="/mainvoca" >Vocabulary</a>
+      <a href="/grammar" >Grammar</a>
+      <a href="/index2" >Test</a>
+      <a href="/auth/sign_up" id="signupLink">Sign up</a>
+      <a href="/auth/login" id="loginLink">Login</a>
+      <a href="#" id="logoutLink" onclick="logout()" style="display: none;">Log out</a>
+      <div class="circle" id="circleDisplay" style="display: none;">
+        <%= username ? username.charAt(0).toUpperCase() : '' %>
+      </div>
+
+    <script>
+      const user = localStorage.getItem("loggedInUser");
+      if (user) {
+        document.getElementById("circleDisplay").textContent = user.charAt(0).toUpperCase();
+        document.getElementById("circleDisplay").style.display = "inline-block"; 
+        document.getElementById("loginLink").style.display = "none";
+        document.getElementById("signupLink").style.display = "none";
+        document.getElementById("logoutLink").style.display = "inline";
+      }
+
+      function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "/";  
+      }
+    </script>
+
+  </nav>
+  </header>
+  <div class="main">
+    <div class="login-container">
+        <h2>Đăng nhập</h2>
+        <form onsubmit="handleLogin(event)">
+            <input type="text" id="username" name="username" placeholder="Tên đăng nhập" required>
+            <input type="password" id="password" name="password" placeholder="Mật khẩu" required>
+            <button type="submit">Đăng nhập</button>
+        </form>
+        <div class="note">Chưa có tài khoản?<a href="/auth/sign_up" > Đăng kí</a></div>
+    </div>
+  </div> 
+  <script>
+  function handleLogin(e) {
+    e.preventDefault(); // Không cho form gửi đi tự động
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    // Gửi POST tới server (Node.js xử lý bên backend)
+    fetch('/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+    })
+    .then(res => {
+      if (res.ok) {
+        // Lưu username vào localStorage
+        localStorage.setItem("loggedInUser", username);
+        // Chuyển về trang chủ
+        window.location.href = "/";
+      } else {
+        alert("Sai tên đăng nhập hoặc mật khẩu!");
+      }
+    })
+    .catch(error => {
+      console.error("Lỗi khi gửi login:", error);
+    });
+  }
+  </script>
+
+</body>
+</html>

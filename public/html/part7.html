@@ -1,0 +1,774 @@
+
+  <link rel = "stylesheet" href = "/css/style.css">
+  <style>
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 10%;
+  }
+
+  .image-col {
+    background: #eef2f5;
+    padding: 20px;
+    border-radius: 16px;
+    overflow-y: auto;
+    height: fit-content;
+    max-height: 80vh;
+  }
+
+  .image-col h2 {
+    margin-bottom: 12px;
+    color: var(--heading);
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .quiz-col {
+    padding: 0;
+  }
+
+  .quiz-card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .question-block {
+    margin-bottom: 20px;
+  }
+
+  .question-number {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 6px;
+    color: var(--heading);
+  }
+
+  .question-text {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+
+  .options button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .options button:hover:not(:disabled) {
+    background-color: #e9ecef;
+  }
+
+  .options button.selected {
+    background-color: #d0e8ff;
+    border-color: #007bff;
+  }
+
+  .options button.correct {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+  }
+
+  .options button.incorrect {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+  }
+
+  .btns,
+  .result-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .btns button,
+  .result-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btns button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .btns button:hover:not(:disabled),
+  .result-buttons button:hover {
+    opacity: 0.9;
+  }
+
+  .result {
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+
+    .image-col {
+      max-height: none;
+    }
+  }
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  }     
+
+  .question-block,
+  .quiz-card,
+  .result {
+    animation: fadeIn 0.4s ease-in-out;
+  }    
+</style>
+
+<body>
+    <!-- Thanh điều hướng ngang (trên cùng) -->
+  <header>
+    <div class="abc">
+        <div><img src="/image/owl.png" width="50"></div>
+        <div class="name">Toeic <br>learning</div>
+    </div>    
+    <nav class="top-nav">
+    <a href="/index2" ><img src="/image/back.png" width="80"></a>
+    </div>
+  </ul>
+</nav>
+  </header>
+  <div class="container">
+    <div class="image-col">
+      <h2>Đoạn văn</h2>
+      <div class="image-container" id="imageContainer"></div>
+    </div>
+    <div class="quiz-col">
+      <div class="quiz-card" id="quizCard"></div>
+      <div class="btns">
+        <button id="prevBtn" style="display: none">Quay lại</button>
+        <button id="nextBtn">Tiếp tục</button>
+      </div>
+    </div>
+  </div>
+</body>
+  <script>
+const groups = [
+  {
+    images: ["/image/13.png"],
+    questions: [
+      {
+        q: 1,
+        question: "What is mentioned about the magazine?",
+        options: [
+          "It is a literary journal.",
+          "It includes a recipe book as a supplement.",
+          "It provides travel advice.",
+          "It has an online version."
+        ],
+        a: 2
+      },
+      {
+        q: 2,
+        question: "What is suggested about the competition?",
+        options: [
+          "It is sponsored by professional photographers.",
+          "It awards a complimentary vacation to the winner.",
+          "It accepts digital photos only.",
+          "It features photos of Scotland."
+        ],
+        a: 1
+      }
+    ]
+  },
+  {
+    images: ["/image/14.png"],
+    questions: [
+      {
+        q: 3,
+        question: "Who most likely is Liz Bradley?",
+        options: [
+          "An intern",
+          "A receptionist",
+          "A business partner",
+          "An executive"
+        ],
+        a: 1
+      },
+      {
+        q: 4,
+        question: "Why was Michael Steel added to the conversation?",
+        options: [
+          "To have him give an update about the missing reports",
+          "To inform him about the upcoming meeting",
+          "To let him know about the deadline",
+          "To scold him for his lack of punctuality"
+        ],
+        a: 0
+      },
+      {
+        q: 5,
+        question: "What does Michael imply when he says he “had to scour the database to locate the backup material”?",
+        options: [
+          "He took his time writing the report",
+          "He had to back up all the information first",
+          "He needed time to find the missing data",
+          "The computer was out of order"
+        ],
+        a: 2
+      }
+    ]
+  },
+  {
+    images: ["/image/15.png"],
+    questions: [
+      {
+        q: 6,
+        question: "What is being advertised?",
+        options: [
+          "An insurance company",
+          "A window manufacturer",
+          "A landscaping company",
+          "A window cleaning service provider"
+        ],
+        a: 1
+      },
+      {
+        q: 7,
+        question: "What is indicated about Turner & Co.?",
+        options: [
+          "It is a family-run business.",
+          "Its branches are located nationwide.",
+          "It is an eco-friendly company.",
+          "It has recently hired experienced employees."
+        ],
+        a: 2
+      }
+    ]
+  },
+  {
+    images: ["/image/16.png"],
+    questions: [
+      {
+        q: 8,
+        question: "Why was the message sent?",
+        options: [
+          "To ask for a favor",
+          "To postpone a deadline",
+          "To cancel a meeting",
+          "To request a document"
+        ],
+        a: 0
+      },
+      {
+        q: 9,
+        question: "What is indicated about Mr. Bell?",
+        options: [
+          "He is unable to attend a meeting.",
+          "He expects profits to increase.",
+          "He is trying to meet a deadline.",
+          "He was recently hired."
+        ],
+        a: 2
+      }
+    ]
+  },
+  {
+    images: ["/image/17.png"],
+    questions: [
+      {
+        q: 10,
+        question: "What is indicated about B&G?",
+        options: [
+          "They have stores around the world.",
+          "They only sell items designed by Bucci.",
+          "The company has a few branches in Korea.",
+          "Their products usually sell out within hours."
+        ],
+        a: 0
+      },
+      {
+        q: 11,
+        question: "What is reported about the Bucci and B&G collaboration?",
+        options: [
+          "It took years to put together.",
+          "It was only sold in select stores.",
+          "It’s one of the most profitable collaborations for the company.",
+          "It will only be a one-time event."
+        ],
+        a: 2
+      }
+    ]
+  },
+  {
+    images: ["/image/18.png"],
+    questions: [
+      {
+        q: 12,
+        question: "What is the purpose of the memo?",
+        options: [
+          "To suggest a budget proposal",
+          "To solicit feedback",
+          "To revise incorrect information",
+          "To announce survey results"
+        ],
+        a: 1
+      },
+      {
+        q: 13,
+        question: "Who most likely is Mr. Nugent?",
+        options: [
+          "A medical doctor",
+          "A product developer",
+          "An investment analyst",
+          "A personnel employee"
+        ],
+        a: 3
+      }
+    ]
+  },
+  {
+    images: ["/image/19.png"],
+    questions: [
+      {
+        q: 14,
+        question: "What kind of business does the client most likely own?",
+        options: [
+          "A clothing shop",
+          "A furniture company",
+          "A shoe store",
+          "A handbag business"
+        ],
+        a: 3
+      },
+      {
+        q: 15,
+        question: "According to the conversation, whose department must complete the work first?",
+        options: [
+          "Karen Norman’s",
+          "Neil Park’s",
+          "Lauren Nichols’",
+          "Kevin Harding’s"
+        ],
+        a: 0
+      }
+    ]
+  },
+  {
+    images: ["/image/20.png"],
+    questions: [
+      {
+        q: 16,
+        question: "What is being announced?",
+        options: [
+          "A renovation project",
+          "A store expansion",
+          "A change in operating hours",
+          "A work schedule"
+        ],
+        a: 2
+      },
+      {
+        q: 17,
+        question: "When most likely is the construction NOT being performed?",
+        options: [
+          "On Monday",
+          "On Wednesday",
+          "On Saturday",
+          "On Sunday"
+        ],
+        a: 3
+      }
+    ]
+  },
+  {
+    images: ["/image/21.png"],
+    questions: [
+      {
+        q: 18,
+        question: "What is indicated about the Palmer Standard Cabin Yacht?",
+        options: [
+          "It is a fishing boat.",
+          "Its original paint color has been changed.",
+          "It can accommodate a group of people.",
+          "It is currently being repaired."
+        ],
+        a: 2
+      },
+      {
+        q: 19,
+        question: "What is NOT mentioned as a feature of the Palmer Standard Cabin Yacht?",
+        options: [
+          "Capability to play music",
+          "A lightweight construction material",
+          "Ample sleeping accommodations",
+          "A fuel-efficient engine"
+        ],
+        a: 3
+      }
+    ]
+  },
+  {
+    images: ["/image/22.png"],
+    questions: [
+      {
+        q: 20,
+        question: "Why was a letter sent to Mr. Kang?",
+        options: [
+          "To remind him to send in his travel journals",
+          "To explain about a new subscription plan",
+          "To inquire about his travel plans",
+          "To determine his qualifications for a position"
+        ],
+        a: 1
+      },
+      {
+        q: 21,
+        question: "What did Ms. Adams send with the letter?",
+        options: [
+          "A travel itinerary",
+          "A new contract",
+          "An application form",
+          "A revised schedule"
+        ],
+        a: 2
+      }
+    ]
+  },
+  {
+    images: ["/image/23.png"],
+    questions: [
+      {
+        q: 22,
+        question: "Who most likely is Mr. Dell?",
+        options: [
+          "A designer",
+          "A salesperson",
+          "A customer",
+          "A manufacturer"
+        ],
+        a: 1
+      },
+      {
+        q: 23,
+        question: "What is implied about Ms. Fleck?",
+        options: [
+          "She is a long-term customer of Taylor Fabrics.",
+          "She is a professional fashion designer.",
+          "She is a former employee of Taylor Fabrics.",
+          "She will be partially paid back for her purchase."
+        ],
+        a: 3
+      }
+    ]
+  },
+  {
+    images: ["/image/24.png"],
+    questions: [
+      {
+        q: 24,
+        question: "What is indicated about the Belmont Historical Society?",
+        options: [
+          "It does not allow children into some events.",
+          "It is run by the city of Belmont.",
+          "It was founded by Linda Cameron.",
+          "It will hold its events at several places."
+        ],
+        a: 3
+      },
+      {
+        q: 25,
+        question: "What most likely is Mr. Tate currently teaching?",
+        options: [
+          "Environmental conditions of the Arctic",
+          "Early American history",
+          "American folk music",
+          "Modern photography"
+        ],
+        a: 1
+      }
+    ]
+  },
+  {
+    images: ["/image/25.png", "image/25(2).png"],
+    questions: [
+      {
+        q: 26,
+        question: "What is suggested about Newton Library?",
+        options: [
+          "It recently renovated its facilities.",
+          "It will hold a fundraising event soon.",
+          "It offers educational activities for various ages.",
+          "It is closed on Mondays."
+        ],
+        a: 2
+      },
+      {
+        q: 27,
+        question: "What event is most suited for film students?",
+        options: [
+          "Story Play",
+          "Youth Creative Writing Workshop",
+          "A Trip to the Past",
+          "Never Too Late to Learn"
+        ],
+        a: 2
+      }
+    ]
+  },
+  {
+    images: ["/image/26.png", "image/26(2).png"],
+    questions: [
+      {
+        q: 28,
+        question: "What does Ms. Mason suggest doing?",
+        options: [
+          "Keeping within a budget for recreational activities",
+          "Appointing a new manager of human resources",
+          "Increasing the number of temporary employees",
+          "Scheduling more outdoor activities compared to last year"
+        ],
+        a: 0
+      },
+      {
+        q: 29,
+        question: "What date does Ms. Mason suggest for this year’s new activity?",
+        options: [
+          "July 6",
+          "July 22",
+          "August 6",
+          "August 19"
+        ],
+        a: 2
+      }
+    ]
+  },
+  {
+    images: ["/image/27.png", "image/27(2).png"],
+    questions: [
+      {
+        q: 30,
+        question: "What problem with the original shipment does Ms. Nelson report?",
+        options: [
+          "It was damaged.",
+          "It does not fit.",
+          "It arrived late.",
+          "It has not reached its destination."
+        ],
+        a: 1
+      },
+      {
+        q: 31,
+        question: "In the e-mail from Debra Clarke, the phrase “as per” in paragraph 1, line 2, is closest in meaning to",
+        options: [
+          "regardless of",
+          "except for",
+          "rather than",
+          "according to"
+        ],
+        a: 3
+      }
+    ]
+  }
+];
+
+
+    let currentGroup = 0;
+    const userAnswers = groups.map(g => Array(g.questions.length).fill(null));
+
+    const imageContainer = document.getElementById("imageContainer");
+    const quizCard = document.getElementById("quizCard");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function renderGroup() {
+      const group = groups[currentGroup];
+      imageContainer.innerHTML = "";
+      quizCard.innerHTML = "";
+
+      group.images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        imageContainer.appendChild(img);
+      });
+
+      group.questions.forEach((q, i) => {
+        const block = document.createElement("div");
+        block.className = "question-block";
+
+        const qNum = document.createElement("div");
+        qNum.className = "question-number";
+        qNum.textContent = `Q${q.q}`;
+
+        const qText = document.createElement("div");
+        qText.className = "question-text";
+        qText.textContent = q.question;
+
+        const opts = document.createElement("div");
+        opts.className = "options";
+
+        q.options.forEach((opt, j) => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.textContent = opt;
+          if (userAnswers[currentGroup][i] === j) btn.classList.add("selected");
+          btn.onclick = () => {
+            userAnswers[currentGroup][i] = j;
+            [...opts.children].forEach(b => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            checkAllAnswered();
+          };
+          opts.appendChild(btn);
+        });
+
+        block.appendChild(qNum);
+        block.appendChild(qText);
+        block.appendChild(opts);
+        quizCard.appendChild(block);
+      });
+
+      previousBtn.style.display = (current === 0) ? "none" : "inline-block";
+
+      nextBtn.textContent = currentGroup === groups.length - 1 ? "Nộp bài" : "Tiếp tục";
+      checkAllAnswered();
+    }
+
+    function checkAllAnswered() {
+      nextBtn.disabled = !groups[currentGroup].questions.every((_, i) => userAnswers[currentGroup][i] !== null);
+    }
+
+    nextBtn.onclick = () => {
+      if (currentGroup < groups.length - 1) {
+        currentGroup++;
+        renderGroup();
+      } else {
+        showResult();
+      }
+    };
+
+    prevBtn.onclick = () => {
+      if (currentGroup > 0) {
+        currentGroup--;
+        renderGroup();
+      }
+    };
+
+    function showResult() {
+      let score = 0;
+      const incorrect = [];
+      groups.forEach((g, gi) => g.questions.forEach((q, qi) => {
+        if (userAnswers[gi][qi] === q.a) score++;
+        else incorrect.push({ group: gi, index: qi });
+      }));
+
+      quizCard.innerHTML = `
+        <h2>Cảm ơn bạn đã làm bài!</h2>
+        <p>Your score: ${score} / ${groups.reduce((sum, g) => sum + g.questions.length, 0)}</p>
+        <div class="result-buttons">
+          <button onclick="tryAgain()">Thử lại</button>
+          <button onclick="goHome()">Quay lại</button>
+          <button onclick="reviewIncorrect()">Review đáp án</button>
+        </div>
+      `;
+      imageContainer.innerHTML = "<h2>Review</h2>";
+      nextBtn.style.display = "none";
+      prevBtn.style.display = "none";
+
+    }
+
+    function tryAgain() {
+      currentGroup = 0;
+      for (let i = 0; i < userAnswers.length; i++) {
+        userAnswers[i] = Array(groups[i].questions.length).fill(null);
+      }
+      nextBtn.style.display = "inline-block";
+      renderGroup();
+    }
+
+    function goHome() {
+      window.location.href = "/index2";
+    }
+
+    function reviewIncorrect() {
+      const incorrect = [];
+      groups.forEach((g, gi) => g.questions.forEach((q, qi) => {
+        if (userAnswers[gi][qi] !== q.a) {
+          incorrect.push({ group: gi, index: qi });
+        }
+      }));
+      if (incorrect.length === 0) {
+        alert("Bạn đã làm đúng hết!");
+        return;
+      }
+      let i = 0;
+      showOne();
+
+      function showOne() {
+        const { group, index } = incorrect[i];
+        const q = groups[group].questions[index];
+        imageContainer.innerHTML = "";
+        groups[group].images.forEach(src => {
+          const img = document.createElement("img");
+          img.src = src;
+          imageContainer.appendChild(img);
+        });
+
+        quizCard.innerHTML = `
+          <div class="question-block">
+            <div class="question-number">Review ${i + 1}/${incorrect.length} (Câu ${q.q})</div>
+            <div class="question-text">${q.question}</div>
+            <div class="options">
+              ${q.options.map((opt, j) => {
+                const isCorrect = j === q.a;
+                const isSelected = j === userAnswers[group][index];
+                const classList = isCorrect ? 'correct' : isSelected ? 'incorrect' : '';
+                return `<button type="button" class="${classList}" disabled>${opt}</button>`;
+              }).join('')}
+            </div>
+          </div>
+          <div class="result-buttons">
+            <button onclick="tryAgain()">Thử lại</button>
+            <button onclick="goHome()">Quay lại</button>
+            <button onclick="${i < incorrect.length - 1 ? 'nextIncorrect()' : 'tryAgain()'}">
+              ${i < incorrect.length - 1 ? 'Tiếp tục' : 'Hoàn tất'}
+            </button>
+          </div>
+        `;
+      }
+
+      window.nextIncorrect = function () {
+        i++;
+        showOne();
+      }
+    }
+
+    renderGroup();
+  </script>
+</body>
+</html>

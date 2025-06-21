@@ -1,0 +1,253 @@
+
+    * {
+      box-sizing: border-box; /*Tổng kích thước phần tử luôn đúng khai báo.*/
+    }
+
+
+
+/* Thanh điều hướng dọc bên trái  */
+.side-nav {
+  position: fixed;       /* Cố định vị trí thanh bên trên trang, không bị di chuyển khi cuộn trang */
+  top: 97px;                  
+  left: 35px;                 
+  width: 315px;             
+  height: 590px;              
+  background-color: #f9f9f9;  
+  border-radius: 10px;        
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.03); /* Bóng mờ nhẹ bên cạnh phải để tạo chiều sâu */
+  display: flex;              /* Sử dụng flexbox để sắp xếp con theo hàng hoặc cột */
+  flex-direction: column;     /* Xếp các phần tử con theo cột dọc */
+}
+/* Tiêu đề sticky */
+.side-nav .nav-header {
+  font-weight: 1000; 
+  background: linear-gradient(135deg,#cf3304 0%, #f7650a, #e6d19f 100%);
+  color:rgb(248, 246, 246);
+
+  font-size: 20px; /* Cỡ chữ lớn hơn bình thường */
+  text-align: center; /* Canh giữa chữ trong phần tử */
+  padding: 15px 20px; /* Khoảng cách trong phần tử: trên/dưới 15px, trái/phải 20px */
+  position: sticky; /* Giữ phần tử ở vị trí cố định khi cuộn trang tới điểm này */
+  top: 0; /* Khi sticky, giữ phần tử cách mép trên 0px (luôn hiện trên cùng) */
+  border-radius: 10px; /* Bo góc phần header */
+  z-index: 10; /* Độ ưu tiên hiển thị cao để nằm trên các phần tử khác */
+}
+
+
+/* Phần danh sách scroll riêng */
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto; /* TẠO THANH CUỘN */
+  scrollbar-width: none;          /* Ẩn trên Firefox */
+  flex-grow: 1; /* chiếm hết chiều cao còn lại */
+  
+}
+
+/* Link trong danh sách */
+.side-nav li a {
+  display: block; /* Hiển thị thẻ <a> như một khối (block), chiếm hết chiều ngang cha */
+  padding: 12px 20px; 
+  color: #0e0d0d;
+  font-size: 18px; /* Cỡ chữ lớn, dễ đọc */
+  text-decoration: none; /* Loại bỏ gạch chân mặc định của liên kết */
+  font-weight: 500; /* Độ đậm chữ trung bình (semi-bold) */
+  border-left: 4px solid transparent; /* Viền trái 4px, trong suốt (chưa hiện) để giữ không gian */
+  transition: background-color 0.3s, border-left 0.3s, color 0.3s; /* Hiệu ứng chuyển mượt khi thay đổi nền, viền trái hoặc màu chữ trong 0.3 giây */
+}
+
+
+.side-nav li a:hover {         
+  background-color: #e9f0ff;      /* Đổi nền sang xanh nhạt để làm nổi bật */
+  border-left: 4px solid #007bff; /* Hiển thị viền trái màu xanh dương (màu chính - primary) */
+  
+}
+/* Khi link đang được chọn */
+.side-nav li a.active {
+  background-color: #e9f0ff;         /* Giống hover */
+  border-left: 4px solid #007bff;    /* Viền trái xanh */
+  color: #1d4ed8;                    /* Màu chữ xanh đậm hơn */
+  font-weight: 600;                  /* Chữ đậm hơn một chút */
+}
+
+
+/* Điều chỉnh lề trang chính để không bị đè */
+.page {
+  margin-left: 380px;
+  margin-top: 55px;
+  width: 1085px;
+  height: 585px;
+  padding: 15px;
+  display: none; /* Ẩn phần tử này (có thể hiển thị lại bằng JavaScript khi cần) */
+  background: #f3f1f1;
+  border-radius: 16px;
+}
+
+    /* Bảng từ vựng */
+    .table-wrapper {
+  max-height: 400px; /* Chiều cao tối đa vùng chứa bảng */
+  overflow-y: auto;  /* Bật thanh cuộn dọc */
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* Bảng */
+table {
+  border-collapse: collapse;/* Gộp các đường viền của bảng và ô lại thành 1 đường, không bị chồng viền */
+  width: 100%;
+  
+}
+
+/* Cố định tiêu đề */
+thead th {
+  position: sticky;
+  top: 0;
+  /*dùng để làm phần tử "dính" tại một vị trí cố định (thường là top hoặc bottom)*/
+  z-index: 10; /* Đảm bảo nằm trên nội dung khi cuộn */
+  background: linear-gradient(135deg, #0f83f6 0%, #44aef0 50%, #93e4ff 100%);
+  color: white;
+  padding: 14px 20px; 
+  text-shadow: 0.5px 0.5px 1px rgba(23, 1, 1, 0.916); /* Chữ nổi rõ hơn */
+}
+
+
+/* Các ô dữ liệu */
+th, td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+/* Hover dòng */
+tbody tr:hover {
+  background-color: #f0f8ff;
+  cursor: default;            /* Con trỏ chuột khi hover là kiểu mặc định (mũi tên thường) */
+}
+
+
+    /* Nút bấm */
+    button {
+      border: none;
+      border-radius: 8px;
+      padding: 14px 28px;
+      font-size: 16px;
+      font-weight: 600; /* Độ đậm chữ hơi đậm */
+      cursor: pointer; /* Khi hover hiện con trỏ tay (pointer) */
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      margin: 0 auto 30px auto;
+      display: block;
+      width: fit-content;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+      box-shadow: 0 6px 18px rgba(0, 86, 179, 0.6);
+    }
+
+    /* Trang flashcard */
+
+    .active {
+      display: block;
+    }
+
+    .flashcard {
+      margin: 20px auto 30px;
+      width: 100%;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      background: #f9f6f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      font-size: 45px;
+      font-weight: 700;
+      color: #222;
+      user-select: none;
+    }
+
+    .card-inner.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      color: rgb(255, 119, 0); /* Màu chữ chính */
+      text-shadow: 
+    -1px -1px 0 #ffffff,  
+     1px -1px 0 #ffffff,
+    -1px  1px 0 #ffffff,
+     2px  2px 0 #ffffff; /* Viền màu đen */
+    }
+
+    .card-face.front {
+      background: linear-gradient(135deg,#9EFBD3  0%,#57E9F2 , #f4f7f8 100%);
+    }
+
+    .card-face.back {
+      background: linear-gradient(135deg,#9EFBD3  0%,#57E9F2 , #f4f7f8 100%);
+      transform: rotateY(180deg);
+      
+    }
+.flashcard-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+}
+
+.flashcard {
+  width: 600px;
+  height: 350px;
+  perspective: 1000px;
+  position: relative;
+}
+/* nút chuyển flashcard */
+.nav-button {
+  background: transparent;
+  color: #96c1dc;
+  border: 2px solid #9bc6e2;
+  padding: 10px 16px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.nav-button:hover {
+  background: #b6d5f5;
+  color: white;
+}
+
+.nav-button.left {
+  margin-right: 20px;
+}
+
+.nav-button.right {
+  margin-left: 20px;
+}
+
+
+ 

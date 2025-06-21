@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link rel = "stylesheet" href = "/css/style.css">
+  <style>
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 10%;
+    margin-bottom: 40px;
+  }
+
+  .passage-col {
+    background: #f1f4f8;
+    padding: 24px;
+    border-radius: 16px;
+    height: fit-content;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .passage-col h2 {
+    margin-bottom: 12px;
+    color: var(--heading);
+  }
+
+  .passage {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    color: #555;
+    font-size: 1rem;
+  }
+
+  .quiz-col {
+    padding: 0;
+  }
+
+  .quiz-card {
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .question-block {
+    margin-bottom: 20px;
+  }
+
+  .question-number {
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: var(--heading);
+  }
+
+  .options button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .options button:hover:not(:disabled) {
+    background-color: #e9ecef;
+  }
+
+  .options button.selected {
+    background-color: #d0e8ff;
+    border-color: #007bff;
+  }
+
+  .options button.correct {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+  }
+
+  .options button.incorrect {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+  }
+
+  .btns,
+  .result-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .btns button,
+  .result-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btns button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .btns button:hover:not(:disabled),
+  .result-buttons button:hover {
+    opacity: 0.9;
+  }
+
+  .result {
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+
+    .passage-col {
+      max-height: none;
+    }
+  }
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  }     
+
+  .question-block,
+  .quiz-card,
+  .result {
+    animation: fadeIn 0.4s ease-in-out;
+  }                           
+</style>
+
+<body>
+     <!-- Thanh điều hướng ngang (trên cùng) -->
+  <header>
+    <div class="abc">
+        <div><img src="/image/owl.png" width="50"></div>
+        <div class="name">Toeic <br>learning</div>
+    </div>    
+    <nav class="top-nav">
+    <a href="/index2" ><img src="/image/back.png" width="80"></a>
+    </div>
+  </ul>
+</nav>
+  </header>
+
+  <div class="container">
+    <div class="passage-col">
+      <h2>Đoạn văn</h2>
+      <div class="passage" id="passageText"></div>
+    </div>
+    <div class="quiz-col">
+      <div class="quiz-card" id="quizCard"></div>
+      <div class="btns">
+        <button id="prevBtn" style="display: none">Quay lại</button>
+        <button id="nextBtn">Tiếp tục</button>
+      </div>
+    </div>
+  </div>
+</body>
+  <script>
+    const startQuestionNumber = 131;
+
+    const paragraph131_134 = `Lawrence Paper is dedicated to helping all of its employees fulfill their potential. That is why we have once again organized 2 days of spring training. Human Resources has put together a wide range of topics for this year’s workshops, ___(131) sales techniques, computer skills, communication strategies, and goal setting. We still have two workshop time slots available, so if there is something you’ve been dying to learn about, please let us know. It’s quite possible we ___(132) it into this year’s spring training.(133). Feel free to ___(134) any ideas you might have to Nancy Kensington in the human resources department.
+
+NLKensington@lawrencepaper.com`;
+
+    const paragraph135_138 = `Vander Properties has been serving Houston for over 29 years. It is through our commitment to providing the highest degree of expertise market knowledge and ______(135) service that we are recognized as an industry leader.
+
+We specialize in ______(136) and corporate real estate here in the Denver area. ______(137) you are looking to buy a new home or start a new business, we are the people you should be talking with. With our office centrally located downtown, we have our eyes on the whole city.
+
+Browse our site for listing, or give us a call today. _______(138).
+
+www.vanderproperties.com
+Phone: (313) 782-9919
+Address: 834 Walton St.`;
+
+    const paragraph139_142 = `Pizza Chef Wanted
+
+Papa Gino’s is hiring, and all ______(139) applicants will be considered. ______(140) Even if you have no experience, training will be provided if you meet our requirements. To meet our requirements, you must have a ______(141) health card, reliable transportation, and be able to work evenings and weekends. Please apply in person at Papa Gino’s on State and Pine. ______(142    ) look forward to meeting you.`;
+
+    const paragraph143_146 = `November 11  
+John Adams  
+Tri-State, Apt 408  
+New York, NY  
+10873  
+
+Dear Mr. Adams,  
+
+I am pleased to inform you that you ______(143) as one of the finalists for the position of sales director at Goldie Saks. Over 100 applicants applied for the ______(144), but we have narrowed down our list to 8 candidates. You will be called in for an interview on November 15 from 1:00 P.M. to 6:00 P.M. The location will be the company headquarters. Our assistant, Miss Lane, will meet you at the main lobby and take you to the interview room.  
+
+______(145).
+
+For the candidates that do well in these interviews, there will be a second interview. We will let you know as soon as possible whether you ______(146).  
+
+Please call us at 555-1234 if you have any further questions.  
+
+We hope to see you soon.  
+
+Sincerely,  
+Jennifer Law  
+Executive Manager`;
+    const groups = [
+  {
+    passage: paragraph131_134,
+    questions: [
+      {
+        q: "131",
+        options: ["distributing", "locating", "including", "advancing"],
+        a: 2
+      },
+      {
+        q: "132",
+        options: ["were incorporating", "should incorporate", "are incorporating", "could incorporate"],
+        a: 3
+      },
+      {
+        q: "133",
+        options: [
+          "If we get many suggestions, we could also hold a workshop on the following weekend, December 4th.",
+          "We’ll be finalizing our choices by the end of the week.",
+          "A large amount of time and energy has gone into organizing this conference.",
+          "Inviting friends and family to these events is always encouraged."
+        ],
+        a: 1
+      },
+      {
+        q: "134",
+        options: ["create", "request", "submit", "transfer"],
+        a: 2
+      }
+    ]
+  },
+  {
+    passage: paragraph135_138,
+    questions: [
+      {
+        q: "135",
+        options: ["personalize", "personalizes", "personalizing", "personalized"],
+        a: 3
+      },
+      {
+        q: "136",
+        options: ["productive", "promoted", "relevant", "residential"],
+        a: 3
+      },
+      {
+        q: "137",
+        options: ["Whether", "Even if", "Even though", "Whenever"],
+        a: 0
+      },
+      {
+        q: "138",
+        options: [
+          "Take a drive out of town and come see us today.",
+          "We appreciate your assistance.",
+          "Of course, drop-ins are always welcome.",
+          "Our kitchen is open from eight to five daily."
+        ],
+        a: 2
+      }
+    ]
+  },
+  {
+    passage: paragraph139_142,
+    questions: [
+      {
+        q: "139",
+        options: ["qualify", "qualifying", "qualified", "to qualify"],
+        a: 2
+      },
+      {
+        q: "140",
+        options: [
+          "We are looking for candidates that have some experience in Italian food.",
+          "We are looking for candidates that have experience fishing.",
+          "We are looking for people who can fish.",
+          "We are looking for people who want to practice."
+        ],
+        a: 0
+      },
+      {
+        q: "141",
+        options: ["valid", "working", "effective", "strong"],
+        a: 0
+      },
+      {
+        q: "142",
+        options: ["She", "They", "We", "He"],
+        a: 2
+      }
+    ]
+  },
+  {
+    passage: paragraph143_146,
+    questions: [
+      {
+        q: "143",
+        options: ["were choosing", "had chosen", "have been chosen", "chose"],
+        a: 2
+      },
+      {
+        q: "144",
+        options: ["position", "location", "career", "appointment"],
+        a: 0
+      },
+      {
+        q: "145",
+        options: [
+          "The building is easy to locate.",
+          "We would like you to come in at 1:00 P.M.",
+          "Our interviewers will ask you several questions.",
+          "You will be given a specific schedule."
+        ],
+        a: 1
+      },
+      {
+        q: "146",
+        options: ["enable", "approve", "refuse", "qualify"],
+        a: 3
+      }
+    ]
+  }
+];
+
+    const passageEl = document.getElementById("passageText");
+    const quizCard = document.getElementById("quizCard");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
+    let currentGroup = 0;
+    let userAnswers = groups.map(g => Array(g.questions.length).fill(null));
+
+    function renderGroup() {
+      const group = groups[currentGroup];
+      passageEl.textContent = group.passage;
+      quizCard.innerHTML = "";
+      group.questions.forEach((q, i) => {
+        const globalIndex = startQuestionNumber + parseInt(q.q) - 131;
+        quizCard.innerHTML += `
+          <div class="question-block">
+            <div class="question-number">Câu ${q.q}</div>
+            <div class="options">
+              ${q.options.map((opt, j) => {
+                const selected = userAnswers[currentGroup][i] === j ? "selected" : "";
+                return `<button type="button" class="${selected}" onclick="selectAnswer(${currentGroup}, ${i}, ${j})">${opt}</button>`;
+              }).join('')}
+            </div>
+          </div>
+        `;
+      });
+      nextBtn.disabled = !userAnswers[currentGroup].every(ans => ans !== null);
+      previousBtn.style.display = (current === 0) ? "none" : "inline-block";
+
+      nextBtn.textContent = currentGroup === groups.length - 1 ? "Nộp bài" : "Tiếp tục";
+    }
+
+    function selectAnswer(groupIdx, qIdx, optIdx) {
+      userAnswers[groupIdx][qIdx] = optIdx;
+
+      const buttons = document.querySelectorAll(`.question-block:nth-child(${qIdx + 1}) .options button`);
+      buttons.forEach((btn, index) => {
+        if (index === optIdx) {
+          btn.classList.add("selected");
+        } else {
+          btn.classList.remove("selected");
+        }
+      });
+
+      // ✅ Check if all answered and enable the next button
+      const allAnswered = userAnswers[groupIdx].every(ans => ans !== null);
+      nextBtn.disabled = !allAnswered;
+    }
+
+    nextBtn.onclick = () => {
+      if (userAnswers[currentGroup].every(ans => ans !== null)) {
+        if (currentGroup < groups.length - 1) {
+          currentGroup++;
+          renderGroup();
+        } else {
+          showResults();
+        }
+      } else {
+        alert("Hãy trả lời hết các câu hỏi.");
+      }
+    };
+
+    prevBtn.onclick = () => {
+      if (currentGroup > 0) {
+        currentGroup--;
+        renderGroup();
+      }
+    };
+
+    function showResults() {
+      let total = 0, correct = 0;
+      groups.forEach((g, gi) => {
+        g.questions.forEach((q, qi) => {
+          total++;
+          if (q.a === userAnswers[gi][qi]) correct++;
+        });
+      });
+      quizCard.innerHTML = `
+        <h2>Cảm ơn bạn đã làm bài!</h2>
+        <p>Điểm của bạn: ${correct} / ${total}</p>
+        <div class="result-buttons">
+          <button onclick="tryAgain()">Thử lại</button>
+          <button onclick="goHome()">Quay lại</button>
+          <button onclick="reviewIncorrect()">Review đáp án</button>
+        </div>
+      `;
+      passageEl.innerHTML = "Thank you for completing the quiz.";
+      nextBtn.style.display = "none";
+      prevBtn.style.display = "none";
+
+    }
+
+    function tryAgain() {
+      currentGroup = 0;
+      userAnswers = groups.map(g => Array(g.questions.length).fill(null));
+      nextBtn.style.display = "inline-block";
+      renderGroup();
+    }
+
+    function goHome() {
+      window.location.href = "/index2";
+    }
+
+    function reviewIncorrect() {
+      let incorrect = [];
+      groups.forEach((g, gi) => {
+        g.questions.forEach((q, qi) => {
+          if (userAnswers[gi][qi] !== q.a) {
+            incorrect.push({ group: gi, index: qi });
+          }
+        });
+      });
+
+      if (incorrect.length === 0) {
+        alert("Bạn đã làm đúng hết!");
+        return;
+      }
+
+      let i = 0;
+      showOneIncorrect();
+
+      function showOneIncorrect() {
+        const { group, index } = incorrect[i];
+        const q = groups[group].questions[index];
+        passageEl.textContent = groups[group].passage;
+        quizCard.innerHTML = `
+          <div class="question-block">
+            <div class="question-number">Review ${i + 1}/${incorrect.length} (Câu ${q.q})</div>
+            <div class="options">
+              ${q.options.map((opt, j) => {
+                const isSelected = userAnswers[group][index] === j;
+                const isCorrect = q.a === j;
+                const classList = isCorrect
+                  ? 'correct'
+                  : isSelected ? 'incorrect' : '';
+                return `<button class="${classList}" disabled>${opt}</button>`;
+              }).join('')}
+            </div>
+          </div>
+          <div class="result-buttons">
+            <button onclick="tryAgain()">Thử lại</button>
+            <button onclick="goHome()">Quay lại</button>
+            <button onclick="${i < incorrect.length - 1 ? 'nextIncorrect()' : 'tryAgain()'}">
+              ${i < incorrect.length - 1 ? 'Tiếp tục' : 'Hoàn tất'}
+            </button>
+          </div>
+        `;
+      }
+
+      window.nextIncorrect = function () {
+        i++;
+        showOneIncorrect();
+      }
+    }
+
+    renderGroup();
+  </script>
+</body>
+</html>

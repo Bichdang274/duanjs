@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Các Phần Thi TOEIC</title>
+  <link rel = "stylesheet" href = "/css/style.css">
+  <style>
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      color: var(--heading);
+      margin-top: 20px;
+      margin-bottom: 30px;
+    }
+
+    .sections-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding: 0 10%;
+    }
+
+    .section-card {
+      background-color: white;
+      width: 220px;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-card h2 {
+      color: #d87b6c;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .section-card p {
+      font-size: 0.95em;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="abc">
+        <div><img src="image/owl.png" width="50"></div>
+        <a href="/">
+          <div class="name">Toeic <br>learning</div>
+        </a>
+    </div>    
+    <nav class="top-nav">
+      <a href="/" >Home</a>
+      <a href="/mainvoca" >Vocabulary</a>
+      <a href="/grammar" >Grammar</a>
+      <a href="/index2" >Test</a>
+      <a href="/auth/sign_up" id="signupLink">Sign up</a>
+      <a href="/auth/login" id="loginLink">Login</a>
+      <a href="#" id="logoutLink" onclick="logout()" style="display: none;">Log out</a>
+      <div class="circle" id="circleDisplay"style="display: none;">
+        <%= username ? username.charAt(0).toUpperCase() : '' %>
+      </div>
+
+    <script>
+      const user = localStorage.getItem("loggedInUser");
+      if (user) {
+        document.getElementById("circleDisplay").textContent = user.charAt(0).toUpperCase();
+        document.getElementById("circleDisplay").style.display = "inline-block"; 
+        document.getElementById("loginLink").style.display = "none";
+        document.getElementById("signupLink").style.display = "none";
+        document.getElementById("logoutLink").style.display = "inline";
+      }
+
+      function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "/";  
+      }
+    </script>
+
+  </nav>
+  </header>
+
+  <h1>Các Phần Thi TOEIC</h1>
+  <div class="sections-container">
+    <a class="section-card" href="html/part1.html">
+      <h2>Phần 1: Hình ảnh</h2>
+      <p>Hiểu hình ảnh</p>
+    </a>
+    <a class="section-card" href="html/part2.html">
+      <h2>Phần 2: Hỏi - Đáp</h2>
+      <p>Nghe và trả lời</p>
+    </a>
+    <a class="section-card" href="html/part3.html">
+      <h2>Phần 3: Hội thoại</h2>
+      <p>Đối thoại & Giao tiếp</p>
+    </a>
+    <a class="section-card" href="html/part4.html">
+      <h2>Phần 4: Bài nói</h2>
+      <p>Bài nói và bài giảng dài</p>
+    </a>
+    <a class="section-card" href="html/part5.html">
+      <h2>Phần 5: Câu chưa hoàn chỉnh</h2>
+      <p>Ngữ pháp và từ vựng</p>
+    </a>
+    <a class="section-card" href="html/part6.html">
+      <h2>Phần 6: Hoàn thành đoạn văn</h2>
+      <p>Sử dụng ngôn ngữ</p>
+    </a>
+    <a class="section-card" href="html/part7.html">
+      <h2>Phần 7: Đọc hiểu</h2>
+      <p>Văn bản dài và câu hỏi</p>
+    </a>
+  </div>
+</body>
+</html>

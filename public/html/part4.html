@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phần 4: Bài nói</title>
+  <link rel = "stylesheet" href = "/css/style.css">
+  <style>
+
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 10%;
+  }
+
+  .audio-section {
+    flex: 1;
+    max-width: 500px;
+    background-color: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+
+  .audio-section h2 {
+    color: var(--heading);
+    margin-bottom: 10px;
+  }
+
+  .audio-section h3 {
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .audio-section audio {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .quiz-card {
+    flex: 1;
+    max-width: 600px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .question-number {
+    font-size: 1.2em;
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+
+  .question {
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .options button {
+    width: 100%;
+    padding: 10px 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .options button:hover:not(:disabled) {
+    background: #e9ecef;
+  }
+
+  .options button.selected {
+    background: #d0e8ff;
+    border-color: #007bff;
+  }
+
+  .options button.correct {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+  }
+
+  .options button.incorrect {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .btns button {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btns button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+
+  .result {
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .result button {
+    margin: 10px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .result button:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .main-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .question-block,
+    .result,
+    .quiz-card {
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .options button:active {
+      transform: scale(0.96);
+      transition: transform 0.1s;
+    }
+
+    .options button,
+    .btns button,
+    .result button {
+      transition: background 0.3s, border 0.3s, transform 0.2s, opacity 0.2s;
+    }
+</style>
+
+<body>
+   <!-- Thanh điều hướng ngang (trên cùng) -->
+  <header>
+    <div class="abc">
+        <div><img src="/image/owl.png" width="50"></div>
+        <div class="name">Toeic <br>learning</div>
+    </div>    
+    <nav class="top-nav">
+    <a href="/index2" ><img src="/image/back.png" width="80"></a>
+    </div>
+  </ul>
+</nav>
+  </header>
+
+  <div class="main-container">
+    <div class="audio-section">
+      <h2>Phần 4</h2>
+      <h3>Nghe và chọn đáp án đúng nhất</h3>
+      <audio controls>
+        <source src="/audio/part4.mp3" type="audio/mpeg" />
+        Trình duyệt của bạn không hỗ trợ audio.
+      </audio>
+    </div>
+
+    <div class="quiz-card" id="quizCard">
+      <div class="question-number" id="questionNumber"></div>
+      <div class="question" id="questionText">Chọn đáp án đúng:</div>
+      <div class="options" id="optionsContainer"></div>
+      <div class="btns">
+        <button id="previousBtn" style="display:none;">Quay lại</button>
+        <button id="nextBtn" disabled>Tiếp tục</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+  <script>
+
+
+    const questions = [
+      {
+        question: "Who is the message probably for?",
+        options: [
+          "A carpenter",
+          "A store manager",
+          "A furniture designer",
+          "A bank teller"
+        ],
+        answer: 1
+      },
+      {
+        question: "According to the speaker, when does he think he lost his wallet?",
+        options: [
+          "When he used a dressing room",
+          "When he visited a bookstore",
+          "When he presented his ID card",
+          "When he tried some furniture"
+        ],
+        answer: 3
+      },
+      {
+        question: "What does the speaker plan to do?",
+        options: [
+          "Replace an item",
+          "Call the police",
+          "Go to a store again",
+          "Stop by the listener’s home"
+        ],
+        answer: 2
+      },
+      {
+        question: "Who most likely is the speaker?",
+        options: [
+          "A historian",
+          "An artist",
+          "An antique dealer",
+          "A museum guide"
+        ],
+        answer: 3
+      },
+      {
+        question: "What is mentioned about the exhibit?",
+        options: [
+          "It is sponsored by the Egyptian government",
+          "Most of its artifacts had not been seen by the public",
+          "It will run until the end of the month",
+          "It includes works from modern Egyptian artists"
+        ],
+        answer: 1
+      },
+      {
+        question: "According to the speaker, how can listeners receive more information?",
+        options: [
+          "By reading a sign",
+          "By searching online",
+          "By purchasing a publication",
+          "By listening to a presentation"
+        ],
+        answer: 2
+      },
+      {
+        question: "What has caused the problem?",
+        options: [
+          "A traffic accident",
+          "A heavy workload",
+          "Inclement weather",
+          "A vehicle malfunction"
+        ],
+        answer: 2
+      },
+      {
+        question: "According to the speaker, when is the bus scheduled to arrive at the destination?",
+        options: [
+          "4:00 P.M.",
+          "5:00 P.M.",
+          "6:00 P.M.",
+          "7:00 P.M."
+        ],
+        answer: 2
+      },
+      {
+        question: "What does the bus provide to passengers?",
+        options: [
+          "Free Internet access",
+          "A discounted ticket",
+          "A complimentary meal",
+          "A comfortable connecting bus service"
+        ],
+        answer: 0
+      },
+      {
+        question: "Who is being introduced?",
+        options: [
+          "A chef",
+          "A backpacker",
+          "A critic",
+          "A producer"
+        ],
+        answer: 3
+      },
+      {
+        question: "What is the documentary about?",
+        options: [
+          "World-famous restaurants",
+          "Traditional Chinese cuisine",
+          "A celebrity’s life",
+          "Popular recipe books"
+        ],
+        answer: 1
+      },
+      {
+        question: "According to the speaker, what can listeners find on the website?",
+        options: [
+          "A review",
+          "A menu",
+          "A preview",
+          "An interview"
+        ],
+        answer: 2
+      },
+      {
+        question: "What type of products are being discussed?",
+        options: [
+          "Computer parts",
+          "Hair products",
+          "Beauty products",
+          "Cell phones"
+        ],
+        answer: 2
+      },
+      {
+        question: "According to the speaker, what happened last month?",
+        options: [
+          "Sales went down.",
+          "A product launch went better than expected.",
+          "Their products were featured in a magazine.",
+          "Another company took over their contract."
+        ],
+        answer: 2
+      },
+      {
+        question: "What does the woman mean when she says “How about that?”",
+        options: [
+          "She doesn’t understand the situation.",
+          "She expected a customer return policy.",
+          "She wants to purchase some products.",
+          "She is happy with the company’s progress."
+        ],
+        answer: 3
+      },
+          {
+        question: "According to the speaker, why are changes being made?",
+        options: [
+          "Because of poor working condition",
+          "To save the company money",
+          "So that they can afford a Christmas party",
+          "He expected a better contract"
+        ],
+        answer: 1
+      },
+      {
+        question: "What does the speaker imply when he says, “when the software is installed I don’t think you will need any training”?",
+        options: [
+          "The new system is easy to learn",
+          "He doesn’t want to train people",
+          "There is no budget for training",
+          "Everyone must attend a meeting"
+        ],
+        answer: 0
+      },
+      {
+        question: "What does the speaker tell the listeners they will have to start bringing to work?",
+        options: [
+          "Extra uniforms",
+          "Other people’s lunch",
+          "Their own lunch",
+          "A new contract"
+        ],
+        answer: 2
+      },
+      {
+        question: "What position is being advertised?",
+        options: [
+          "Legal assistant",
+          "Dental assistant",
+          "Foreign coordinator",
+          "Bank manager"
+        ],
+        answer: 1
+      },
+      {
+        question: "What does the man imply when he asks, “Have you seen the criteria for the dental assistant position?”",
+        options: [
+          "He is looking at some forms",
+          "He is asking if Julia is familiar with the requirements",
+          "He needs some extra work done",
+          "He wants to learn more about them"
+        ],
+        answer: 1
+      },
+      {
+        question: "Why does the man want to meet the woman?",
+        options: [
+          "To teach him the criteria",
+          "To make some changes to his office",
+          "To sign the contract",
+          "To change the criteria"
+        ],
+        answer: 0
+      },
+      {
+        question: "Who most likely is the speaker?",
+        options: [
+          "A content developer",
+          "A secretary",
+          "A store manager",
+          "A police officer"
+        ],
+        answer: 2,
+        image: "image/10.png"
+      },
+      {
+        question: "Why most likely is the speaker calling?",
+        options: [
+          "To confirm the size on an order",
+          "To request some delivery information",
+          "To send an extra gift",
+          "To purchase a new set of cards"
+        ],
+        answer: 0,
+        image: "/image/10.png"
+      },
+      {
+        question: "Look at the graphic. Who can give the listener planning advice?",
+        options: [
+          "John Trizz",
+          "Don Trenton",
+          "Shubert Mendez",
+          "Sally Howle"
+        ],
+        answer: 2,
+        image: "/image/10.png"
+      },
+      {
+        question: "What is the name of the guest’s new album?",
+        options: [
+          "Valleys of Fire",
+          "Step It Up",
+          "Tunnel Vision",
+          "Talk Down"
+        ],
+        answer: 3,
+        image: "/image/11.png"
+      },
+      {
+        question: "What does the speaker say influences the guest’s music?",
+        options: [
+          "Getting married",
+          "Moving to America",
+          "Moving to London",
+          "Meeting Joey Denton"
+        ],
+        answer: 2,
+        image: "/image/11.png"
+      },
+      {
+        question: "What will the guest most likely do next?",
+        options: [
+          "Move back to his hometown",
+          "Get engaged to his girlfriend",
+          "Release a new album",
+          "Get married to his girlfriend"
+        ],
+        answer: 3,
+        image: "/image/11.png"
+      },
+      {
+        question: "What floor are they on?",
+        options: [
+          "3rd",
+          "4th",
+          "5th",
+          "6th"
+        ],
+        answer: 2,
+        image: "/image/12.png"
+      },
+      {
+        question: "What is the reason for the celebration?",
+        options: [
+          "Introducing a new employee",
+          "Mr. Jang’s birthday",
+          "The retirement of Mr. Jang",
+          "A wedding anniversary"
+        ],
+        answer: 2,
+        image: "/image/12.png"
+      },
+      {
+        question: "Who is Mr. Hopkins?",
+        options: [
+          "Mr. Jang’s nephew",
+          "A colleague of Mr. Jang",
+          "The owner of the company",
+          "A waiter"
+        ],
+        answer: 1,
+        image: "/image/12.png"
+      }
+]
+
+    let userAnswers = Array(questions.length).fill(null);
+    let current = 0;
+    let reviewIndices = [];
+    let currentReview = 0;
+    let mode = "quiz";
+
+    const questionNumberElem = document.getElementById("questionNumber");
+    const questionTextElem = document.getElementById("questionText");
+    const optionsContainer = document.getElementById("optionsContainer");
+    const previousBtn = document.getElementById("previousBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const quizCard = document.getElementById("quizCard");
+
+    function renderQuestion() {
+      const q = questions[current];
+      questionNumberElem.textContent = `Câu ${current + 1}`;
+      questionTextElem.textContent = q.question;
+      optionsContainer.innerHTML = `<div class="question-block"></div>`;
+      const block = optionsContainer.querySelector(".question-block");
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        if (userAnswers[current] === idx) btn.classList.add("selected");
+        btn.onclick = () => {
+          [...optionsContainer.children].forEach(b => b.classList.remove("selected"));
+          btn.classList.add("selected");
+          userAnswers[current] = idx;
+          nextBtn.disabled = false;
+          nextBtn.textContent = allAnswered() && current === questions.length - 1 ? "Nộp bài" : "Tiếp tục";
+        };
+        block.appendChild(btn);
+      });
+
+      previousBtn.style.display = (currentReview === 0) ? "none" : "inline-block";
+
+      nextBtn.disabled = userAnswers[current] === null;
+      nextBtn.textContent = allAnswered() && current === questions.length - 1 ? "Nộp bài" : "Tiếp tục";
+    }
+
+    function allAnswered() {
+      return userAnswers.every(a => a !== null);
+    }
+
+    function nextHandler() {
+      if (current < questions.length - 1) {
+        current++;
+        renderQuestion();
+      } else if (allAnswered()) {
+        showResult();
+      }
+    }
+
+    function previousHandler() {
+      if (current > 0) {
+        current--;
+        renderQuestion();
+      }
+    }
+
+    function showResult() {
+      const score = userAnswers.reduce((sum, ans, i) => sum + (ans === questions[i].answer ? 1 : 0), 0);
+      reviewIndices = questions.map((q, i) => userAnswers[i] !== q.answer ? i : null).filter(i => i !== null);
+
+      quizCard.innerHTML = `
+        <div class="result">
+          <h3>Cảm ơn bạn đã làm bài!</h3>
+          <p>Điểm của bạn: ${score}/${questions.length}</p>
+          ${reviewIndices.length ? '<button onclick="startReview()">Review đáp án</button>' : ''}
+          <button onclick="location.reload()">Thử lại</button>
+          <button onclick="window.location.href='/index2'">Quay lại</button>
+        </div>
+      `;
+    }
+
+    function startReview() {
+      mode = "review";
+      currentReview = 0;
+      renderReviewQuestion();
+    }
+
+    function renderReviewQuestion() {
+      const idx = reviewIndices[currentReview];
+      const q = questions[idx];
+
+      quizCard.innerHTML = `
+        <div class="question-number">Review ${currentReview + 1}/${reviewIndices.length} (Câu ${idx + 1})</div>
+        <div class="question">${q.question}</div>
+        <div class="options" id="optionsContainer"><div class="question-block"></div></div>
+        <div class="btns">
+          <button id="previousBtn">${currentReview === 0 ? "Trở về" : "Quay lại"}</button>
+          <button id="nextBtn">${currentReview === reviewIndices.length - 1 ? "Hoàn tất" : "Tiếp tục"}</button>
+        </div>
+      `;
+
+      const block = document.querySelector(".question-block");
+
+      q.options.forEach((opt, i) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.disabled = true;
+
+        if (i === q.answer) btn.classList.add("correct");
+        if (i === userAnswers[idx] && i !== q.answer) btn.classList.add("incorrect");
+
+        block.appendChild(btn);
+      });
+
+      document.getElementById("previousBtn").onclick = () => {
+        if (currentReview === 0) {
+          renderQuestion(); // Return to quiz mode
+        } else {
+          currentReview--;
+          renderReviewQuestion();
+        }
+      };
+
+      document.getElementById("nextBtn").onclick = () => {
+        if (currentReview < reviewIndices.length - 1) {
+          currentReview++;
+          renderReviewQuestion();
+        } else {
+          showResult();
+        }
+      };
+    }
+
+    previousBtn.onclick = previousHandler;
+    nextBtn.onclick = nextHandler;
+    renderQuestion();
+  </script>
+</body>
+</html>

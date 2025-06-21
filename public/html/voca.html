@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flashcard chung nhiều phần</title>
+<link rel = "stylesheet" href = "/css/style.css">
+  <link rel = "stylesheet" href = "/css/style.voca.css">
+</head>
+<body>
+     <!-- Thanh điều hướng ngang (trên cùng) -->
+  <header>
+    <div class="abc">
+        <div><img src="/image/owl.png" width="50"></div>
+        <div class="name">Toeic <br>learning</div>
+    </div>    
+    <nav class="top-nav">
+    <a href="/mainvoca" ><img src="/image/back.png" width="80"></a>
+    </div>
+  </ul>
+</nav>
+  </header>
+
+  <!-- MENU -->
+  <div class="side-nav">
+  <a onclick="showSection('phan1')">📊 Accounting</a>
+  <a onclick="showSection('phan2')">🧑‍💼 Applying</a>
+  <a onclick="showSection('phan3')">🏦 Banking</a>
+  <a onclick="showSection('phan4')">💻 Computer</a>
+  <a onclick="showSection('phan5')">🗣️ Conference</a>
+  <a onclick="showSection('phan6')">📄 Contract</a>
+  <a onclick="showSection('phan7')">✉️ Correspondence</a>
+  <a onclick="showSection('phan8')">📦 Inventory</a>
+  <a onclick="showSection('phan9')">🧾 Invoice</a>
+  <a onclick="showSection('phan10')">📋 Job Ads</a>
+  <a onclick="showSection('phan11')">📈 Marketing</a>
+  <a onclick="showSection('phan12')">🏢 Office</a>
+  <a onclick="showSection('phan13')">🍽️ Restaurant</a>
+  <a onclick="showSection('phan14')">💰 Salaries</a>
+  <a onclick="showSection('phan15')">🛍️ Shopping</a>
+  <a onclick="showSection('phan16')">🛡️ Warranties</a>
+  </div>
+
+
+
+ <!-- PHẦN 1 -->
+<div id="phan1" class="section active">
+  <h2>📊 Accounting - Kế toán</h2>
+  <button onclick="showTable('phan1')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan1')">Flashcard</button>
+  <div id="phan1-table" class="content-block">
+    <table >
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr><td>Account</td><td>/əˈkaʊnt/</td><td>noun</td><td>Tài khoản</td><td>I opened a new bank account last week.</td></tr>
+    <tr><td>Balance</td><td>/ˈbæləns/</td><td>noun</td><td>Số dư</td><td>The balance in my account is not enough to cover the payment.</td></tr>
+    <tr><td>Invoice</td><td>/ˈɪnvɔɪs/</td><td>noun</td><td>Hóa đơn</td><td>Please send the invoice to the customer today.</td></tr>
+    <tr><td>Expense</td><td>/ɪksˈpɛns/</td><td>noun</td><td>Chi phí</td><td>The company will cover all your business expenses during the trip.</td></tr>
+    <tr><td>Revenue</td><td>/ˈrɛvənuː/</td><td>noun</td><td>Doanh thu</td><td>The company's revenue increased by 20% last quarter.</td></tr>
+    <tr><td>Tax</td><td>/tæks/</td><td>noun</td><td>Thuế</td><td>The company needs to file its taxes by the end of the month.</td></tr>
+    <tr><td>Profit</td><td>/ˈprɒfɪt/</td><td>noun</td><td>Lợi nhuận</td><td>The company made a profit of $5,000 last year.</td></tr>
+    <tr><td>Audit</td><td>/ˈɔːdɪt/</td><td>noun</td><td>Kiểm toán</td><td>The company is undergoing an audit to check its financial records.</td></tr>
+    <tr><td>Budget</td><td>/ˈbʌdʒɪt/</td><td>noun</td><td>Ngân sách</td><td>We need to prepare a budget for next year's project.</td></tr>
+    <tr><td>Report</td><td>/rɪˈpɔːt/</td><td>noun</td><td>Báo cáo</td><td>The finance department will submit a report by the end of the week.</td></tr>
+    <tr><td>Transaction</td><td>/trænˈzækʃən/</td><td>noun</td><td>Giao dịch</td><td>The transaction was successfully completed yesterday.</td></tr>
+    <tr><td>Liability</td><td>/ˌlaɪəˈbɪləti/</td><td>noun</td><td>Nghĩa vụ, khoản nợ</td><td>The company has a liability to pay its creditors by next month.</td></tr>
+    <tr><td>Receipt</td><td>/rɪˈsiːt/</td><td>noun</td><td>Biên lai, hóa đơn nhận</td><td>Keep the receipt as proof of your purchase.</td></tr>
+    <tr><td>Expense report</td><td>/ɪksˈpɛns rɪˈpɔːt/</td><td>noun</td><td>Báo cáo chi phí</td><td>Submit your expense report by Friday for reimbursement.</td></tr>
+    <tr><td>Debt</td><td>/dɛt/</td><td>noun</td><td>Khoản nợ</td><td>The company is working hard to pay off its debts.</td></tr>
+    <tr><td>Ledger</td><td>/ˈlɛdʒə/</td><td>noun</td><td>Sổ cái</td><td>The accountant entered all transactions in the ledger.</td></tr>
+    <tr><td>Statement</td><td>/ˈsteɪtmənt/</td><td>noun</td><td>Bản báo cáo</td><td>The bank statement shows the details of your account activity.</td></tr>
+    <tr><td>Depreciation</td><td>/dɪˌpriːʃɪˈeɪʃən/</td><td>noun</td><td>Khấu hao</td><td>The company calculates depreciation for its assets each year.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div id="phan1-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 2 -->
+<div id="phan2" class="section">
+  <h2>🧑‍💼 Applying and Interviewing - Ứng tuyển</h2>
+  <button onclick="showTable('phan2')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan2')">Flashcard</button>
+  <div id="phan2-table" class="content-block">
+    <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr><td>Application</td><td>/ˌæplɪˈkeɪʃən/</td><td>noun</td><td>Đơn xin việc</td><td>I submitted my job application last week.</td></tr>
+      <tr><td>Resume</td><td>/rɪˈzuːmeɪ/</td><td>noun</td><td>Sơ yếu lý lịch</td><td>Make sure your resume highlights your skills and experience.</td></tr>
+      <tr><td>Interview</td><td>/ˈɪntəvjuː/</td><td>noun</td><td>Cuộc phỏng vấn</td><td>I have an interview scheduled for tomorrow afternoon.</td></tr>
+      <tr><td>Employer</td><td>/ɪmˈplɔɪə(r)/</td><td>noun</td><td>Nhà tuyển dụng</td><td>The employer asked me about my previous work experience.</td></tr>
+      <tr><td>Candidate</td><td>/ˈkændɪdeɪt/</td><td>noun</td><td>Ứng viên</td><td>She is a strong candidate for the marketing position.</td></tr>
+      <tr><td>Job opening</td><td>/dʒɒb ˈəʊpənɪŋ/</td><td>noun</td><td>Cơ hội việc làm</td><td>There is a job opening in the IT department.</td></tr>
+      <tr><td>Job offer</td><td>/dʒɒb ˈɒfə(r)/</td><td>noun</td><td>Lời mời làm việc</td><td>He received a job offer from a company in another city.</td></tr>
+      <tr><td>Qualification</td><td>/ˌkwɒlɪfɪˈkeɪʃən/</td><td>noun</td><td>Trình độ chuyên môn</td><td>The job requires a qualification in computer science.</td></tr>
+      <tr><td>Reference</td><td>/ˈrɛfərəns/</td><td>noun</td><td>Thư giới thiệu</td><td>My previous manager provided a reference for my application.</td></tr>
+      <tr><td>Skill</td><td>/skɪl/</td><td>noun</td><td>Kỹ năng</td><td>Communication skills are important in most jobs.</td></tr>
+      <tr><td>Experience</td><td>/ɪkˈspɪərɪəns/</td><td>noun</td><td>Kinh nghiệm</td><td>I have five years of experience working in sales.</td></tr>
+      <tr><td>Salary</td><td>/ˈsæləri/</td><td>noun</td><td>Lương</td><td>The company offers a competitive salary and benefits package.</td></tr>
+      <tr><td>Benefits</td><td>/ˈbɛnɪfɪts/</td><td>noun</td><td>Phúc lợi</td><td>The job comes with health insurance and other benefits.</td></tr>
+      <tr><td>Vacancy</td><td>/ˈveɪkənsi/</td><td>noun</td><td>Vị trí tuyển dụng</td><td>The vacancy for the assistant manager position was advertised last week.</td></tr>
+      <tr><td>Hiring</td><td>/ˈhaɪərɪŋ/</td><td>noun</td><td>Tuyển dụng</td><td>The company is hiring new employees for its customer service team.</td></tr>
+      <tr><td>Full-time</td><td>/fʊl taɪm/</td><td>adjective</td><td>Toàn thời gian</td><td>She is looking for a full-time job in marketing.</td></tr>
+      <tr><td>Part-time</td><td>/ˈpɑːt taɪm/</td><td>adjective</td><td>Bán thời gian</td><td>He works part-time at a bookstore while studying.</td></tr>
+      <tr><td>Interviewer</td><td>/ˈɪntəvjuːə(r)/</td><td>noun</td><td>Người phỏng vấn</td><td>The interviewer asked me questions about my leadership skills.</td></tr>
+      <tr><td>Job description</td><td>/dʒɒb dɪˈskrɪpʃən/</td><td>noun</td><td>Mô tả công việc</td><td>The job description outlines the duties and responsibilities of the role.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div id="phan2-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 3 -->
+<div id="phan3" class="section">
+  <h2>🏦 Banking - Ngân hàng</h2>
+  <button onclick="showTable('phan3')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan3')">Flashcard</button>
+  <div id="phan3-table" class="content-block">
+    <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr><td>Account</td><td>/əˈkaʊnt/</td><td>noun</td><td>Tài khoản</td><td>I opened a new bank account last week.</td></tr>
+    <tr><td>Deposit</td><td>/dɪˈpɒzɪt/</td><td>noun</td><td>Khoản tiền gửi</td><td>I made a deposit into my savings account today.</td></tr>
+    <tr><td>Withdraw</td><td>/wɪðˈdrɔː/</td><td>verb</td><td>Rút tiền</td><td>You can withdraw money from your account at any ATM.</td></tr>
+    <tr><td>Loan</td><td>/ləʊn/</td><td>noun</td><td>Khoản vay</td><td>The bank approved my loan application for a new car.</td></tr>
+    <tr><td>Interest</td><td>/ˈɪntrəst/</td><td>noun</td><td>Lãi suất</td><td>The bank offers a high interest rate on savings accounts.</td></tr>
+    <tr><td>Balance</td><td>/ˈbæləns/</td><td>noun</td><td>Số dư</td><td>The balance of my checking account is $500.</td></tr>
+    <tr><td>Transaction</td><td>/trænˈzækʃən/</td><td>noun</td><td>Giao dịch</td><td>I need to check the transaction history for this month.</td></tr>
+    <tr><td>Credit</td><td>/ˈkrɛdɪt/</td><td>noun</td><td>Tín dụng</td><td>He applied for a credit card to buy new electronics.</td></tr>
+    <tr><td>Debit</td><td>/ˈdɛbɪt/</td><td>noun</td><td>Ghi nợ</td><td>The debit card can be used to make purchases directly from your bank account.</td></tr>
+    <tr><td>Bank statement</td><td>/bæŋk ˈsteɪtmənt/</td><td>noun</td><td>Bảng sao kê ngân hàng</td><td>Please send me a bank statement for the past three months.</td></tr>
+    <tr><td>Fee</td><td>/fiː/</td><td>noun</td><td>Phí</td><td>There is a monthly fee for maintaining a bank account.</td></tr>
+    <tr><td>Savings account</td><td>/ˈseɪvɪŋz əˈkaʊnt/</td><td>noun</td><td>Tài khoản tiết kiệm</td><td>I opened a savings account to save money for a vacation.</td></tr>
+    <tr><td>Deposit slip</td><td>/dɪˈpɒzɪt slɪp/</td><td>noun</td><td>Phiếu gửi tiền</td><td>You need to fill out the deposit slip before you deposit money at the bank.</td></tr>
+    <tr><td>Overdraft</td><td>/ˈəʊvədræft/</td><td>noun</td><td>Thấu chi</td><td>The bank charged me an overdraft fee because I spent more than I had in my account.</td></tr>
+    <tr><td>Check</td><td>/tʃɛk/</td><td>noun</td><td>Séc</td><td>I wrote a check to pay for the rent.</td></tr>
+    <tr><td>Exchange rate</td><td>/ɪksˈtʃeɪndʒ reɪt/</td><td>noun</td><td>Tỷ giá hối đoái</td><td>The exchange rate for US dollars to euros is currently 1:0.85.</td></tr>
+    <tr><td>Transaction fee</td><td>/trænˈzækʃən fiː/</td><td>noun</td><td>Phí giao dịch</td><td>There is a small transaction fee for international transfers.</td></tr>
+    <tr><td>Security</td><td>/sɪˈkjʊərɪti/</td><td>noun</td><td>An ninh, bảo mật</td><td>The bank has strict security measures to protect customer data.</td></tr>
+    <tr><td>Mortgage</td><td>/ˈmɔːɡɪdʒ/</td><td>noun</td><td>Vay thế chấp</td><td>She applied for a mortgage to buy a house.</td></tr>
+  </tbody>
+  </table>
+  </div>
+  <div id="phan3-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 4 -->
+<div id="phan4" class="section">
+  <h2>💻 Computer - Máy tính</h2>
+  <button onclick="showTable('phan4')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan4')">Flashcard</button>
+  <div id="phan4-table" class="content-block">
+    <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr><td>Computer</td><td>/kəmˈpjuːtə/</td><td>noun</td><td>Máy tính</td><td>I use my computer to work every day.</td></tr>
+    <tr><td>Screen</td><td>/skriːn/</td><td>noun</td><td>Màn hình</td><td>The screen is too bright; I need to adjust it.</td></tr>
+    <tr><td>Keyboard</td><td>/ˈkiːbɔːd/</td><td>noun</td><td>Bàn phím</td><td>The keyboard is not working properly.</td></tr>
+    <tr><td>Mouse</td><td>/maʊs/</td><td>noun</td><td>Chuột</td><td>I need a new mouse for my computer.</td></tr>
+    <tr><td>Software</td><td>/ˈsɒftwɛə/</td><td>noun</td><td>Phần mềm</td><td>The software is updating automatically.</td></tr>
+    <tr><td>Hardware</td><td>/ˈhɑːdweə/</td><td>noun</td><td>Phần cứng</td><td>The computer's hardware needs to be upgraded.</td></tr>
+    <tr><td>File</td><td>/faɪl/</td><td>noun</td><td>Tệp</td><td>I cannot find the file on my computer.</td></tr>
+    <tr><td>Program</td><td>/ˈprəʊɡræm/</td><td>noun</td><td>Chương trình</td><td>This program helps you manage your documents easily.</td></tr>
+    <tr><td>Network</td><td>/ˈnɛtwɜːk/</td><td>noun</td><td>Mạng</td><td>The network is down, so I can't access the internet.</td></tr>
+    <tr><td>Website</td><td>/ˈwɛbsaɪt/</td><td>noun</td><td>Trang web</td><td>I visited the company's website for more information.</td></tr>
+    <tr><td>Download</td><td>/ˈdaʊnˌləʊd/</td><td>verb</td><td>Tải xuống</td><td>Please download the file from the website.</td></tr>
+    <tr><td>Upload</td><td>/ˈʌpˌləʊd/</td><td>verb</td><td>Tải lên</td><td>I need to upload the document to the server.</td></tr>
+    <tr><td>Browser</td><td>/ˈbraʊzə/</td><td>noun</td><td>Trình duyệt</td><td>I use Google Chrome as my browser.</td></tr>
+    <tr><td>Application</td><td>/ˌæplɪˈkeɪʃən/</td><td>noun</td><td>Ứng dụng</td><td>This application helps me track my tasks.</td></tr>
+    <tr><td>Virus</td><td>/ˈvaɪrəs/</td><td>noun</td><td>Vi-rút</td><td>My computer got infected with a virus, so I need to fix it.</td></tr>
+    <tr><td>Search</td><td>/sɜːʧ/</td><td>verb</td><td>Tìm kiếm</td><td>I will search for the information on the internet.</td></tr>
+    <tr><td>Update</td><td>/ˈʌpˌdeɪt/</td><td>verb</td><td>Cập nhật</td><td>Don't forget to update your computer regularly.</td></tr>
+    <tr><td>System</td><td>/ˈsɪstəm/</td><td>noun</td><td>Hệ thống</td><td>The computer system is running smoothly now.</td></tr>
+    <tr><td>Security</td><td>/sɪˈkjʊərɪti/</td><td>noun</td><td>Bảo mật</td><td>You need to update your security settings to protect your data.</td></tr>
+    <tr><td>Password</td><td>/ˈpɑːswɜːd/</td><td>noun</td><td>Mật khẩu</td><td>Please enter your password to log into the system.</td></tr>
+  </tbody>
+  </table>
+  </div>
+  <div id="phan4-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 5 -->
+<div id="phan5" class="section">
+  <h2>🗣️ Conference - Hội nghị</h2>
+  <button onclick="showTable('phan5')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan5')">Flashcard</button>
+  <div id="phan5-table" class="content-block">
+     <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr><td>Conference</td><td>/ˈkɒnfərəns/</td><td>noun</td><td>Hội nghị</td><td>The conference will be held next week in New York.</td></tr>
+    <tr><td>Meeting</td><td>/ˈmiːtɪŋ/</td><td>noun</td><td>Cuộc họp</td><td>We have a meeting with the manager at 10 AM tomorrow.</td></tr>
+    <tr><td>Speaker</td><td>/ˈspiːkər/</td><td>noun</td><td>Diễn giả</td><td>The speaker gave a great presentation about marketing strategies.</td></tr>
+    <tr><td>Agenda</td><td>/əˈdʒɛndə/</td><td>noun</td><td>Chương trình nghị sự</td><td>The agenda for the meeting includes a discussion on the new project.</td></tr>
+    <tr><td>Presentation</td><td>/ˌprɛzənˈteɪʃən/</td><td>noun</td><td>Bài thuyết trình</td><td>He prepared a detailed presentation on the company's financial results.</td></tr>
+    <tr><td>Audience</td><td>/ˈɔːdiəns/</td><td>noun</td><td>Khán giả</td><td>The audience seemed very interested in the topic of the speech.</td></tr>
+    <tr><td>Topic</td><td>/ˈtɒpɪk/</td><td>noun</td><td>Chủ đề</td><td>The main topic of today's conference is the future of technology.</td></tr>
+    <tr><td>Panel</td><td>/ˈpænəl/</td><td>noun</td><td>Ban hội thảo</td><td>The panel discussion covered various issues about climate change.</td></tr>
+    <tr><td>Discussion</td><td>/dɪsˈkʌʃən/</td><td>noun</td><td>Cuộc thảo luận</td><td>There was a long discussion about the new product launch.</td></tr>
+    <tr><td>Workshop</td><td>/ˈwɜːrkʃɒp/</td><td>noun</td><td>Hội thảo</td><td>The workshop on digital marketing was very informative.</td></tr>
+    <tr><td>Attendee</td><td>/əˈtɛndiː/</td><td>noun</td><td>Người tham dự</td><td>The conference had over 200 attendees from various countries.</td></tr>
+    <tr><td>Organize</td><td>/ˈɔːɡənaɪz/</td><td>verb</td><td>Tổ chức</td><td>The company will organize a conference on sustainability next month.</td></tr>
+    <tr><td>Register</td><td>/ˈrɛdʒɪstər/</td><td>verb</td><td>Đăng ký</td><td>You need to register for the event before the deadline.</td></tr>
+    <tr><td>Venue</td><td>/ˈvɛnjuː/</td><td>noun</td><td>Địa điểm tổ chức</td><td>The venue for the conference is the downtown convention center.</td></tr>
+    <tr><td>Break</td><td>/breɪk/</td><td>noun</td><td>Giải lao</td><td>There will be a short break after the first session of the conference.</td></tr>
+    <tr><td>Networking</td><td>/ˈnɛtwɜːrkɪŋ/</td><td>noun</td><td>Kết nối</td><td>Networking is an important part of any conference for meeting new people.</td></tr>
+    <tr><td>Seminar</td><td>/ˈsɛmɪnɑːr/</td><td>noun</td><td>Hội thảo</td><td>The seminar on leadership skills will start at 2 PM.</td></tr>
+    <tr><td>Moderator</td><td>/ˈmɒdəreɪtə(r)/</td><td>noun</td><td>Người điều hành</td><td>The moderator introduced the speakers at the beginning of the conference.</td></tr>
+    <tr><td>Schedule</td><td>/ˈskɛdjuːl/</td><td>noun</td><td>Lịch trình</td><td>Please check the conference schedule for session times.</td></tr>
+    <tr><td>Register</td><td>/ˈrɛdʒɪstər/</td><td>verb</td><td>Đăng ký</td><td>You must register in advance to attend the conference.</td></tr>
+  </tbody>
+  </table>
+  </div>
+  <div id="phan5-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 6 -->
+<div id="phan6" class="section">
+  <h2>📄 Contract - Hợp đồng</h2>
+  <button onclick="showTable('phan6')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan6')">Flashcard</button>
+  <div id="phan6-table" class="content-block">
+    <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Contract</td><td>/ˈkɒntrækt/</td><td>noun</td><td>Hợp đồng</td><td>We need to sign the contract before starting the project.</td></tr>
+      <tr><td>Agreement</td><td>/əˈɡriːmənt/</td><td>noun</td><td>Thỏa thuận</td><td>The two companies have reached an agreement.</td></tr>
+      <tr><td>Term</td><td>/tɜːm/</td><td>noun</td><td>Điều khoản</td><td>The term of the contract is for two years.</td></tr>
+      <tr><td>Sign</td><td>/saɪn/</td><td>verb</td><td>Ký</td><td>Please sign the contract to confirm your agreement.</td></tr>
+      <tr><td>Clause</td><td>/klɔːz/</td><td>noun</td><td>Điều khoản</td><td>This clause says the contract can be canceled at any time.</td></tr>
+      <tr><td>Condition</td><td>/kənˈdɪʃən/</td><td>noun</td><td>Điều kiện</td><td>There is a condition that payment must be made within 30 days.</td></tr>
+      <tr><td>Party</td><td>/ˈpɑːti/</td><td>noun</td><td>Bên (trong hợp đồng)</td><td>Both parties must agree to the terms of the contract.</td></tr>
+      <tr><td>Cancel</td><td>/ˈkænsl/</td><td>verb</td><td>Hủy bỏ</td><td>We had to cancel the contract because of a misunderstanding.</td></tr>
+      <tr><td>Pay</td><td>/peɪ/</td><td>verb</td><td>Thanh toán</td><td>The company will pay the agreed amount on time.</td></tr>
+      <tr><td>Renew</td><td>/rɪˈnjuːəl/</td><td>verb</td><td>Gia hạn</td><td>They decided to renew the contract for another year.</td></tr>
+      <tr><td>Offer</td><td>/ˈɒfə/</td><td>noun</td><td>Lời đề nghị</td><td>The company made an offer to extend the contract.</td></tr>
+      <tr><td>Binding</td><td>/ˈbaɪndɪŋ/</td><td>adjective</td><td>Ràng buộc</td><td>This agreement is binding and cannot be changed without permission.</td></tr>
+      <tr><td>Legal</td><td>/ˈliːɡəl/</td><td>adjective</td><td>Hợp pháp</td><td>The contract must be legal and follow all local laws.</td></tr>
+      <tr><td>Break</td><td>/breɪk/</td><td>verb</td><td>Vi phạm, phá vỡ hợp đồng</td><td>If you break the contract, there will be penalties.</td></tr>
+      <tr><td>Change</td><td>/ʧeɪndʒ/</td><td>verb</td><td>Thay đổi</td><td>You need to get approval before changing the terms of the contract.</td></tr>
+      <tr><td>Deadline</td><td>/ˈdɛdlaɪn/</td><td>noun</td><td>Hạn chót</td><td>The deadline for signing the contract is next week.</td></tr>
+      <tr><td>Terminate</td><td>/ˈtɜːmɪneɪt/</td><td>verb</td><td>Chấm dứt hợp đồng</td><td>You can terminate the contract if you give 30 days' notice.</td></tr>
+      <tr><td>Payment</td><td>/ˈpeɪmənt/</td><td>noun</td><td>Thanh toán</td><td>The payment will be made once the work is completed.</td></tr>
+      <tr><td>Dispute</td><td>/dɪsˈpjuːt/</td><td>noun</td><td>Tranh chấp</td><td>There was a dispute about the payment terms of the contract.</td></tr>
+      <tr><td>Witness</td><td>/ˈwɪtnɪs/</td><td>noun</td><td>Người chứng kiến</td><td>A witness must sign the contract to confirm it was signed by both parties.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div id="phan6-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 7 -->
+<div id="phan7" class="section">
+  <h2>✉️ Correspondence - Thư tín</h2>
+  <button onclick="showTable('phan7')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan7')">Flashcard</button>
+  <div id="phan7-table" class="content-block">
+    <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Letter</td><td>/ˈlɛtə/</td><td>noun</td><td>Thư</td><td>I received a letter from my friend yesterday.</td></tr>
+    <tr><td>Email</td><td>/ˈiːmeɪl/</td><td>noun</td><td>Thư điện tử</td><td>Please send me the email with the details.</td></tr>
+    <tr><td>Address</td><td>/əˈdrɛs/</td><td>noun</td><td>Địa chỉ</td><td>Make sure to write the correct address on the envelope.</td></tr>
+    <tr><td>Reply</td><td>/rɪˈplaɪ/</td><td>verb</td><td>Trả lời</td><td>I will reply to the email after lunch.</td></tr>
+    <tr><td>Message</td><td>/ˈmɛsɪdʒ/</td><td>noun</td><td>Tin nhắn</td><td>I left a message on your phone yesterday.</td></tr>
+    <tr><td>Correspond</td><td>/ˌkɒrɪˈspɒnd/</td><td>verb</td><td>Thư tín</td><td>We have been corresponding by email for the past week.</td></tr>
+    <tr><td>Post</td><td>/pəʊst/</td><td>noun</td><td>Thư gửi</td><td>I will send the letter by post tomorrow.</td></tr>
+    <tr><td>Sender</td><td>/ˈsɛndə/</td><td>noun</td><td>Người gửi</td><td>The sender's name is at the top of the letter.</td></tr>
+    <tr><td>Recipient</td><td>/rɪˈsɪpɪənt/</td><td>noun</td><td>Người nhận</td><td>The recipient will receive the package in two days.</td></tr>
+    <tr><td>Subject</td><td>/ˈsʌbdʒɪkt/</td><td>noun</td><td>Chủ đề</td><td>The subject of the email is the upcoming meeting.</td></tr>
+    <tr><td>Attach</td><td>/əˈtætʃ/</td><td>verb</td><td>Đính kèm</td><td>Please attach the file before sending the email.</td></tr>
+    <tr><td>Formal</td><td>/ˈfɔːməl/</td><td>adjective</td><td>Chính thức</td><td>This letter requires a formal tone.</td></tr>
+    <tr><td>Informal</td><td>/ɪnˈfɔːməl/</td><td>adjective</td><td>Thân mật</td><td>The email was written in an informal /css/style.</td></tr>
+    <tr><td>Copy</td><td>/ˈkɒpi/</td><td>noun</td><td>Bản sao</td><td>I need to make a copy of this letter for my records.</td></tr>
+    <tr><td>Send</td><td>/sɛnd/</td><td>verb</td><td>Gửi</td><td>I will send the email as soon as I finish the report.</td></tr>
+    <tr><td>Delivery</td><td>/dɪˈlɪvəri/</td><td>noun</td><td>Sự giao hàng</td><td>The delivery of the package was delayed.</td></tr>
+    <tr><td>Postman</td><td>/ˈpəʊstmən/</td><td>noun</td><td>Người đưa thư</td><td>The postman delivered the letter this morning.</td></tr>
+    <tr><td>Envelope</td><td>/ˈɛnvəˌləʊp/</td><td>noun</td><td>Bao thư</td><td>Please put the letter in an envelope before mailing it.</td></tr>
+    <tr><td>Signature</td><td>/ˈsɪɡnətʃər/</td><td>noun</td><td>Chữ ký</td><td>Don't forget to add your signature at the bottom of the letter.</td></tr>
+    <tr><td>Forward</td><td>/ˈfɔːwəd/</td><td>verb</td><td>Chuyển tiếp</td><td>I will forward your message to the right department.</td></tr>
+  </tbody>
+  </table>
+  </div>
+  <div id="phan7-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 8 -->
+<div id="phan8" class="section">
+  <h2>📦 Inventory - Hàng hóa</h2>
+  <button onclick="showTable('phan8')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan8')">Flashcard</button>
+  <div id="phan8-table" class="content-block">
+    <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+   <tbody>
+    <tr><td>Stock</td><td>/stɒk/</td><td>noun</td><td>Hàng hóa, hàng tồn kho</td><td>The shop has a lot of stock in the warehouse.</td></tr>
+    <tr><td>Goods</td><td>/ɡʊdz/</td><td>noun</td><td>Hàng hóa</td><td>The goods are ready to be shipped to the store.</td></tr>
+    <tr><td>Product</td><td>/ˈprɒdʌkt/</td><td>noun</td><td>Sản phẩm</td><td>This product is popular with our customers.</td></tr>
+    <tr><td>Order</td><td>/ˈɔːdə(r)/</td><td>noun</td><td>Đơn hàng</td><td>I placed an order for new computers.</td></tr>
+    <tr><td>Delivery</td><td>/dɪˈlɪvəri/</td><td>noun</td><td>Giao hàng</td><td>The delivery will arrive on Friday.</td></tr>
+    <tr><td>Warehouse</td><td>/ˈwɛəhaʊs/</td><td>noun</td><td>Kho hàng</td><td>The warehouse is located near the train station.</td></tr>
+    <tr><td>Item</td><td>/ˈaɪtəm/</td><td>noun</td><td>Mặt hàng</td><td>Each item is checked before being sent to the customer.</td></tr>
+    <tr><td>Restock</td><td>/ˌriːˈstɒk/</td><td>verb</td><td>Cung cấp lại hàng hóa</td><td>We need to restock the shelves with new products.</td></tr>
+    <tr><td>Sell</td><td>/sɛl/</td><td>verb</td><td>Bán</td><td>The store sells many different types of clothes.</td></tr>
+    <tr><td>Buy</td><td>/baɪ/</td><td>verb</td><td>Mua</td><td>I need to buy some new office supplies.</td></tr>
+    <tr><td>Price</td><td>/praɪs/</td><td>noun</td><td>Giá</td><td>The price of the phone is $200.</td></tr>
+    <tr><td>Discount</td><td>/ˈdɪskaʊnt/</td><td>noun</td><td>Giảm giá</td><td>The store is offering a 20% discount on all shoes.</td></tr>
+    <tr><td>Stockroom</td><td>/ˈstɒkrʊm/</td><td>noun</td><td>Phòng kho</td><td>The stockroom is full of boxes waiting to be unpacked.</td></tr>
+    <tr><td>Return</td><td>/rɪˈtɜːn/</td><td>verb</td><td>Trả lại</td><td>You can return the product if it is damaged.</td></tr>
+    <tr><td>Receipt</td><td>/rɪˈsiːt/</td><td>noun</td><td>Hóa đơn</td><td>Please keep your receipt for a possible refund.</td></tr>
+    <tr><td>Exchange</td><td>/ɪksˈtʃeɪndʒ/</td><td>verb</td><td>Đổi lại</td><td>I want to exchange this shirt for a bigger size.</td></tr>
+    <tr><td>Label</td><td>/ˈleɪbəl/</td><td>noun</td><td>Nhãn</td><td>Every product has a label with its price and details.</td></tr>
+    <tr><td>Package</td><td>/ˈpækɪdʒ/</td><td>noun</td><td>Gói hàng</td><td>The package was delivered to my house this morning.</td></tr>
+    <tr><td>Inventory</td><td>/ˈɪnvənˌtɔːri/</td><td>noun</td><td>Kiểm kê kho hàng</td><td>The store is doing an inventory check at the moment.</td></tr>
+    <tr><td>Supply</td><td>/səˈplaɪ/</td><td>noun</td><td>Nguồn cung</td><td>The company has enough supply of paper for the next few months.</td></tr>
+  </tbody>
+  </table>
+  </div>
+  <div id="phan8-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 9 -->
+<div id="phan9" class="section">
+  <h2>🧾 Invoice - Hóa đơn</h2>
+  <button onclick="showTable('phan9')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan9')">Flashcard</button>
+  <div id="phan9-table" class="content-block">
+      <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+   <tbody>
+      <tr><td>Invoice</td><td>/ˈɪnvɔɪs/</td><td>noun</td><td>Hóa đơn</td><td>I received the invoice for the products I ordered last week.</td></tr>
+      <tr><td>Bill</td><td>/bɪl/</td><td>noun</td><td>Hóa đơn thanh toán</td><td>The bill for the lunch came to $30.</td></tr>
+      <tr><td>Payment</td><td>/ˈpeɪmənt/</td><td>noun</td><td>Thanh toán</td><td>The payment is due by the end of the month.</td></tr>
+      <tr><td>Amount</td><td>/əˈmaʊnt/</td><td>noun</td><td>Số tiền</td><td>The total amount on the invoice is $500.</td></tr>
+      <tr><td>Due</td><td>/duː/</td><td>adjective</td><td>Đến hạn</td><td>The payment is due in 15 days.</td></tr>
+      <tr><td>Charge</td><td>/tʃɑːdʒ/</td><td>noun</td><td>Phí, khoản chi phí</td><td>There is an additional charge for delivery.</td></tr>
+      <tr><td>Receipt</td><td>/rɪˈsiːt/</td><td>noun</td><td>Hóa đơn biên nhận</td><td>Keep the receipt for any return or exchange.</td></tr>
+      <tr><td>Credit</td><td>/ˈkrɛdɪt/</td><td>noun</td><td>Tín dụng, khoản tín dụng</td><td>The company offered a credit for my next purchase.</td></tr>
+      <tr><td>Balance</td><td>/ˈbæləns/</td><td>noun</td><td>Số dư</td><td>Please pay the remaining balance before the due date.</td></tr>
+      <tr><td>Refund</td><td>/ˈriːfʌnd/</td><td>noun</td><td>Sự hoàn lại tiền</td><td>If you're not satisfied, you can request a refund within 30 days.</td></tr>
+      <tr><td>Due date</td><td>/duː deɪt/</td><td>noun</td><td>Ngày đáo hạn</td><td>The due date for the payment is September 15th.</td></tr>
+      <tr><td>Late fee</td><td>/leɪt fiː/</td><td>noun</td><td>Phí trễ</td><td>A late fee of $10 will be charged if the payment is not received on time.</td></tr>
+      <tr><td>Discount</td><td>/ˈdɪskaʊnt/</td><td>noun</td><td>Giảm giá</td><td>The invoice includes a 10% discount for early payment.</td></tr>
+      <tr><td>Terms</td><td>/tɜːmz/</td><td>noun</td><td>Điều khoản</td><td>Please read the payment terms carefully before signing the contract.</td></tr>
+      <tr><td>Total</td><td>/ˈtoʊtəl/</td><td>noun</td><td>Tổng cộng</td><td>The total amount of the invoice is $250.</td></tr>
+      <tr><td>Payable</td><td>/ˈpeɪəbl/</td><td>adjective</td><td>Có thể thanh toán</td><td>The invoice amount is payable in full by the end of the month.</td></tr>
+      <tr><td>Account</td><td>/əˈkaʊnt/</td><td>noun</td><td>Tài khoản</td><td>You can pay using your account or credit card.</td></tr>
+      <tr><td>Payment method</td><td>/ˈpeɪmənt ˈmɛθəd/</td><td>noun</td><td>Phương thức thanh toán</td><td>The invoice shows the available payment methods such as bank transfer and credit card.</td></tr>
+      <tr><td>Due balance</td><td>/duː ˈbæləns/</td><td>noun</td><td>Số dư phải thanh toán</td><td>The due balance on your account is $100.</td></tr>
+      <tr><td>Verify</td><td>/ˈvɛrɪfaɪ/</td><td>verb</td><td>Xác nhận</td><td>Please verify the details of the invoice before making the payment.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div id="phan9-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 10 -->
+<div id="phan10" class="section">
+  <h2>📋 Job Advertising - Việc làm và tuyển dụng</h2>
+  <button onclick="showTable('phan10')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan10')">Flashcard</button>
+  <div id="phan10-table" class="content-block">
+    <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr><td>Advertisement</td><td>/ˌædvəˈtɪzmənt/</td><td>noun</td><td>Quảng cáo việc làm</td><td>The advertisement for the new job was posted on the company's website.</td></tr>
+    <tr><td>Recruit</td><td>/rɪˈkruːt/</td><td>verb</td><td>Tuyển dụng</td><td>The company is recruiting new employees for its marketing department.</td></tr>
+    <tr><td>Vacancy</td><td>/ˈveɪkənsi/</td><td>noun</td><td>Vị trí tuyển dụng</td><td>There is a vacancy for a software engineer in our team.</td></tr>
+    <tr><td>Applicant</td><td>/ˈæplɪkənt/</td><td>noun</td><td>Người ứng tuyển</td><td>The applicants must submit their resumes by the end of the month.</td></tr>
+    <tr><td>Position</td><td>/pəˈzɪʃən/</td><td>noun</td><td>Vị trí</td><td>We have a senior position available for an experienced accountant.</td></tr>
+    <tr><td>Job opening</td><td>/dʒɒb ˈəʊpənɪŋ/</td><td>noun</td><td>Cơ hội việc làm</td><td>The company announced a job opening for a customer service manager.</td></tr>
+    <tr><td>Hiring</td><td>/ˈhaɪərɪŋ/</td><td>noun</td><td>Tuyển dụng</td><td>The hiring process will begin next week.</td></tr>
+    <tr><td>Job listing</td><td>/dʒɒb ˈlɪstɪŋ/</td><td>noun</td><td>Danh sách việc làm</td><td>The job listing includes details on qualifications and responsibilities.</td></tr>
+    <tr><td>Employee</td><td>/ɪmˈplɔɪiː/</td><td>noun</td><td>Nhân viên</td><td>The company is looking for motivated employees to join its team.</td></tr>
+    <tr><td>Employer</td><td>/ɪmˈplɔɪə(r)/</td><td>noun</td><td>Nhà tuyển dụng</td><td>The employer conducts interviews for all job positions.</td></tr>
+    <tr><td>Reference</td><td>/ˈrɛfərəns/</td><td>noun</td><td>Thư giới thiệu</td><td>You will need to provide two references from your previous employers.</td></tr>
+    <tr><td>Interview</td><td>/ˈɪntəvjuː/</td><td>noun</td><td>Cuộc phỏng vấn</td><td>The interview for the marketing position will be held tomorrow.</td></tr>
+    <tr><td>Salary</td><td>/ˈsæləri/</td><td>noun</td><td>Lương</td><td>The salary for the new position is competitive with industry standards.</td></tr>
+    <tr><td>Experience</td><td>/ɪkˈspɪərɪəns/</td><td>noun</td><td>Kinh nghiệm</td><td>The job requires at least three years of experience in customer service.</td></tr>
+    <tr><td>Contract</td><td>/ˈkɒntrækt/</td><td>noun</td><td>Hợp đồng</td><td>He signed a two-year contract with the company.</td></tr>
+    <tr><td>Full-time</td><td>/fʊl taɪm/</td><td>adjective</td><td>Toàn thời gian</td><td>We are looking for a full-time project manager to lead the team.</td></tr>
+    <tr><td>Part-time</td><td>/ˈpɑːt taɪm/</td><td>adjective</td><td>Bán thời gian</td><td>The job offers part-time hours in the evenings and weekends.</td></tr>
+    <tr><td>Qualification</td><td>/ˌkwɒlɪfɪˈkeɪʃən/</td><td>noun</td><td>Trình độ chuyên môn</td><td>The qualification required for this job is a degree in business administration.</td></tr>
+    <tr><td>Resume</td><td>/rɪˈzuːmeɪ/</td><td>noun</td><td>Sơ yếu lý lịch</td><td>Please attach your resume and cover letter when applying for the job.</td></tr>
+  </tbody>
+  </table>
+  </div>
+  <div id="phan10-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 11 -->
+<div id="phan11" class="section">
+  <h2>📈 Marketing - Tiếp thị</h2>
+  <button onclick="showTable('phan11')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan11')">Flashcard</button>
+  <div id="phan11-table" class="content-block">
+    <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Market</td><td>/ˈmɑːrkɪt/</td><td>noun</td><td>Thị trường</td><td>The company is expanding its market overseas.</td></tr>
+  <tr><td>Product</td><td>/ˈprɒdʌkt/</td><td>noun</td><td>Sản phẩm</td><td>This product is very popular among young people.</td></tr>
+  <tr><td>Sell</td><td>/sɛl/</td><td>verb</td><td>Bán</td><td>The company sells products online and in stores.</td></tr>
+  <tr><td>Advertise</td><td>/ˈædvətaɪz/</td><td>verb</td><td>Quảng cáo</td><td>We will advertise our new product next month.</td></tr>
+  <tr><td>Customer</td><td>/ˈkʌstəmər/</td><td>noun</td><td>Khách hàng</td><td>We need to understand our customers' needs better.</td></tr>
+  <tr><td>Brand</td><td>/brænd/</td><td>noun</td><td>Thương hiệu</td><td>The brand has been in the market for 10 years.</td></tr>
+  <tr><td>Strategy</td><td>/ˈstrætədʒi/</td><td>noun</td><td>Chiến lược</td><td>The marketing strategy focuses on social media.</td></tr>
+  <tr><td>Campaign</td><td>/kæmˈpeɪn/</td><td>noun</td><td>Chiến dịch</td><td>The new marketing campaign was successful.</td></tr>
+  <tr><td>Price</td><td>/praɪs/</td><td>noun</td><td>Giá</td><td>We need to check the price before making a decision.</td></tr>
+  <tr><td>Target</td><td>/ˈtɑːɡɪt/</td><td>noun</td><td>Mục tiêu</td><td>Our target is to reach 1,000 new customers by the end of the year.</td></tr>
+  <tr><td>Promotion</td><td>/prəˈməʊʃən/</td><td>noun</td><td>Khuyến mãi</td><td>The company is running a promotion this weekend.</td></tr>
+  <tr><td>Reach</td><td>/riːʧ/</td><td>verb</td><td>Tiếp cận</td><td>The ad reached a wide audience online.</td></tr>
+  <tr><td>Sales</td><td>/seɪlz/</td><td>noun</td><td>Doanh thu</td><td>The sales of the product increased last month.</td></tr>
+  <tr><td>Launch</td><td>/lɔːntʃ/</td><td>verb</td><td>Ra mắt</td><td>The company will launch the new phone next week.</td></tr>
+  <tr><td>Discount</td><td>/ˈdɪskaʊnt/</td><td>noun</td><td>Giảm giá</td><td>Customers can get a 20% discount on all products.</td></tr>
+  <tr><td>Research</td><td>/rɪˈsɜːrtʃ/</td><td>noun</td><td>Nghiên cứu</td><td>We are conducting research to understand consumer behavior.</td></tr>
+  <tr><td>Competitor</td><td>/kəmˈpɛtɪtə/</td><td>noun</td><td>Đối thủ cạnh tranh</td><td>The new competitor offers lower prices than us.</td></tr>
+  <tr><td>Audience</td><td>/ˈɔːdiəns/</td><td>noun</td><td>Khán giả</td><td>The audience for this advertisement is young adults.</td></tr>
+  <tr><td>Media</td><td>/ˈmiːdiə/</td><td>noun</td><td>Phương tiện truyền thông</td><td>The media plays an important role in advertising.</td></tr>
+  <tr><td>Influence</td><td>/ˈɪnfluəns/</td><td>noun</td><td>Ảnh hưởng</td><td>Social media has a big influence on modern marketing.</td></tr>
+
+    </tbody>
+  </table>
+  </div>
+  <div id="phan11-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 12 -->
+<div id="phan12" class="section">
+  <h2>🏢 Office - Văn phòng</h2>
+  <button onclick="showTable('phan12')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan12')">Flashcard</button>
+  <div id="phan12-table" class="content-block">
+     <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Office</td><td>/ˈɒfɪs/</td><td>noun</td><td>Văn phòng</td><td>I work in an office downtown.</td></tr>
+    <tr><td>Desk</td><td>/dɛsk/</td><td>noun</td><td>Bàn làm việc</td><td>My desk is next to the window.</td></tr>
+    <tr><td>Chair</td><td>/ʧɛər/</td><td>noun</td><td>Ghế</td><td>Please sit in the chair by the door.</td></tr>
+    <tr><td>Computer</td><td>/kəmˈpjuːtə/</td><td>noun</td><td>Máy tính</td><td>I need to fix the computer in the office.</td></tr>
+    <tr><td>Email</td><td>/ˈiːmeɪl/</td><td>noun</td><td>Thư điện tử</td><td>I sent the report by email yesterday.</td></tr>
+    <tr><td>File</td><td>/faɪl/</td><td>noun</td><td>Hồ sơ, tài liệu</td><td>Please put the files on my desk.</td></tr>
+    <tr><td>Meeting</td><td>/ˈmiːtɪŋ/</td><td>noun</td><td>Cuộc họp</td><td>We have a meeting at 3 p.m. today.</td></tr>
+    <tr><td>Document</td><td>/ˈdɒkjʊmənt/</td><td>noun</td><td>Tài liệu</td><td>I need to print out the document for the meeting.</td></tr>
+    <tr><td>Phone</td><td>/fəʊn/</td><td>noun</td><td>Điện thoại</td><td>The phone rang during the meeting.</td></tr>
+    <tr><td>Call</td><td>/kɔːl/</td><td>verb</td><td>Gọi</td><td>I will call the client later this afternoon.</td></tr>
+    <tr><td>Schedule</td><td>/ˈskɛdʒuːl/</td><td>verb</td><td>Lên lịch, sắp xếp</td><td>Please schedule the meeting for next Monday.</td></tr>
+    <tr><td>Copy</td><td>/ˈkɒpi/</td><td>noun</td><td>Bản sao</td><td>Can you make a copy of this report?</td></tr>
+    <tr><td>Printer</td><td>/ˈprɪntə/</td><td>noun</td><td>Máy in</td><td>The printer is not working; please check it.</td></tr>
+    <tr><td>Report</td><td>/rɪˈpɔːt/</td><td>noun</td><td>Báo cáo</td><td>I need to finish the report by tomorrow.</td></tr>
+    <tr><td>Folder</td><td>/ˈfəʊldə/</td><td>noun</td><td>Túi đựng tài liệu</td><td>Put the folder on my desk when you're done.</td></tr>
+    <tr><td>Team</td><td>/tiːm/</td><td>noun</td><td>Đội nhóm, nhóm</td><td>Our team will work on the project next week.</td></tr>
+    <tr><td>Appointment</td><td>/əˈpɔɪntmənt/</td><td>noun</td><td>Cuộc hẹn</td><td>I have an appointment with the manager at 2 p.m.</td></tr>
+    <tr><td>Assistant</td><td>/əˈsɪstənt/</td><td>noun</td><td>Trợ lý</td><td>She is the assistant to the director of the company.</td></tr>
+    <tr><td>Task</td><td>/tɑːsk/</td><td>noun</td><td>Nhiệm vụ</td><td>I have a task to complete by the end of the day.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div id="phan12-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 13 -->
+<div id="phan13" class="section">
+  <h2>🍽️ Restaurant - Nhà hàng</h2>
+  <button onclick="showTable('phan13')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan13')">Flashcard</button>
+  <div id="phan13-table" class="content-block">
+     <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Menu</td><td>/ˈmɛnjuː/</td><td>noun</td><td>Thực đơn</td><td>The waiter gave us the menu to look at.</td></tr>
+  <tr><td>Order</td><td>/ˈɔːdə(r)/</td><td>verb</td><td>Gọi món</td><td>I would like to order a pizza, please.</td></tr>
+  <tr><td>Dish</td><td>/dɪʃ/</td><td>noun</td><td>Món ăn</td><td>This dish is very delicious and full of flavor.</td></tr>
+  <tr><td>Waiter/Waitress</td><td>/ˈweɪtə(r)/ /ˈweɪtrəs/</td><td>noun</td><td>Bồi bàn</td><td>The waiter took our order and served us the drinks.</td></tr>
+  <tr><td>Reservation</td><td>/ˌrɛzəˈveɪʃən/</td><td>noun</td><td>Đặt chỗ</td><td>I have a reservation for two at 7:00 PM.</td></tr>
+  <tr><td>Bill</td><td>/bɪl/</td><td>noun</td><td>Hóa đơn</td><td>Can I pay the bill now, please?</td></tr>
+  <tr><td>Tip</td><td>/tɪp/</td><td>noun</td><td>Tiền boa</td><td>It is customary to leave a tip for good service.</td></tr>
+  <tr><td>Table</td><td>/ˈteɪbəl/</td><td>noun</td><td>Bàn ăn</td><td>We were seated at a table by the window.</td></tr>
+  <tr><td>Service</td><td>/ˈsɜːvɪs/</td><td>noun</td><td>Dịch vụ</td><td>The service at this restaurant is excellent.</td></tr>
+  <tr><td>Appetizer</td><td>/ˈæpɪtaɪzə(r)/</td><td>noun</td><td>Món khai vị</td><td>I’ll start with an appetizer of soup.</td></tr>
+  <tr><td>Main course</td><td>/meɪn kɔːs/</td><td>noun</td><td>Món chính</td><td>For the main course, I’ll have the grilled chicken.</td></tr>
+  <tr><td>Dessert</td><td>/dɪˈzɜːt/</td><td>noun</td><td>Món tráng miệng</td><td>The chocolate cake was a delicious dessert.</td></tr>
+  <tr><td>Drink</td><td>/drɪŋk/</td><td>noun</td><td>Đồ uống</td><td>What drink would you like to order?</td></tr>
+  <tr><td>Wait</td><td>/weɪt/</td><td>verb</td><td>Chờ đợi</td><td>We had to wait for 15 minutes to get a table.</td></tr>
+  <tr><td>Order in</td><td>/ˈɔːdə(r) ɪn/</td><td>verb</td><td>Đặt đồ ăn mang về</td><td>We decided to order in tonight instead of going out.</td></tr>
+  <tr><td>Takeout</td><td>/ˈteɪkaʊt/</td><td>noun</td><td>Mang đi</td><td>The restaurant offers both dine-in and takeout options.</td></tr>
+  <tr><td>Cook</td><td>/kʊk/</td><td>noun</td><td>Đầu bếp</td><td>The cook prepared a delicious meal for us.</td></tr>
+  <tr><td>Chef</td><td>/ʃɛf/</td><td>noun</td><td>Bếp trưởng</td><td>The chef is known for creating amazing dishes.</td></tr>
+  <tr><td>Portion</td><td>/ˈpɔːʃən/</td><td>noun</td><td>Phần ăn</td><td>The portion size was large, and I couldn’t finish it all.</td></tr>
+  <tr><td>Special</td><td>/ˈspɛʃəl/</td><td>adjective</td><td>Đặc biệt</td><td>Today’s special is grilled salmon with lemon sauce.</td></tr>
+
+    </tbody>
+  </table>
+  </div>
+  <div id="phan13-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 14 -->
+<div id="phan14" class="section">
+  <h2>💰 Salaries and Benefits - Lương và phúc lợi</h2>
+  <button onclick="showTable('phan14')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan14')">Flashcard</button>
+  <div id="phan14-table" class="content-block">
+     <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Salary</td><td>/ˈsæləri/</td><td>noun</td><td>Lương</td><td>He receives a monthly salary of $3,000.</td></tr>
+  <tr><td>Wage</td><td>/weɪdʒ/</td><td>noun</td><td>Tiền công</td><td>The workers are paid weekly wages.</td></tr>
+  <tr><td>Bonus</td><td>/ˈbəʊnəs/</td><td>noun</td><td>Thưởng</td><td>Employees get a bonus at the end of the year.</td></tr>
+  <tr><td>Commission</td><td>/kəˈmɪʃən/</td><td>noun</td><td>Hoa hồng</td><td>Salespeople earn a commission for each product they sell.</td></tr>
+  <tr><td>Raise</td><td>/reɪz/</td><td>noun</td><td>Tăng lương</td><td>She received a raise after one year of hard work.</td></tr>
+  <tr><td>Overtime</td><td>/ˈəʊvətɪm/</td><td>noun</td><td>Làm thêm giờ</td><td>Employees are paid extra for overtime work.</td></tr>
+  <tr><td>Pension</td><td>/ˈpɛnʃən/</td><td>noun</td><td>Lương hưu</td><td>The company provides a pension plan for its employees.</td></tr>
+  <tr><td>Health</td><td>/hɛlθ/</td><td>noun</td><td>Sức khỏe</td><td>Health insurance is a part of the benefits package.</td></tr>
+  <tr><td>Insurance</td><td>/ɪnˈʃʊərəns/</td><td>noun</td><td>Bảo hiểm</td><td>All full-time employees are entitled to health insurance.</td></tr>
+  <tr><td>Allowance</td><td>/əˈlaʊəns/</td><td>noun</td><td>Tiền trợ cấp</td><td>The company provides a transportation allowance.</td></tr>
+  <tr><td>Benefit</td><td>/ˈbɛnɪfɪt/</td><td>noun</td><td>Phúc lợi</td><td>The job offers great benefits, including paid vacation and sick days.</td></tr>
+  <tr><td>Compensation</td><td>/ˌkɒmpənˈseɪʃən/</td><td>noun</td><td>Tiền bồi thường</td><td>The compensation package includes salary and benefits.</td></tr>
+  <tr><td>Contract</td><td>/ˈkɒntrækt/</td><td>noun</td><td>Hợp đồng</td><td>They signed a contract for a one-year employment term.</td></tr>
+  <tr><td>Salary scale</td><td>/ˈsæləri skeɪl/</td><td>noun</td><td>Thang lương</td><td>The company has a salary scale for different job positions.</td></tr>
+  <tr><td>Deduction</td><td>/dɪˈdʌkʃən/</td><td>noun</td><td>Khấu trừ</td><td>Taxes are deducted from your salary every month.</td></tr>
+  <tr><td>Tax</td><td>/tæks/</td><td>noun</td><td>Thuế</td><td>You will receive a tax deduction for your medical expenses.</td></tr>
+  <tr><td>Paid leave</td><td>/peɪd liːv/</td><td>noun</td><td>Nghỉ phép có lương</td><td>Employees are entitled to 14 days of paid leave per year.</td></tr>
+  <tr><td>Vacation</td><td>/vəˈkeɪʃən/</td><td>noun</td><td>Nghỉ phép</td><td>He took a week off for vacation.</td></tr>
+  <tr><td>Employee</td><td>/ɪmˈplɔɪiː/</td><td>noun</td><td>Nhân viên</td><td>The company is hiring new employees for the sales department.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <div id="phan14-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 15 -->
+<div id="phan15" class="section">
+  <h2>🛍️ Shopping - Mua sắm</h2>
+  <button onclick="showTable('phan15')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan15')">Flashcard</button>
+  <div id="phan15-table" class="content-block">
+     <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Shop</td><td>/ʃɒp/</td><td>noun</td><td>Cửa hàng</td><td>I am going to the shop to buy some groceries.</td></tr>
+<tr><td>Buy</td><td>/baɪ/</td><td>verb</td><td>Mua</td><td>She wants to buy a new phone.</td></tr>
+<tr><td>Sale</td><td>/seɪl/</td><td>noun</td><td>Khuyến mãi, bán hàng</td><td>The store has a sale on all clothing this week.</td></tr>
+<tr><td>Discount</td><td>/ˈdɪskaʊnt/</td><td>noun</td><td>Giảm giá</td><td>I got a 20% discount on the shoes.</td></tr>
+<tr><td>Price</td><td>/praɪs/</td><td>noun</td><td>Giá</td><td>The price of the jacket is too high for me.</td></tr>
+<tr><td>Purchase</td><td>/ˈpɜːtʃəs/</td><td>verb</td><td>Mua sắm</td><td>I will purchase a new laptop tomorrow.</td></tr>
+<tr><td>Cart</td><td>/kɑːt/</td><td>noun</td><td>Giỏ hàng</td><td>I added some items to my cart online.</td></tr>
+<tr><td>Refund</td><td>/ˈriːfʌnd/</td><td>noun</td><td>Hoàn tiền</td><td>If the product is damaged, you can get a refund.</td></tr>
+<tr><td>Customer</td><td>/ˈkʌstəmər/</td><td>noun</td><td>Khách hàng</td><td>The customer asked for a larger size of the dress.</td></tr>
+<tr><td>Store</td><td>/stɔːr/</td><td>noun</td><td>Cửa hàng</td><td>She bought a beautiful bag at the store.</td></tr>
+<tr><td>Payment</td><td>/ˈpeɪmənt/</td><td>noun</td><td>Thanh toán</td><td>The payment for the items can be made by credit card.</td></tr>
+<tr><td>Receipt</td><td>/rɪˈsiːt/</td><td>noun</td><td>Biên lai</td><td>Please keep the receipt for any returns.</td></tr>
+<tr><td>Price tag</td><td>/praɪs tæɡ/</td><td>noun</td><td>Mác giá</td><td>The price tag on the shoes says they cost $50.</td></tr>
+<tr><td>Exchange</td><td>/ɪksˈtʃeɪndʒ/</td><td>verb</td><td>Đổi, trao đổi</td><td>You can exchange the item if it doesn’t fit.</td></tr>
+<tr><td>Bargain</td><td>/ˈbɑːɡɪn/</td><td>noun</td><td>Món hời, món rẻ</td><td>I found a great bargain on a coat at the mall.</td></tr>
+<tr><td>Shopping mall</td><td>/ˈʃɒpɪŋ mɔːl/</td><td>noun</td><td>Trung tâm mua sắm</td><td>The shopping mall is very crowded on weekends.</td></tr>
+<tr><td>Retailer</td><td>/ˈriːteɪlər/</td><td>noun</td><td>Người bán lẻ</td><td>The retailer offers many discounts during the holidays.</td></tr>
+<tr><td>Vendor</td><td>/ˈvɛndər/</td><td>noun</td><td>Người bán hàng</td><td>The vendor is selling fresh fruits at the market.</td></tr>
+<tr><td>Stock</td><td>/stɒk/</td><td>noun</td><td>Hàng hóa, kho hàng</td><td>The store has a large stock of books available.</td></tr>
+<tr><td>Delivery</td><td>/dɪˈlɪvəri/</td><td>noun</td><td>Giao hàng</td><td>The delivery of your order will take 3-5 business days.</td></tr>
+</tbody>
+  </table>
+  </div>
+  <div id="phan15-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+
+<!-- PHẦN 16 -->
+<div id="phan16" class="section">
+  <h2>🛡️ Warranties - Bảo hành</h2>
+  <button onclick="showTable('phan16')">Bảng từ vựng</button>
+  <button onclick="showFlashcards('phan16')">Flashcard</button>
+  <div id="phan16-table" class="content-block">
+ <table id = "1">
+    <thead>
+      <tr>
+        <th>Từ vựng</th>
+        <th>Phiên âm IPA</th>
+        <th>Loại từ</th>
+        <th>Nghĩa tiếng Việt</th>
+        <th>Câu ví dụ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Warranty</td><td>/ˈwɔːrənti/</td><td>noun</td><td>Bảo hành</td><td>The product comes with a one-year warranty.</td></tr>
+<tr><td>Guarantee</td><td>/ˌɡærənˈtiː/</td><td>noun</td><td>Cam kết, bảo hành</td><td>The store offers a 30-day money-back guarantee.</td></tr>
+<tr><td>Coverage</td><td>/ˈkʌvərɪdʒ/</td><td>noun</td><td>Phạm vi bảo hành</td><td>The warranty coverage includes repair for any manufacturing defects.</td></tr>
+<tr><td>Repair</td><td>/rɪˈpeə(r)/</td><td>verb</td><td>Sửa chữa</td><td>If the phone breaks, we will repair it under the warranty.</td></tr>
+<tr><td>Replace</td><td>/rɪˈpleɪs/</td><td>verb</td><td>Thay thế</td><td>If the product is faulty, the store will replace it with a new one.</td></tr>
+<tr><td>Defect</td><td>/ˈdiːfɛkt/</td><td>noun</td><td>Lỗi, khuyết điểm</td><td>The item was returned due to a defect in the screen.</td></tr>
+<tr><td>Claim</td><td>/kleɪm/</td><td>noun</td><td>Đơn yêu cầu, khiếu nại</td><td>You can submit a claim for a free repair under the warranty.</td></tr>
+<tr><td>Period</td><td>/ˈpɪərɪəd/</td><td>noun</td><td>Thời gian</td><td>The warranty period for the laptop is two years.</td></tr>
+<tr><td>Terms</td><td>/tɜːmz/</td><td>noun</td><td>Điều khoản</td><td>Please read the terms and conditions of the warranty carefully.</td></tr>
+<tr><td>Policy</td><td>/ˈpɒlɪsi/</td><td>noun</td><td>Chính sách</td><td>The store’s warranty policy allows returns within 30 days of purchase.</td></tr>
+<tr><td>Faulty</td><td>/ˈfɔːlti/</td><td>adjective</td><td>Lỗi, hỏng</td><td>The product was faulty, so I asked for a replacement.</td></tr>
+<tr><td>Extend</td><td>/ɪksˈtɛnd/</td><td>verb</td><td>Kéo dài</td><td>You can extend the warranty for an additional year by paying a small fee.</td></tr>
+<tr><td>Coverage</td><td>/ˈkʌvərɪdʒ/</td><td>noun</td><td>Sự bảo vệ, phạm vi bảo hành</td><td>The warranty coverage includes free repairs for defects.</td></tr>
+<tr><td>Refund</td><td>/ˈriːfʌnd/</td><td>noun</td><td>Hoàn tiền</td><td>If the product cannot be repaired, you may receive a full refund.</td></tr>
+<tr><td>Valid</td><td>/ˈvælɪd/</td><td>adjective</td><td>Hợp lệ, có giá trị</td><td>The warranty is only valid if you have the original receipt.</td></tr>
+<tr><td>Condition</td><td>/kənˈdɪʃən/</td><td>noun</td><td>Tình trạng</td><td>The product must be in new condition to be eligible for a warranty claim.</td></tr>
+<tr><td>Exclusion</td><td>/ɪkˈskluːʒən/</td><td>noun</td><td>Điều khoản loại trừ</td><td>Some damages are not covered by the warranty, such as accidental drops.</td></tr>
+<tr><td>Maintenance</td><td>/ˈmeɪntənəns/</td><td>noun</td><td>Bảo dưỡng</td><td>Regular maintenance can help extend the life of your product.</td></tr>
+<tr><td>Transfer</td><td>/ˈtrænsfə(r)/</td><td>verb</td><td>Chuyển nhượng</td><td>The warranty is transferable to a new owner if the product is sold.</td></tr>
+<tr><td>Service</td><td>/ˈsɜːvɪs/</td><td>noun</td><td>Dịch vụ</td><td>You can contact customer service to schedule a repair under the warranty.</td></tr>
+</tbody>
+  </table>
+  </div>
+  <div id="phan16-flashcard" class="content-block" style="display:none">
+    <div class="flashcard-container">
+      <button class="nav-button" onclick="prevCard()">❮</button>
+      <div class="flashcard card" onclick="flipCard()">?</div>
+      <button class="nav-button" onclick="nextCard()">❯</button>
+    </div>
+  </div>
+</div>
+<script src="/js/script.voca.data.js" ></script>
+<script src="/js/script.voca.js" ></script>
+
+
+  <script>
+
+
+    // Biến dùng chung
+    let currentPart = 'phan1';
+    let currentIndex = 0;
+    let isFlipped = false;
+
+    // Chuyển phần
+    function showSection(id) {
+  currentPart = id; 
+  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+
+    // Bảng từ vựng
+    function showTable(section) {
+  currentPart = section;
+  document.getElementById(`${section}-table`).style.display = 'block';
+  document.getElementById(`${section}-flashcard`).style.display = 'none';
+  renderTable(section); // <- thêm dòng này để hiện bảng
+}
+
+
+    // Flashcard
+    function showFlashcards(section) {
+      currentPart = section;
+      currentIndex = 0;
+      isFlipped = false;
+      document.getElementById(`${section}-table`).style.display = 'none';
+      document.getElementById(`${section}-flashcard`).style.display = 'block';
+      renderCard();
+    }
+
+    function renderCard() {
+  const data = flashcardsData[currentPart];
+  const section = document.getElementById(currentPart);
+  const card = section.querySelector(".card"); // chọn đúng flashcard trong phần hiện tại
+
+  if (!card || !data) return;
+  card.textContent = isFlipped ? data[currentIndex].answer : data[currentIndex].question;
+}
+
+
+    function flipCard() {
+      isFlipped = !isFlipped;
+      renderCard();
+    }
+
+    function nextCard() {
+      const data = flashcardsData[currentPart];
+      currentIndex = (currentIndex + 1) % data.length;
+      isFlipped = false;
+      renderCard();
+    }
+
+    function prevCard() {
+      const data = flashcardsData[currentPart];
+      currentIndex = (currentIndex - 1 + data.length) % data.length;
+      isFlipped = false;
+      renderCard();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learn TOEIC</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.main.css">
+
+</head>
+<body>
+  <header>
+    <div class="abc">
+        <div><img src="image/owl.png" width="50"></div>
+        <a href="/">
+          <div class="name">Toeic <br>learning</div>
+        </a>
+    </div>    
+    <nav class="top-nav">
+      <a href="/" >Home</a>
+      <a href="/mainvoca" >Vocabulary</a>
+      <a href="/grammar" >Grammar</a>
+      <a href="/index2" >Test</a>
+      <a href="/auth/sign_up" id="signupLink">Sign up</a>
+      <a href="/auth/login" id="loginLink">Login</a>
+      <a href="#" id="logoutLink" onclick="logout()" style="display: none;">Log out</a>
+      <div class="circle" id="circleDisplay" style="display: none;">
+        <%= username ? username.charAt(0).toUpperCase() : '' %>
+      </div>
+    <script>
+      const user = localStorage.getItem("loggedInUser");
+      if (user) {
+        document.getElementById("circleDisplay").textContent = user.charAt(0).toUpperCase();
+        document.getElementById("circleDisplay").style.display = "inline-block"; 
+        document.getElementById("loginLink").style.display = "none";
+        document.getElementById("signupLink").style.display = "none";
+        document.getElementById("logoutLink").style.display = "inline";
+      }
+      
+
+      function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "/";  
+      }
+    </script>
+
+  </nav>
+  </header>
+  <section class="hero">
+    <div class="box">
+        <div class="box1">
+            <h1 >Learn English for the TOEIC</h1>
+            <p>Improve your skills with our practice exercises and mock exams.</p>
+           
+          <div class="features hidden"  id="boxSection" >
+            <a href="/grammar" >
+              <div class="feature-box">
+                <img src="https://img.icons8.com/ios-filled/50/9fa8da/combo-chart--v1.png" alt="Practice">
+                <h2 >Ngữ pháp TOEIC</h2>
+                <p>Hệ thống hóa các thì và cấu trúc câu thường gặp.</p>
+              </div>
+            </a> 
+            <a href="/mainvoca" >
+              <div class="feature-box">
+                <img src="https://img.icons8.com/ios-filled/50/9fa8da/task.png" alt="Mock Exams">
+                <h2 >Từ vựng theo chủ đề</h2>
+                <p>Ghi nhớ từ vựng với flashcards, ví dụ và audio.</p>
+              </div>
+            </a> 
+            <a href="/index2" >
+              <div class="feature-box">
+                <img src="https://img.icons8.com/ios-filled/50/f2c4b4/help.png" alt="Quizzes">
+                <h2 >Thi thử đề TOEIC</h2>
+                <p>Trải nghiệm làm đề thi mô phỏng có chấm điểm tự động.</p>
+              </div>
+            </a>   
+          </div>
+        </div>
+        <div class="box2"><img src="image/anh.png" width="300" /></div>
+    </div>    
+ 
+  </section>
+
+
+</body>
+</html>

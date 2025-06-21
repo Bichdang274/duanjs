@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phần 5: Câu chưa hoàn chỉnh</title>
+  <link rel = "stylesheet" href = "/css/style.css">
+  <style>
+  
+
+  .main-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 10%;
+  }
+
+  .quiz-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  h2 {
+    text-align: center;
+    color: var(--heading);
+    margin-bottom: 20px;
+  }
+
+  .question-number {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--heading);
+    margin-bottom: 10px;
+  }
+
+  .question {
+    font-size: 1.1em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .options button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: background 0.3s, border 0.3s;
+  }
+
+  .options button:hover:not(:disabled) {
+    background-color: #e9ecef;
+  }
+
+  .options button.selected {
+    background-color: #d0e8ff;
+    border-color: #007bff;
+  }
+
+  .options button.correct {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+  }
+
+  .options button.incorrect {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .btns button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btns button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .btns button:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+
+  .result {
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .result button {
+    margin: 10px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
+    .main-container {
+      padding: 20px 5%;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .question-block,
+    .result,
+    .quiz-card {
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .options button:active {
+      transform: scale(0.96);
+      transition: transform 0.1s;
+    }
+
+    .options button,
+    .btns button,
+    .result button {
+      transition: background 0.3s, border 0.3s, transform 0.2s, opacity 0.2s;
+    }
+</style>
+
+<body>
+   <!-- Thanh điều hướng ngang (trên cùng) -->
+  <header>
+    <div class="abc">
+        <div><img src="/image/owl.png" width="50"></div>
+        <div class="name">Toeic <br>learning</div>
+    </div>    
+    <nav class="top-nav">
+    <a href="/index2" ><img src="/image/back.png" width="80"></a>
+    </div>
+  </ul>
+</nav>
+  </header>
+
+  <div class="main-container">
+    <div class="quiz-card" id="quizCard">
+      <h2>Phần 5</h2>
+      <div class="question-number" id="questionNumber"></div>
+      <div class="question" id="questionText"></div>
+      <div class="options" id="optionsContainer"></div>
+      <div class="btns">
+        <button id="previousBtn" style="display:none;">Quay lại</button>
+        <button id="nextBtn" disabled>Tiếp tục</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+  <script>
+    const questions = [
+    {
+      question: "With the help of one of the IT technicians, the missing accounting files have been ______.",
+      options: ["recover", "recovers", "recovering", "recovered"],
+      answer: 3
+    },
+    {
+      question: "A private reception for gallery donors will be ______ on March 5, prior to the grand opening of the exhibit.",
+      options: ["held", "faced", "claimed", "made"],
+      answer: 0
+    },
+    {
+      question: "Aurora Furnishings is finding it difficult to make a profit in its ______ competitive market.",
+      options: ["increases", "increased", "increasingly", "increase"],
+      answer: 2
+    },
+    {
+      question: "A minor electrical malfunction was discovered by the pilot ______ before the plane took off.",
+      options: ["barely", "shortly", "absolutely", "exclusively"],
+      answer: 1
+    },
+    {
+      question: "We will make a final decision about changing the landscaping of the property after reviewing the ______ costs.",
+      options: ["estimation", "estimate", "estimated", "estimating"],
+      answer: 2
+    },
+    {
+      question: "MyHealth Co. has produced a wide range of vitamin supplements for ______ two decades.",
+      options: ["along", "during", "over", "when"],
+      answer: 2
+    },
+    {
+      question: "The April edition of Fishing and More magazine looks ______ different from previous issues because of the new art editor.",
+      options: ["completed", "complete", "completely", "completing"],
+      answer: 2
+    },
+    {
+      question: "The customer’s order ______ will be sent by e-mail within twenty-four hours.",
+      options: ["confirmation", "confirms", "confirmed", "confirm"],
+      answer: 0
+    },
+    {
+      question: "The maintenance team’s repair requests should be ______ in groups according to the urgency.",
+      options: ["organizing", "organize", "organized", "organizes"],
+      answer: 2
+    },
+    {
+      question: "Following Ms. Rivera’s ______ statement, the official awards ceremony for Plex Industries will commence.",
+      options: ["brief", "straight", "former", "steep"],
+      answer: 0
+    },
+    {
+      question: "Due to the high volume of foot traffic, the shop must polish its floors more than usual during the peak season.",
+      options: ["frequent", "frequented", "frequency", "frequently"],
+      answer: 3
+    },
+    {
+      question: "The Master Gardeners Club had to ______ its monthly meeting because the community center’s conference room was double-booked.",
+      options: ["prepare", "oppose", "postpone", "extend"],
+      answer: 2
+    },
+    {
+      question: "Financial advisors report that older investors tend to be ______ than their younger counterparts.",
+      options: ["cautious", "cautioned", "more cautious", "caution"],
+      answer: 2
+    },
+    {
+      question: "Mr. Albrecht’s ______ in replying to the HR director’s e-mail demonstrated that he was highly interested in the position.",
+      options: ["promptness", "prompted", "prompt", "promptly"],
+      answer: 0
+    },
+    {
+      question: "The soccer players usually practice on the main field at Waterbury Park, but they sometimes practice ______.",
+      options: ["everybody", "twice", "yet", "elsewhere"],
+      answer: 3
+    },
+    {
+      question: "The accountants were unable to produce a full report by the deadline but promised that ______ would give a summary of the important points.",
+      options: ["their", "themselves", "they", "theirs"],
+      answer: 2
+    },
+    {
+    question: "Despite having some problems with the sound system during the performance, the concert was an ______ experience for everyone.",
+    options: ["enjoyable", "enjoyment", "enjoys", "enjoyably"],
+    answer: 0
+    },
+    {
+      question: "______ the building has an excellent location and a modern interior, it is popular among visitors.",
+      options: ["In view of", "Provided that", "Other than", "Seeing that"],
+      answer: 3
+    },
+    {
+      question: "The Parks and Recreation Department offers ______ opportunities for volunteers to improve the community.",
+      options: ["reward", "rewards", "rewarded", "rewarding"],
+      answer: 1
+    },
+    {
+      question: "The vacant rooms on the inn’s second floor have ______ been cleaned.",
+      options: ["most", "every", "some", "all"],
+      answer: 3
+    },
+    {
+      question: "The short story cannot be reprinted ______ explicit permission from the writer.",
+      options: ["without", "regarding", "among", "unlike"],
+      answer: 0
+    },
+    {
+      question: "The restaurant has a ______ decorated room that is perfect for hosting children’s parties.",
+      options: ["cheerful", "cheerfully", "cheerfulness", "cheer"],
+      answer: 0
+    },
+    {
+      question: "A wildlife expert is scheduled to give a talk on the ______ that the factory has had on the surrounding forest.",
+      options: ["components", "degree", "requirements", "impact"],
+      answer: 3
+    },
+    {
+      question: "The landlord raised the monthly rent for the first time in several years, and ______ so.",
+      options: ["reasonable", "reasonably", "reason", "reasons"],
+      answer: 1
+    },
+    {
+      question: "As long as there are no further delays, the factory will be fully ______ by June 18.",
+      options: ["operational", "operate", "operates", "operation"],
+      answer: 0
+    },
+    {
+      question: "Thanks to his experience, Mr. Warren is ______ capable of completing the job on his own.",
+      options: ["certainly", "certain", "certainty", "certify"],
+      answer: 0
+    },
+    {
+    question: "Because of ______ fuel costs, some people are choosing to stay home for the summer vacation rather than drive to tourist sites.",
+    options: ["rising", "above", "dependable", "lengthy"],
+    answer: 0
+    },
+    {
+      question: "The green light on the side of the water purifier lights up ______ the filter needs to be replaced.",
+      options: ["likewise", "whenever", "therefore", "whereas"],
+      answer: 1
+    },
+    {
+      question: "Two items in Ms. Burke’s order were out of stock, so her invoice was adjusted ______.",
+      options: ["continuously", "accordingly", "immeasurably", "recognizably"],
+      answer: 1
+    },
+    {
+      question: "The notice indicated that a first-aid training course will be provided free of charge to ______ next month.",
+      options: ["residents", "residence", "residential", "resides"],
+      answer: 0
+    }
+  ];
+
+
+    let current = 0;
+    let userAnswers = Array(questions.length).fill(null);
+    let reviewMode = false;
+    let reviewIndices = [];
+
+    let questionNumber = document.getElementById("questionNumber");
+    let questionText = document.getElementById("questionText");
+    let optionsContainer = document.getElementById("optionsContainer");
+    let previousBtn = document.getElementById("previousBtn");
+    let nextBtn = document.getElementById("nextBtn");
+    let quizCard = document.getElementById("quizCard");
+
+    function allAnswered() {
+      return userAnswers.every(ans => ans !== null);
+    }
+
+    function renderQuestion() {
+      const index = reviewMode ? reviewIndices[current] : current;
+      const q = questions[index];
+      questionNumber.textContent = `Câu ${index + 1}`;
+      questionText.textContent = q.question;
+      optionsContainer.innerHTML = `<div class="question-block"></div>`;
+      const block = optionsContainer.querySelector(".question-block");
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+
+        if (reviewMode) {
+          btn.disabled = true;
+          if (idx === q.answer) btn.classList.add("correct");
+          if (userAnswers[index] === idx && idx !== q.answer) {
+            btn.classList.add("incorrect");
+          }
+        } else {
+          if (userAnswers[index] === idx) btn.classList.add("selected");
+          btn.onclick = () => {
+            [...optionsContainer.children].forEach(b => b.classList.remove("selected"));
+            btn.classList.add("selected");
+            userAnswers[index] = idx;
+            nextBtn.disabled = false;
+            nextBtn.textContent = allAnswered() && current === questions.length - 1 ? "Nộp bài" : "Tiếp tục";
+          };
+        }
+
+        block.appendChild(btn);
+      });
+
+      previousBtn.style.display = (current === 0) ? "none" : "inline-block";
+
+      nextBtn.disabled = userAnswers[index] === null;
+      nextBtn.textContent = allAnswered() && current === questions.length - 1 && !reviewMode ? "Nộp bài" : "Tiếp tục";
+    }
+
+    function showResult() {
+      const score = userAnswers.filter((ans, i) => ans === questions[i].answer).length;
+      reviewIndices = questions.map((_, i) => i).filter(i => userAnswers[i] !== questions[i].answer);
+      const hasMistakes = reviewIndices.length > 0;
+
+      quizCard.innerHTML = `
+        <div class="result">
+          <h2>Cảm ơn bạn đã làm bài!</h2>
+          <p>Điểm của bạn: ${score}/${questions.length}</p>
+          <div class="btns">
+            <button onclick="tryAgain()">Thử lại</button>
+            <button onclick="goBack()">Quay lại</button>
+            ${hasMistakes ? `<button onclick="startReview()">Review đáp án</button>` : ""}
+          </div>
+        </div>
+      `;
+    }
+
+    function startReview() {
+      reviewMode = true;
+      current = 0;
+
+      quizCard.innerHTML = `
+        <h2>Review Incorrect Answers</h2>
+        <div class="question-number" id="questionNumber"></div>
+        <div class="question" id="questionText"></div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="btns">
+          <button id="previousBtn">Quay lại</button>
+          <button id="nextBtn">Tiếp tục</button>
+        </div>
+      `;
+
+      // Rebind elements
+      questionNumber = document.getElementById("questionNumber");
+      questionText = document.getElementById("questionText");
+      optionsContainer = document.getElementById("optionsContainer");
+      previousBtn = document.getElementById("previousBtn");
+      nextBtn = document.getElementById("nextBtn");
+
+      // Render logic exactly like part1
+      function renderReview() {
+        const qIndex = reviewIndices[current];
+        const q = questions[qIndex];
+
+        questionNumber.textContent = `Review (${current + 1}/${reviewIndices.length}) - (Câu: ${qIndex + 1})`;
+        questionText.textContent = q.question;
+
+        optionsContainer.innerHTML = `<div class="question-block"></div>`;
+        const block = optionsContainer.querySelector(".question-block");
+
+        q.options.forEach((opt, idx) => {
+          const btn = document.createElement("button");
+          btn.textContent = opt;
+          btn.disabled = true;
+
+          if (idx === q.answer) btn.classList.add("correct");
+          if (userAnswers[qIndex] === idx && userAnswers[qIndex] !== q.answer) {
+            btn.classList.add("incorrect");
+          }
+
+          block.appendChild(btn);
+        });
+
+        previousBtn.style.display = (currentReview === 0) ? "none" : "inline-block";
+
+        nextBtn.textContent = current === reviewIndices.length - 1 ? "Hoàn tất" : "Tiếp tục";
+      }
+
+      previousBtn.onclick = () => {
+        if (current > 0) {
+          current--;
+          renderReview();
+        }
+      };
+
+      nextBtn.onclick = () => {
+        if (current < reviewIndices.length - 1) {
+          current++;
+          renderReview();
+        } else {
+          showResult();
+        }
+      };
+
+      renderReview();
+    }
+
+    function tryAgain() {
+      location.reload();
+    }
+
+    function goBack() {
+      window.location.href = "/index2";
+    }
+
+    nextBtn.onclick = () => {
+      if (reviewMode) {
+        if (current < reviewIndices.length - 1) {
+          current++;
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      } else {
+        if (current < questions.length - 1) {
+          current++;
+          renderQuestion();
+        } else if (allAnswered()) {
+          showResult();
+        }
+      }
+    };
+
+    previousBtn.onclick = () => {
+      if (current > 0) {
+        current--;
+        renderQuestion();
+      }
+    };
+
+    renderQuestion();
+  </script>
+</body>
+</html>

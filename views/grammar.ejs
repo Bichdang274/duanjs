@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuyển phần nội dung</title>  
+  <link rel = "stylesheet" href = "/css/style.css">
+ 
+  <style>
+    .box2 {
+    width: 300px;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    height: 500px;
+    overflow-y: auto;
+    scrollbar-width: none;           /* Firefox */
+  }
+
+  .box2::-webkit-scrollbar {         /* Chrome, Safari, Edge */
+    display: none;
+  }
+
+  h2{
+    text-align: center;
+  }
+    .box2 a {
+      display: block;
+      margin: 8px 0;
+      text-decoration: none;
+      color:rgb(255,254,249);
+      background-color:rgb(159,168,218);
+      height:auto;
+      width:250px;
+      cursor: pointer;
+      margin-bottom:10px ;
+      padding:15px;
+      border-radius: 10px; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+      
+      
+    }
+
+
+    .section {
+      display: none;
+      background-color: #ffffff;
+      padding: 0 40px;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    }
+    
+  .section.active {
+    display: block;
+    width: 1100px;
+    height: 600px;
+    overflow-y: auto;
+    scrollbar-width: none; 
+  }
+
+  .section.active::-webkit-scrollbar {
+    display: none;
+  }
+
+
+
+    .box{
+        display:flex;
+        gap: 40px;
+    }
+
+    h1,h2{
+      color:rgb(243,118,78);
+      font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+    }
+    p,h3,ul,li,h4{
+      color:#3a3a3a;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="abc">
+        <div><img src="image/owl.png" width="50"></div>
+        <a href="/">
+          <div class="name">Toeic <br>learning</div>
+        </a>
+    </div>    
+    <nav class="top-nav">
+      <a href="/" >Home</a>
+      <a href="/mainvoca" >Vocabulary</a>
+      <a href="/grammar" >Grammar</a>
+      <a href="/index2" >Test</a>
+      <a href="/auth/sign_up" id="signupLink">Sign up</a>
+      <a href="/auth/login" id="loginLink">Login</a>
+      <a href="#" id="logoutLink" onclick="logout()" style="display: none;">Log out</a>
+      <div class="circle" id="circleDisplay"style="display: none;" >
+        <%= username ? username.charAt(0).toUpperCase() : '' %>
+      </div>
+
+    <script>
+      const user = localStorage.getItem("loggedInUser");
+      if (user) {
+        document.getElementById("circleDisplay").textContent = user.charAt(0).toUpperCase();
+        document.getElementById("circleDisplay").style.display = "inline-block"; 
+        document.getElementById("loginLink").style.display = "none";
+        document.getElementById("signupLink").style.display = "none";
+        document.getElementById("logoutLink").style.display = "inline";
+      }
+
+      function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "/";  
+      }
+    </script>
+
+  </nav>
+  </header>
+  <div class="box">
+    <div class="left-panel">
+    <h2>Tóm tắt nội dung</h2>
+    <nav class="box2">     
+      <a onclick="showSection('phan1')">Thì (tenses hoặc verb tenses)</a>
+      <a onclick="showSection('phan2')">Dạng thức của động từ (gerund and infinitive)</a>
+      <a onclick="showSection('phan3')">Động từ khuyết thiếu (modal verbs)</a>
+      <a onclick="showSection('phan4')">Câu so sánh (comparison) (modal verbs)</a>
+      <a onclick="showSection('phan5')">Câu bị động (passive voice)</a>
+      <a onclick="showSection('phan6')">Sự hòa hợp giữa chủ ngữ và động từ (subject–verb agreement)</a>
+      <a onclick="showSection('phan7')">Câu điều kiện (conditional sentences)</a>
+      <a onclick="showSection('phan8')">Mệnh đề (clause)</a>
+      <a onclick="showSection('phan9')">Câu giả định (subjunctive)</a>
+      <a onclick="showSection('phan10')">Quá khứ phân từ (past participle) và hiện tại phân từ (present participle)</a>  
+      <a onclick="showSection('phan11')">Các loại câu hỏi hay xuất hiện trong tiếng Anh (the question)</a>
+      <a onclick="showSection('phan12')">Từ loại (parts of speech)</a>                                  
+    </nav>
+    </div>
+
+    <div id="phan1" class="section active">
+      <h1>Các thì trong tiếng Anh</h1>
+    
+      <p>
+        Đối với ngữ pháp tiếng Anh nói chung và ngữ pháp TOEIC nói riêng, nắm rõ về các thì là yêu cầu bắt buộc trong việc
+        xây dựng một nền tảng ngữ pháp vững chắc.
+      </p>
+    
+      <p>
+        <strong>Thì (tense)</strong> hay <strong>thì của động từ (verb tense)</strong> là cách biến đổi động từ để thêm nét
+        nghĩa về thời gian cho động từ đó. Dựa vào thì, người học có thể biết động từ trong câu xảy ra vào thời gian nào.
+      </p>
+    
+      <p>
+        Thì của động từ trong tiếng Anh được chia thành <strong>3 thì chính</strong>: thì hiện tại, thì quá khứ, thì tương
+        lai.
+      </p>
+    
+      <p>
+        Trong mỗi thì của động từ ta có <strong>4 thể của động từ (aspect)</strong> bao gồm: thể đơn, thể tiếp diễn, thể
+        hoàn thành, thể hoàn thành tiếp diễn.
+      </p>
+    
+      <p>
+        Tổng cộng, có tất cả <strong>12 thì trong tiếng Anh</strong>, cụ thể là:
+      </p>
+    
+      <h2>Thì hiện tại (Simple tense)</h2>
+      <ul>
+        <li>Hiện tại đơn (Present simple) - <em>She sleeps</em></li>
+        <li>Hiện tại tiếp diễn (Present progressive)</li>
+        <li>Hiện tại hoàn thành (Present perfect)</li>
+        <li>Hiện tại hoàn thành tiếp diễn (Present perfect progressive)</li>
+      </ul>
+    
+      <h2>Thì quá khứ (Past tense)</h2>
+      <ul>
+        <li>Quá khứ đơn (Past simple)</li>
+        <li>Quá khứ tiếp diễn (Past progressive)</li>
+        <li>Quá khứ hoàn thành (Past perfect)</li>
+        <li>Quá khứ hoàn thành tiếp diễn (Past perfect progressive)</li>
+      </ul>
+    
+      <h2>Thì tương lai (Future tense)</h2>
+      <ul>
+        <li>Tương lai đơn (Future simple)</li>
+        <li>Tương lai tiếp diễn (Future progressive)</li>
+        <li>Tương lai hoàn thành (Future perfect)</li>
+        <li>Tương lai hoàn thành tiếp diễn (Future perfect progressive)</li>
+      </ul>    
+    </div>
+
+    <div id="phan2" class="section">
+      <h1>Dạng thức của động từ (gerund and infinitive)</h1>
+      <h2>Hai dạng thức của động từ thường gặp nhất trong ngữ pháp TOEIC là:</h2>
+      <ul>
+        <li><strong>To-infinitive</strong> (<code>to V</code> - động từ nguyên thể có “to”)</li>
+        <li><strong>Gerund</strong> (<code>V-ing</code> - danh động từ)</li>
+      </ul>
+
+      <h3>Chức năng của <code>to V</code> và <code>V-ing</code> trong câu:</h3>
+
+      <p><strong>To V</strong> có thể là chủ ngữ, tân ngữ hoặc bổ ngữ trong câu.</p>
+      <p><em>Ví dụ:</em></p>
+      <ul>
+        <li><strong>To V là chủ ngữ:</strong> <em>To become an actor was my dream.</em> (Trở thành một diễn viên từng là ước mơ của tôi.)</li>
+        <li><strong>To V là tân ngữ:</strong> <em>He decided to confess.</em> (Cậu ta quyết định tỏ tình.)</li>
+        <li><strong>To V là bổ ngữ:</strong> <em>What you need to do now is to apologize to mom.</em> (Điều em cần làm bây giờ là đi xin lỗi mẹ.)</li>
+      </ul>
+
+      <p><strong>V-ing</strong> là động từ có đuôi -ing và giữ chức năng như một danh từ trong câu.</p>
+      <p><em>Ví dụ:</em></p>
+      <ul>
+        <li><strong>V-ing là chủ ngữ, tân ngữ, bổ ngữ tương tự như to V:</strong> <em>Becoming an actor was my dream.</em> (Trở thành một diễn viên từng là ước mơ của tôi.)</li>
+        <li><strong>V-ing đứng sau tính từ sở hữu:</strong> <em>His going to work late was the reason why he got fired after 1 week.</em> (Cái việc anh ta cứ đi làm muộn chính là lý do anh ta bị sa thải chỉ sau 1 tuần.)</li>
+        <li><strong>V-ing đứng sau giới từ:</strong> <em>She is really good at making people around her comfortable.</em> (Cô ấy rất giỏi trong việc khiến những người xung quanh cô cảm thấy thoải mái, dễ chịu.)</li>
+      </ul>
+    </div>
+
+    <div id="phan3" class="section">
+      <h1>Động từ khuyết thiếu (Modal Verbs)</h1>
+      <p>Gọi là động từ khuyết thiếu vì chúng không có đầy đủ chức năng và tính chất của động từ thường. Chúng chỉ được sử dụng để bổ nghĩa cho động từ thường,</p>
+      <p> không được dùng làm động từ chính trong câu.</p>
+
+      <h3>Các động từ khuyết thiếu thường gặp:</h3>
+      <ul>
+        <li><strong>Can, Could:</strong> có thể làm gì</li>
+        <li><strong>May, Might:</strong> có lẽ làm gì</li>
+        <li><strong>Must, Have to:</strong> phải làm gì</li>
+        <li><strong>Will, Would:</strong> sẽ làm gì</li>
+        <li><strong>Shall, Should, Ought to:</strong> nên làm gì</li>
+      </ul>
+
+      <p><strong>Cấu trúc:</strong> Modal verbs + V nguyên thể</p>
+
+      <p><em>Ví dụ:</em> <br>
+      <em>You should go to bed early and shouldn’t scroll TikTok videos before sleeping.</em> (Bạn nên đi ngủ sớm và không nên lướt TikTok trước khi ngủ.)</p>
+
+      <h2>Động từ bán khuyết thiếu (Semi-modal Verbs)</h2>
+      <p>Bên cạnh động từ khuyết thiếu còn có động từ bán khuyết thiếu. Sở dĩ có tên gọi này vì bên cạnh chức năng bổ nghĩa cho động từ thường (như động từ khuyết thiếu),</p>
+      <p>các động từ bán khuyết thiếu còn có thể được sử dụng làm động từ chính trong câu.</p>
+
+      <h3>Ba động từ bán khuyết thiếu phổ biến nhất:</h3>
+      <ul>
+        <li><strong>Dare</strong></li>
+        <li><strong>Need</strong></li>
+        <li><strong>Used to</strong></li>
+      </ul>
+
+      <p><em>Ví dụ:</em></p>
+      <ul>
+        <li><strong>Khi được sử dụng để bổ nghĩa cho động từ thường:</strong><br>
+          <em>He needn’t go to school on Friday.</em> (Cậu ấy không phải đến trường vào thứ Sáu.)
+        </li>
+        <li><strong>Khi được sử dụng như động từ chính trong câu:</strong><br>
+          <em>He doesn’t need to go to school on Friday.</em> (Cậu ấy không phải đến trường vào thứ Sáu.)
+        </li>
+      </ul>
+
+    </div>
+
+    <div id="phan4" class="section">
+      <h1>Câu so sánh (comparison)</h1>
+      <h2>Trong tiếng Anh có 3 cách so sánh chính:</h2>
+
+      <h3>1. So sánh bằng:</h3>
+      <p><code>as/not so + adj/adv + as</code></p>
+      <p><em>Ví dụ:</em> as small as, not so humorous as, not as carefully as, not so beautifully as,...</p>
+
+      <h3>2. So sánh hơn (giữa 2 đối tượng)</h3>
+
+      <h4>Tính từ và trạng từ ngắn:</h4>
+      <ul>
+        <li><strong>So sánh hơn:</strong> <code>adj-er/adv-er + than</code></li>
+        <li><em>Ví dụ:</em> bigger than, taller than, faster than,...</li>
+      </ul>
+
+      <h4>Tính từ và trạng từ dài:</h4>
+      <ul>
+        <li><strong>So sánh hơn:</strong> <code>more + adj/adv + than</code></li>
+        <li><em>Ví dụ:</em> more intelligent than, more beautiful than, more carefully than,...</li>
+      </ul>
+
+      <h3>3. So sánh hơn nhất (từ 3 đối tượng trở lên)</h3>
+
+      <h4>Tính từ và trạng từ ngắn:</h4>
+      <ul>
+        <li><strong>So sánh hơn nhất:</strong> <code>the + adj-est/adv-est</code></li>
+        <li><em>Ví dụ:</em> the biggest, the tallest, the fastest,...</li>
+      </ul>
+
+      <h4>Tính từ và trạng từ dài:</h4>
+      <ul>
+        <li><strong>So sánh hơn nhất:</strong> <code>the most + adj/adv</code></li>
+        <li><em>Ví dụ:</em> the most intelligent, the most beautiful, the most carefully,...</li>
+      </ul>
+
+      <h3>Một số dạng so sánh đặc biệt:</h3>
+
+      <h4>So sánh gấp nhiều lần (so sánh bội số)</h4>
+      <ul>
+        <li><em>His house is twice as big as mine.</em> (Nhà anh ta lớn gấp đôi nhà tôi.)</li>
+        <li><em>She earned three times as much as me as a translator.</em> (Cô ấy kiếm nhiều tiền gấp 3 lần tôi vị trí biên dịch viên.)</li>
+      </ul>
+
+      <h4>So sánh kép (càng - càng)</h4>
+      <p><em>Ví dụ:</em> <br>
+        <em>The older I get, the more appreciative I become of good things that happen to me.</em> <br>
+        (Càng lớn, tôi càng trân trọng hơn những điều tốt đẹp xảy ra với tôi.)
+      </p>
+
+    </div>
+
+    <div id="phan5" class="section">
+      <h1>Câu bị động (Passive Voice)</h1>
+
+      <p>Câu bị động trong tiếng Anh được sử dụng với mục đích nhấn mạnh vào đối tượng chịu tác động của một hành động nào đó.</p>
+
+      <p><strong>Cấu trúc:</strong> <code>Be + Vpp</code></p>
+
+      <h3>4 bước chuyển từ câu chủ động sang câu bị động</h3>
+
+      <p><strong>Ví dụ:</strong> Chuyển câu chủ động sau thành câu bị động:</p>
+      <p><em>The government organizes the festivals annually.</em> <br>(Chính phủ tổ chức những lễ hội này mỗi năm một lần.)</p>
+
+      <h4>Bước 1: Chuyển đổi tân ngữ trong câu chủ động thành chủ ngữ và đưa về đầu làm chủ ngữ</h4>
+      <p>Tân ngữ ở câu chủ động là <strong>"festivals"</strong>, đưa <strong>"festivals"</strong> lên làm chủ ngữ ở câu bị động:</p>
+      <p><strong>The festivals…</strong></p>
+
+      <h4>Bước 2: Xác định thì của câu thông qua động từ chính</h4>
+      <p>Động từ chính là <strong>"organizes"</strong> được chia ở thì hiện tại đơn.</p>
+
+      <h4>Bước 3: Chuyển đổi động từ về dạng bị động <code>be + Vpp</code></h4>
+      <p>Động từ bị động của "organizes" là <strong>"be organized"</strong>.</p>
+      <p>Vì thì của câu là hiện tại đơn, chủ ngữ "the festivals" là ngôi thứ 3 số nhiều nên "be" sẽ chuyển thành <strong>"are"</strong>.</p>
+      <p><strong>The festivals are organized…</strong></p>
+
+      <h4>Bước 4: Chuyển chủ ngữ câu chủ động thành tân ngữ, đưa về cuối câu và thêm "by"</h4>
+      <p>Chủ ngữ câu chủ động là <strong>"The government"</strong>, đưa về cuối câu và thêm <strong>"by"</strong> phía trước.</p>
+      <p>Vì chủ ngữ đã xác định nên không được lược bỏ.</p>
+      <p><strong>The festivals are organized by the government annually.</strong></p>
+    </div>
+
+    <div id="phan6" class="section">
+      <h1>Sự hòa hợp giữa chủ ngữ và động từ (Subject–Verb Agreement)</h1>
+
+      <p>Sự hòa hợp giữa chủ ngữ và động từ là sự biến đổi của động từ để phù hợp với chủ ngữ (số nhiều, số ít hoặc không đếm được).</p>
+
+      <h3>Một số quy tắc cần nhớ:</h3>
+
+      <ul>
+        <li>
+          <strong>Chủ ngữ là danh từ đếm được số ít hoặc không đếm được</strong> thì chia động từ số ít<br>
+          <em>Ví dụ:</em> Your house <strong>is</strong> very beautiful. (Nhà của bạn thật đẹp).
+        </li>
+
+        <li>
+          <strong>Chủ ngữ là danh từ đếm được số nhiều</strong> thì chia động từ số nhiều<br>
+          <em>Ví dụ:</em> Those flowers <strong>bloom</strong> in the winter. (Những bông hoa này nở rộ vào mùa đông.)
+        </li>
+
+        <li>
+          <strong>Chủ ngữ là danh động từ (V-ing)</strong> thì chia động từ số ít<br>
+          <em>Ví dụ:</em> Living in the city <strong>is</strong> suffocating sometimes. (Sống ở chốn thành thị thỉnh thoảng cảm giác rất ngột ngạt.)
+        </li>
+
+        <li>
+          <strong>Chủ ngữ có “every”, “any”, “no”, “each”</strong> thì động từ chia số ít<br>
+          <em>Ví dụ:</em> Every student <strong>needs</strong> to take this test. (Mọi học sinh đều phải làm bài kiểm tra này.)
+        </li>
+
+        <li>
+          Với cấu trúc <code>either...or...</code> và <code>neither...nor...</code>, động từ chia theo danh từ sau <code>or/nor</code><br>
+          <em>Ví dụ:</em> Neither the government nor normal people <strong>are</strong> able to deal with this problem. (Cả chính phủ và người dân đều không thể giải quyết vấn đề này.)
+        </li>
+      </ul>
+    </div>
+
+    <div id="phan7" class="section">
+      <h1>Câu điều kiện (Conditional Sentences)</h1>
+
+      <p>Câu điều kiện là các câu phức diễn đạt mối quan hệ “nếu…thì” giữa 2 mệnh đề.</p>
+      <p><strong>Cấu trúc:</strong> <code>If + clause, main clause</code></p>
+      <ul>
+        <li><strong>If + clause:</strong> (If + S + V) – mệnh đề điều kiện</li>
+        <li><strong>Main clause:</strong> (S + V) – mệnh đề chính</li>
+      </ul>
+
+      <h3>Các loại câu điều kiện:</h3>
+
+      <h4>1. Loại 0</h4>
+      <p><strong>Cấu trúc:</strong> If + hiện tại đơn, hiện tại đơn</p>
+      <p><strong>Cách dùng:</strong> Diễn đạt một quy luật hoặc sự thật hiển nhiên.</p>
+      <p><strong>Ví dụ:</strong> If you throw a stone onto water, it sinks. (Nếu ném một hòn đá xuống nước thì nó chìm.)</p>
+
+      <h4>2. Loại 1</h4>
+      <p><strong>Cấu trúc:</strong> If + hiện tại đơn, will + V</p>
+      <p><strong>Cách dùng:</strong> Diễn đạt điều có thể xảy ra trong tương lai.</p>
+      <p><strong>Ví dụ:</strong> If the weather is good, we will go climbing. (Nếu thời tiết đẹp thì chúng ta sẽ đi leo núi.)</p>
+
+      <h4>3. Loại 2</h4>
+      <p><strong>Cấu trúc:</strong> If + quá khứ đơn, would + V</p>
+      <p><strong>Cách dùng:</strong> Diễn đạt điều không có thật ở hiện tại (giả định).</p>
+      <p><strong>Ví dụ:</strong> If they paid me twice as much as my current salary, I would continue working for them. (Nếu họ trả tôi gấp đôi lương hiện tại, tôi sẽ tiếp tục làm việc cho họ.)</p>
+
+      <h4>4. Loại 3</h4>
+      <p><strong>Cấu trúc:</strong> If + quá khứ hoàn thành, would have + Vpp</p>
+      <p><strong>Cách dùng:</strong> Diễn đạt điều không có thật ở quá khứ.</p>
+      <p><strong>Ví dụ:</strong> If you had not helped me, I wouldn’t have been able to finish the assignment. (Nếu bạn không giúp tôi, tôi đã không thể hoàn thành bài tập đó.)</p>
+
+      <h4>5. Loại 4 (kết hợp loại 2 + 3)</h4>
+      <p><strong>Cấu trúc:</strong> If + quá khứ đơn, would have + Vpp</p>
+      <p><strong>Cách dùng:</strong> Nếu điều này không có thật ở hiện tại thì điều kia không thể xảy ra ở quá khứ.</p>
+      <p><strong>Ví dụ:</strong> If they didn’t love each other, they would have not married. (Nếu họ không yêu nhau thì họ đã không cưới nhau.)</p>
+
+      <h4>6. Loại 5 (kết hợp loại 3 + 2)</h4>
+      <p><strong>Cấu trúc:</strong> If + quá khứ hoàn thành, would + V</p>
+      <p><strong>Cách dùng:</strong> Nếu điều này không có thật ở quá khứ thì điều kia không thể xảy ra ở hiện tại.</p>
+      <p><strong>Ví dụ:</strong> If you had listened to my advice, you would be rich now. (Nếu bạn nghe lời tôi ngày đó thì giờ đã giàu rồi.)</p>
+    </div>
+
+    <div id="phan8" class="section">
+      <h1>Mệnh đề (Clause)</h1>
+
+      <p>Mệnh đề thường là một câu đơn. Một câu hoàn chỉnh có thể được cấu thành từ một mệnh đề (câu đơn) hoặc nhiều mệnh đề (câu ghép, câu phức, câu phức-ghép).</p>
+
+      <h3>1. Phân loại mệnh đề</h3>
+      <ul>
+        <li><strong>Mệnh đề độc lập (Independent clause):</strong> có thể đứng một mình như một câu hoàn chỉnh, hoặc kết hợp với mệnh đề khác để tạo thành câu phức.</li>
+        <li><strong>Mệnh đề phụ thuộc (Dependent clause):</strong> có chủ ngữ và động từ nhưng không thể đứng độc lập như một câu hoàn chỉnh. Phải đi kèm với mệnh đề độc lập.</li>
+      </ul>
+
+      <h4>Ví dụ:</h4>
+      <ul>
+        <li><strong>Mệnh đề độc lập:</strong> She became a scholar.</li>
+        <li><strong>Mệnh đề phụ thuộc:</strong> Although her family couldn’t afford her an education, she became a scholar.</li>
+      </ul>
+
+      <h3>2. Các loại mệnh đề phụ thuộc</h3>
+
+      <h4>2.1. Mệnh đề danh từ (Noun clause)</h4>
+      <p>Chức năng như một danh từ: làm chủ ngữ, tân ngữ hoặc bổ ngữ.</p>
+      <p><strong>Ví dụ:</strong> That she failed the entrance exam was a shock to her family. <br>(Chuyện cô ấy trượt kỳ thi đại học là một cú sốc đối với gia đình.)</p>
+
+      <h4>2.2. Mệnh đề trạng ngữ (Adverbial clause)</h4>
+      <p>Bổ nghĩa cho mệnh đề chính về: nguyên nhân, kết quả, điều kiện, thời gian, nơi chốn, cách thức,...</p>
+      <p><strong>Ví dụ:</strong> Because she studied hard, she passed the exam. <br>(Bởi vì cô ấy đã học hành chăm chỉ, cô đã vượt qua kỳ thi.)</p>
+
+      <h4>2.3. Mệnh đề tính từ (Adjective clause / Relative clause)</h4>
+      <p>Bổ nghĩa cho danh từ hoặc đại từ, thường bắt đầu bằng who, whom, which, that, whose,...</p>
+      <p><strong>Ví dụ:</strong> The handsome man who is standing over there is my husband. <br>(Người đàn ông đẹp trai đang đứng ở kia chính là chồng tôi.)</p>
+
+      <h4>2.4. Mệnh đề điều kiện (Conditional clause)</h4>
+      <p>Diễn tả điều kiện, thường bắt đầu với “if”. Có thể là điều kiện thực tế hoặc giả định.</p>
+      <p><strong>Ví dụ:</strong> If I were you, I would pay more attention to studying. <br>(Nếu tôi là bạn, tôi sẽ chú ý học hành hơn.)</p>
+
+    </div>
+
+    <div id="phan9" class="section">
+      <h1>Câu Giả Định (Subjunctive)</h1>
+
+      <p>Trong tiếng Anh, câu giả định (subjunctive sentences) dùng để diễn tả mong muốn, yêu cầu, đề xuất, hay các tình huống không có thật. Có ba dạng chính:</p>
+
+      <ol>
+        <li>Hiện tại giả định (Present Subjunctive)</li>
+        <li>Quá khứ giả định (Past Subjunctive)</li>
+        <li>Quá khứ hoàn thành giả định (Past Perfect Subjunctive)</li>
+      </ol>
+
+      <h3>1. Hiện tại giả định (Present Subjunctive)</h3>
+      <p><strong>Cấu trúc:</strong></p>
+      <ul>
+        <li>S + V (Subjunctive) + that + S + (not) + V nguyên thể</li>
+        <li>It is/was + adj (Subjunctive) + that + S + (not) + V nguyên thể</li>
+      </ul>
+
+      <p><strong>Động từ (V) thường gặp:</strong> suggest, recommend, advise, request, order,...</p>
+      <p><strong>Tính từ (adj) thường gặp:</strong> essential, necessary, important, imperative, advisable, recommended,...</p>
+
+      <p><strong>Ví dụ:</strong></p>
+      <ul>
+        <li>The doctor <u>advised</u> that she <u>stop</u> going to bed at 3am.</li>
+        <li>It is <u>essential</u> that he <u>not stay</u> up late.</li>
+      </ul>
+
+      <h3>2. Quá khứ giả định (Past Subjunctive)</h3>
+      <p>Dùng trong các tình huống không thật ở hiện tại. Thường xuất hiện trong:</p>
+      <ul>
+        <li><strong>Câu điều kiện loại 2:</strong> If + S + V quá khứ đơn, ...</li>
+        <li><strong>Các cấu trúc:</strong> if only, wish, would rather/sooner, it's high/about time, as if/as though</li>
+      </ul>
+
+      <p><strong>Ví dụ:</strong></p>
+      <ul>
+        <li>If I <u>were</u> rich, I would travel the world. (Tôi không giàu, nên tôi không thể đi du lịch vòng quanh thế giới)</li>
+        <li>I <u>wish</u> she <u>were</u> here now. (Ước gì cô ấy có mặt ở đây bây giờ)</li>
+        <li>He acts as if he <u>knew</u> everything. (Anh ta cư xử như thể anh ta biết mọi thứ – nhưng thực tế không phải vậy)</li>
+      </ul>
+
+      <h3>3. Quá khứ hoàn thành giả định (Past Perfect Subjunctive)</h3>
+      <p>Dùng để diễn tả điều không thật trong quá khứ. Thường gặp trong:</p>
+      <ul>
+        <li><strong>Câu điều kiện loại 3:</strong> If + S + had + Vpp, ...</li>
+        <li><strong>Các cấu trúc:</strong> if only, wish, would rather/sooner, as if/as though</li>
+      </ul>
+
+      <p><strong>Ví dụ:</strong></p>
+      <ul>
+        <li>If she <u>had studied</u> harder, she would have passed the exam. (Cô ấy đã không học chăm, nên cô ấy trượt)</li>
+        <li>I <u>wish</u> I <u>hadn't said</u> that. (Ước gì tôi đã không nói điều đó)</li>
+        <li>It’s about time you <u>had finished</u> your homework. (Đáng ra bạn nên hoàn thành bài tập từ lâu rồi)</li>
+      </ul>
+    </div>
+
+    <div id="phan10" class="section">
+      <h1>Quá khứ phân từ (Past Participle – Vpp) và Hiện tại phân từ (Present Participle – V-ing)</h1>
+
+      <h3>1. Quá khứ phân từ (Past Participle – Vpp)</h3>
+      <p><strong>Gồm 2 dạng:</strong></p>
+      <ul>
+        <li><strong>Động từ có quy tắc:</strong> động từ nguyên thể + <code>–ed</code></li>
+        <li><strong>Động từ bất quy tắc:</strong> cần học thuộc (go → gone, do → done,...)</li>
+      </ul>
+
+      <p><strong>Ứng dụng của Vpp:</strong></p>
+      <ul>
+        <li><strong>Trong các thì hoàn thành:</strong>
+          <ul>
+            <li>Hiện tại hoàn thành: <code>have/has + Vpp</code></li>
+            <li>Quá khứ hoàn thành: <code>had + Vpp</code></li>
+            <li>Tương lai hoàn thành: <code>will have + Vpp</code></li>
+            <li><em>Ví dụ:</em> I have <u>played</u> the piano for 7 years.</li>
+          </ul>
+        </li>
+        <li><strong>Trong thể bị động:</strong> <code>be + Vpp</code>
+          <ul>
+            <li><em>Ví dụ:</em> She was <u>given</u> an award for her contribution.</li>
+          </ul>
+        </li>
+        <li><strong>Dùng như tính từ:</strong> chỉ cảm xúc/trạng thái (của người)
+          <ul>
+            <li><em>Ví dụ:</em> He was <u>interested</u> in this question.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>2. Hiện tại phân từ (Present Participle – V-ing)</h3>
+      <p><strong>Dạng duy nhất:</strong> động từ nguyên thể + <code>–ing</code></p>
+
+      <p><strong>Ứng dụng của V-ing:</strong></p>
+      <ul>
+        <li><strong>Trong các thì tiếp diễn:</strong>
+          <ul>
+            <li>Hiện tại tiếp diễn: <code>am/is/are + Ving</code></li>
+            <li>Quá khứ hoàn thành tiếp diễn: <code>had been + Ving</code></li>
+            <li>Tương lai tiếp diễn: <code>will be + Ving</code></li>
+            <li><em>Ví dụ:</em> I am <u>watching</u> the film “Lalaland”.</li>
+          </ul>
+        </li>
+        <li><strong>Dùng như tính từ:</strong> chỉ tính chất/đặc điểm (của vật/người)
+          <ul>
+            <li><em>Ví dụ:</em> He was an <u>interesting</u> person.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>So sánh nhanh:</h3>
+      <table border="1" cellpadding="6">
+        <thead>
+          <tr>
+            <th>Phân từ</th>
+            <th>Dạng</th>
+            <th>Cách dùng</th>
+            <th>Ví dụ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>V-ing</strong></td>
+            <td>Động từ + ing</td>
+            <td>Thì tiếp diễn, tính từ mô tả tính chất</td>
+            <td>The story is <u>amusing</u>.</td>
+          </tr>
+          <tr>
+            <td><strong>Vpp</strong></td>
+            <td>–ed hoặc cột 3 (động từ bất quy tắc)</td>
+            <td>Thì hoàn thành, bị động, tính từ mô tả cảm xúc</td>
+            <td>She was <u>amused</u> by the story.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="phan11" class="section">
+      <h1>Các loại câu hỏi phổ biến trong tiếng Anh</h1>
+
+      <p>Trong tiếng Anh, có 4 dạng câu hỏi thường gặp:</p>
+
+      <h3>1. Câu hỏi Yes/No (Yes/No Questions)</h3>
+      <p>Là câu hỏi được tạo bằng cách <strong>đưa trợ động từ (auxiliary verb)</strong> lên đầu câu, đứng trước chủ ngữ.</p>
+      <p><strong>Trả lời:</strong> Bằng <code>Yes</code> hoặc <code>No</code>.</p>
+      <ul>
+        <li><em>Are you hungry?</em> – <strong>Yes, I am.</strong></li>
+        <li><em>Did you go to the cinema last night?</em> – <strong>No, I didn’t.</strong></li>
+      </ul>
+
+      <h3>2. Câu hỏi lấy thông tin (Wh-Questions)</h3>
+      <p>Được sử dụng để hỏi về <strong>thông tin cụ thể</strong> và bắt đầu bằng các từ để hỏi như: <code>What, Where, When, Why, How, Which, Whose, Whom, Who</code>.</p>
+      <ul>
+        <li><em>What is your name?</em> – <strong>My name is Ngọc.</strong></li>
+        <li><em>Where do you live?</em> – <strong>I live in Hanoi.</strong></li>
+      </ul>
+
+      <h3>3. Câu hỏi đuôi (Tag Questions)</h3>
+      <p>Gồm một câu trần thuật và một <strong>câu hỏi ngắn</strong> ở cuối để xác nhận thông tin.</p>
+      <p><strong>Cấu trúc:</strong> Mệnh đề chính + <em>tag question</em></p>
+      <p>Quy tắc:</p>
+      <ul>
+        <li>Mệnh đề khẳng định → tag phủ định: <em>You’re a student, aren’t you?</em></li>
+        <li>Mệnh đề phủ định → tag khẳng định: <em>You don’t like tea, do you?</em></li>
+      </ul>
+      <p><em>Ví dụ:</em></p>
+      <ul>
+        <li><em>It’s raining now, isn’t it?</em></li>
+        <li><em>She can speak French, can’t she?</em></li>
+      </ul>
+
+      <h3>4. Câu hỏi phức (Embedded/Indirect Questions)</h3>
+      <p>Là câu hỏi <strong>lồng trong một mệnh đề khác</strong>, thường thể hiện sự lịch sự hoặc suy nghĩ cá nhân.</p>
+      <p>Thường sử dụng các từ nối như: <code>what, when, where, why, how, if, whether...</code></p>
+      <p><strong>Không đảo ngữ</strong> như câu hỏi thông thường.</p>
+      <ul>
+        <li><em>I wonder when she will come back.</em></li>
+        <li><em>Can you tell me where the restroom is?</em></li>
+        <li><em>I don’t know if he likes pizza.</em></li>
+      </ul>
+
+      <hr>
+      <p><strong>Mẹo học nhanh:</strong> Ghi nhớ mục đích từng loại:</p>
+      <ul>
+        <li><strong>Yes/No:</strong> Hỏi có/không</li>
+        <li><strong>Wh-Questions:</strong> Hỏi thông tin chi tiết</li>
+        <li><strong>Tag Questions:</strong> Xác nhận điều đã nói</li>
+        <li><strong>Embedded:</strong> Lịch sự, gián tiếp</li>
+      </ul>
+    </div>
+    
+    <div id="phan12" class="section">
+      <h1>Từ loại (Parts of Speech)</h1>
+      <p>Trong tiếng Anh có <strong>8 từ loại cơ bản</strong>, mỗi từ loại đảm nhận một vai trò khác nhau trong câu.</p>
+
+      <h3>1. Danh từ (Nouns) – <code>(n)</code></h3>
+      <p>Dùng để chỉ người, vật, nơi chốn, ý tưởng.</p>
+      <ul>
+        <li><strong>Danh từ chung (common nouns):</strong> teacher, meal, city</li>
+        <li><strong>Danh từ riêng (proper nouns):</strong> Ngọc, Vietnam, Apple</li>
+      </ul>
+
+      <h3>2. Tính từ (Adjectives) – <code>(adj)</code></h3>
+      <p>Dùng để miêu tả danh từ, trả lời cho câu hỏi "như thế nào".</p>
+      <p>Ví dụ: smart, happy, successful, beautiful</p>
+
+      <h3>3. Động từ (Verbs) – <code>(v)</code></h3>
+      <p>Diễn tả hành động hoặc trạng thái.</p>
+      <ul>
+        <li><strong>Động từ hành động (action verbs):</strong> run, sing, drive, speak</li>
+        <li><strong>Động từ tri giác (non-action verbs):</strong> be, like, feel, smell, understand</li>
+      </ul>
+
+      <h3>4. Trạng từ (Adverbs) – <code>(adv)</code></h3>
+      <p>Bổ nghĩa cho động từ, tính từ, hoặc cả câu.</p>
+      <ul>
+        <li>emotionally intelligent</li>
+        <li>to drive carefully</li>
+        <li>Unfortunately, it rained.</li>
+      </ul>
+
+      <h3>5. Đại từ (Pronouns)</h3>
+      <p>Thay thế cho danh từ để tránh lặp từ.</p>
+      <p>Các loại đại từ:</p>
+      <ul>
+        <li><strong>Nhân xưng:</strong> I, we, you, they, he, she, it</li>
+        <li><strong>Phản thân:</strong> myself, yourself, themselves,...</li>
+        <li><strong>Chỉ định:</strong> this, that, these, those</li>
+        <li><strong>Sở hữu:</strong> mine, yours, his, hers,...</li>
+        <li><strong>Quan hệ:</strong> who, which, whose, that,...</li>
+        <li><strong>Bất định:</strong> another, all, both, everyone, nobody,...</li>
+        <li><strong>Nhấn mạnh:</strong> (giống đại từ phản thân nhưng có thể lược bỏ)</li>
+      </ul>
+
+      <h3>6. Giới từ (Prepositions) – <code>(prep)</code></h3>
+      <p>Liên kết giữa các từ trong câu, thường thể hiện vị trí, thời gian, hoặc mối quan hệ logic.</p>
+      <p>She put the book <strong>on</strong> the table.</p>
+
+      <h3>7. Liên từ (Conjunctions)</h3>
+      <p>Dùng để nối từ, cụm từ hoặc mệnh đề.</p>
+      <ul>
+        <li><strong>Liên từ kết hợp (Coordinating):</strong> for, and, nor, but, or, yet, so (FANBOYS)</li>
+        <li><strong>Liên từ tương quan (Correlative):</strong> either...or, both...and, not only...but also</li>
+        <li><strong>Liên từ phụ thuộc (Subordinating):</strong> because, although, since, while, if,...</li>
+      </ul>
+
+      <h3>8. Mạo từ (Articles)</h3>
+      <p>Đứng trước danh từ để xác định mức độ cụ thể của danh từ đó.</p>
+      <ul>
+        <li><strong>Mạo từ không xác định:</strong> <em>a, an</em></li>
+        <li><strong>Mạo từ xác định:</strong> <em>the</em></li>
+      </ul>
+      <p>EX: a cat, a university, an orange, an hour, the boy, the teacher</p>
+
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vocabulary</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/styleMainvoca.css" />
+</head>
+<body>
+      <!-- Thanh điều hướng ngang (trên cùng) -->
+  <header>
+    <div class="abc">
+        <div><img src="image/owl.png" width="50"></div>
+        <a href="/">
+          <div class="name">Toeic <br>learning</div>
+        </a>
+    </div>    
+    <nav class="top-nav">
+      <a href="/" >Home</a>
+      <a href="/mainvoca" >Vocabulary</a>
+      <a href="/grammar" >Grammar</a>
+      <a href="/index2" >Test</a>
+      <a href="/auth/sign_up" id="signupLink">Sign up</a>
+      <a href="/auth/login" id="loginLink">Login</a>
+      <a href="#" id="logoutLink" onclick="logout()" style="display: none;">Log out</a>
+      <div class="circle" id="circleDisplay"style="display: none;"> 
+        <%= username ? username.charAt(0).toUpperCase() : '' %>
+      </div>
+
+    <script>
+      const user = localStorage.getItem("loggedInUser");
+      if (user) {
+        document.getElementById("circleDisplay").textContent = user.charAt(0).toUpperCase();
+        document.getElementById("circleDisplay").style.display = "inline-block"; 
+        document.getElementById("loginLink").style.display = "none";
+        document.getElementById("signupLink").style.display = "none";
+        document.getElementById("logoutLink").style.display = "inline";
+      }
+
+      function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "/";  
+      }
+    </script>
+
+  </nav>
+  </header>
+<div class="container"> 
+  
+  <div class="left-box">
+    <h1 >Phương pháp học từ vựng hiệu quả</h1>
+      <h2>1. Học theo chủ đề</h2>
+      <p>Chia từ vựng thành các nhóm như: Du lịch, Hợp đồng, Y tế,... để dễ ghi nhớ.</p>
+
+      <h2>2. Dùng Flashcard</h2>
+      <p>Lật thẻ để ghi nhớ từ và nghĩa. Có thể dùng app như Anki, Quizlet, hoặc làm thủ công.</p>
+
+      <h2>3. Lặp lại ngắt quãng (Spaced Repetition)</h2>
+      <p>Ôn lại từ vựng theo lịch trình: 1 ngày – 3 ngày – 1 tuần – 1 tháng.</p>
+
+      <h2>4. Đặt câu và dùng trong ngữ cảnh</h2>
+      <p>Thay vì chỉ học nghĩa, hãy đặt câu ví dụ để hiểu cách dùng từ.</p>
+
+      <h2>5. Viết và nói để ghi nhớ</h2>
+      <p>Viết đoạn văn ngắn hoặc nói chuyện với người khác để dùng từ mới ngay lập tức.</p>
+  </div>
+<div class="right-column">
+<div class="right-box">
+    <a href="html/voca.html" style= "text-decoration: none; font-size: 20px; font-weight: 600;"  > 16 chủ đề từ vựng TOEIC </a>
+</div>
+<div class="right-box"> 
+  <a href="html/tudanghia.html" style= "text-decoration: none; font-size: 20px; font-weight: 600;"  > Từ đa nghĩa  trong TOEIC </a>
+</div>
+<div class="right-box"> 
+  <a href="html/cumdanhtu.html" style= "text-decoration: none; font-size: 20px; font-weight: 600;"  > Cụm danh từ  trong TOEIC </a>
+</div>
+<div class="right-box"> 
+  <a href="html/cumdongtu.html" style= "text-decoration: none; font-size: 20px; font-weight: 600;"   > Cụm động từ  trong TOEIC </a>
+</div>
+<div class="right-box"> 
+  <a href="html/cumtinhtu.html" style= "text-decoration: none; font-size: 20px; font-weight: 600;"  > Cụm tính từ  trong TOEIC </a>
+</div>
+<div class="right-box"> 
+  <a href="html/thanhngu.html" style= "text-decoration: none; font-size: 20px; font-weight: 600;"   > 150 thành ngữ Anh-Việt </a>
+</div>
+</div>
+</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+
+* {
+  box-sizing: border-box; /*Tổng kích thước phần tử luôn đúng khai báo.*/
+}
+
+:root {
+  --bg: #fef8f6;
+  --primary: #f2c4b4;
+  --accent: #9fa8da;
+  --text: #444;
+  --heading: #3f3d56;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+
+  color: var(--text);
+  
+}
+ /* thanh điều hướng bên trên */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10%;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 16px;
+  
+
+}
+
+header nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #999;
+}
+
+header nav a:hover {
+  color: var(--heading);
+}
+.abc{
+    display:flex;
+    transform: translateY(5px);
+    color:rgb(59, 67, 93);
+    font-weight: bold;
+
+}
+
+.features a{
+  text-decoration:none;
+
+}
+
+.abc a{
+  text-decoration: none;
+}
+
+.abc a:active {
+  color: rgb(0, 0, 0);
+}
+
+.circle {
+  display: inline-block; 
+  background-color: #988aff;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 25px;
+  font-size: 10px;
+}
+

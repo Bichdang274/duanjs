@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phần 3: Hội thoại</title>
+  <link rel = "stylesheet" href = "/css/style.css">
+  <style>
+
+  .main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px 10%;
+  }
+
+  .audio-section {
+    flex: 1;
+    max-width: 500px;
+    background-color: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+
+  .audio-section h2 {
+    color: var(--heading);
+    margin-bottom: 10px;
+  }
+
+  .audio-section h3 {
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .audio-section audio {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .quiz-card {
+    flex: 1;
+    max-width: 600px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .question-number {
+    font-size: 1.2em;
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+
+  .image-container img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+
+  .question {
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .options button {
+    width: 100%;
+    padding: 10px 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .options button:hover:not(:disabled) {
+    background: #e9ecef;
+  }
+
+  .options button.selected {
+    background: #d0e8ff;
+    border-color: #007bff;
+  }
+
+  .options button.correct {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+  }
+
+  .options button.incorrect {
+    background: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  .btns button {
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .btns button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+
+  .result {
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out;
+  }
+
+  .result button {
+    margin: 10px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .result button:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 768px) {
+    .main-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .question-block,
+    .result,
+    .quiz-card {
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .options button:active {
+      transform: scale(0.96);
+      transition: transform 0.1s;
+    }
+
+    .options button,
+    .btns button,
+    .result button {
+      transition: background 0.3s, border 0.3s, transform 0.2s, opacity 0.2s;
+    }
+</style>
+
+<body>
+     <!-- Thanh điều hướng ngang (trên cùng) -->
+  <header>
+    <div class="abc">
+        <div><img src="/image/owl.png" width="50"></div>
+        <div class="name">Toeic <br>learning</div>
+    </div>    
+    <nav class="top-nav">
+    <a href="/index2" ><img src="/image/back.png" width="80"></a>
+    </div>
+  </ul>
+</nav>
+  </header>
+
+  <div class="main-container">
+    <div class="audio-section">
+      <h2>Phần 3</h2>
+      <h3>Nghe và chọn đáp án đúng nhất</h3>
+      <audio controls>
+        <source src="/audio/part3.mp3" type="audio/mpeg" />
+        Trình duyệt của bạn không hỗ trợ audio.
+      </audio>
+    </div>
+
+    <div class="quiz-card" id="quizCard">
+      <div class="question-number" id="questionNumber"></div>
+      <div class="image-container" id="questionImage"></div>
+      <div class="question" id="questionText">Chọn đáp án đúng:</div>
+      <div class="options" id="optionsContainer"></div>
+      <div class="btns">
+        <button id="previousBtn" style="display: none;">Quay lại</button>
+        <button id="actionBtn" disabled>Tiếp tục</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+  <script>
+
+
+
+    const questions = [
+      {
+        question: "What are the speakers discussing?",
+        options: [
+          "A business trip",
+          "A budget proposal",
+          "An upcoming conference",
+          "A package delivery"
+        ],
+        answer: 3
+      },
+      {
+        question: "What problem does the woman mention?",
+        options: [
+          "The address is no longer relevant",
+          "A company has gone bankrupt",
+          "A budget must be revised",
+          "A flight has been canceled"
+        ],
+        answer: 0
+      },
+      {
+        question: "What does the woman say she will do?",
+        options: [
+          "Review a contract",
+          "Go to Tokyo",
+          "Visit the post office",
+          "Ask for compensation"
+        ],
+        answer: 3
+      },
+      {
+        question: "Who most likely is the woman?",
+        options: [
+          "A radio host",
+          "A professor",
+          "A business owner",
+          "An athlete"
+        ],
+        answer: 2
+      },
+      {
+        question: "What did the woman want to do?",
+        options: [
+          "Make use of her education",
+          "Open a fitness center",
+          "Appear on radio",
+          "Teach food and nutrition"
+        ],
+        answer: 0
+      },
+      {
+        question: "According to the woman, what is the main reason for her success?",
+        options: [
+          "Effective advertisements",
+          "Considerable interest in nutrition",
+          "Long-term investments",
+          "Government policies"
+        ],
+        answer: 1
+      },
+      {
+        question: "Where most likely are the speakers?",
+        options: [
+          "At a children’s hospital",
+          "At a university",
+          "At a music store",
+          "At a concert hall"
+        ],
+        answer: 2
+      },
+      {
+        question: "What does the woman suggest doing?",
+        options: [
+          "Purchasing a piano",
+          "Writing a birthday card",
+          "Playing string instruments",
+          "Attending advanced classes"
+        ],
+        answer: 0
+      },
+      {
+        question: "What does the woman give the man?",
+        options: [
+          "A receipt",
+          "A business card",
+          "A map",
+          "A pamphlet"
+        ],
+        answer: 3
+      },
+      {
+        question: "What does the man ask about?",
+        options: [
+          "The reason the woman arrived early",
+          "The date of the woman’s wedding",
+          "The name of a client",
+          "Directions to the office"
+        ],
+        answer: 2
+      },
+      {
+        question: "What will the woman do after work?",
+        options: [
+          "Organize a party",
+          "Try on a dress",
+          "Attend a wedding",
+          "Purchase office supplies"
+        ],
+        answer: 3
+      },
+      {
+        question: "What will the man probably do next?",
+        options: [
+          "Reply to an invitation",
+          "Write an e-mail",
+          "Order a supply closet",
+          "Go to the second floor"
+        ],
+        answer: 3
+      },
+      {
+        question: "Who most likely are the speakers?",
+        options: [
+          "Show hosts",
+          "Advertisers",
+          "Television producers",
+          "Viewers"
+        ],
+        answer: 0
+      },
+      {
+        question: "According to the woman, what is the reason for the problem?",
+        options: [
+          "A new product was recalled",
+          "An actor was injured",
+          "A television show was canceled",
+          "A new host is not well-liked"
+        ],
+        answer: 2
+      },
+      {
+        question: "What solution does the man suggest?",
+        options: [
+          "Rewriting the script",
+          "Replacing the host",
+          "Conducting a survey",
+          "Placing an advertisement"
+        ],
+        answer: 3
+      },
+      {
+        question: "Where do the speakers work?",
+        options: [
+          "At an electronics store",
+          "At a software company",
+          "At a clothing store",
+          "At a photography studio"
+        ],
+        answer: 2
+      },
+      {
+        question: "What does the man want to do with the website?",
+        options: [
+          "Make the interface easier",
+          "Enlarge the font",
+          "Change the colors",
+          "Reduce the number of menus"
+        ],
+        answer: 0
+      },
+      {
+        question: "What does the woman suggest doing?",
+        options: [
+          "Hiring a professional",
+          "Lowering the prices",
+          "Changing the color scheme",
+          "Including more images"
+        ],
+        answer: 3
+      },
+      {
+        question: "What does the man talk about?",
+        options: [
+          "His upcoming business trip",
+          "His co-worker’s wedding",
+          "Where the conference should be",
+          "His unfinished reports"
+        ],
+        answer: 2
+      },
+      {
+        question: "What does the woman mention about the venue?",
+        options: [
+          "They provide excellent services",
+          "She had her wedding at the venue",
+          "The venue may be booked quickly",
+          "They don’t have enough rooms"
+        ],
+        answer: 0
+      },
+      {
+        question: "What does the woman offer to do?",
+        options: [
+          "Send out emails",
+          "Work on newsletters",
+          "Contact co-workers",
+          "Help a co-worker"
+        ],
+        answer: 3
+      },
+      {
+        question: "What are the speakers mainly discussing?",
+        options: [
+          "An issue with the new contract",
+          "The new contract has longer vacation",
+          "A vacation in America",
+          "Flights and accommodation"
+        ],
+        answer: 0
+      },
+      {
+        question: "What does the woman mean when she says “I’m on my way to appointment”?",
+        options: [
+          "She has a lunch meeting",
+          "She doesn’t have much time to talk",
+          "She wants the man to sign the contract",
+          "She has a lot of time to talk"
+        ],
+        answer: 1
+      },
+      {
+        question: "What does the woman want to know?",
+        options: [
+          "If he will sign the new contract",
+          "If he can come to her office at 3:00 P.M.",
+          "If he is going to Europe for vacation",
+          "If he has paid for his trip already"
+        ],
+        answer: 3
+      },
+      {
+        question: "What does the man imply when he says “Some of us from the accounting department are going to Dreamworld on Saturday for a team bonding day”?",
+        options: [
+          "He is recommending the theme park",
+          "He needs some documents signed",
+          "He wants the sales figures for this month",
+          "He is inviting her to join them"
+        ],
+        answer: 3
+      },
+      {
+        question: "What does the woman say about her plans?",
+        options: [
+          "She can’t change them",
+          "She can change them",
+          "She doesn’t have any plans",
+          "She doesn’t want to go"
+        ],
+        answer: 1
+      },
+      {
+        question: "What does the woman offer to do?",
+        options: [
+          "Pick everyone up in her car",
+          "Meet them at the amusement park",
+          "Book the tickets online",
+          "Pay for the tickets with cash"
+        ],
+        answer: 2
+      },
+      {
+        question: "Where are the speakers planning to go?",
+        options: [
+          "To the cinemas",
+          "To a restaurant",
+          "To a friend’s house",
+          "To a Broadway show"
+        ],
+        answer: 3
+        },
+        {
+          question: "What does the woman offer to do?",
+          options: [
+            "Buy the tickets",
+            "Call John and tell him something",
+            "Pick John up in the car",
+            "Send John a text message"
+          ],
+          answer: 2
+        },
+        {
+          question: "What does the man offer to give to the woman?",
+          options: [
+            "Money for parking",
+            "A text message",
+            "A bottle of champagne",
+            "A ride to the show"
+          ],
+          answer: 0
+        },
+        {
+        question: "What does the woman ask?",
+        options: [
+          "If the body wash is on sale",
+          "If he has a loyalty card",
+          "If he wants to use a credit card",
+          "If the body wash is good"
+        ],
+        answer: 1,
+        image: "/image/7.png"
+      },
+      {
+        question: "Look at the graphic. Why is the gift card rejected?",
+        options: [
+          "Because he is in the wrong store",
+          "It has already been used too many times",
+          "The purchase is below $100",
+          "It is for another item"
+        ],
+        answer: 2,
+        image: "/image/7.png"
+      },
+      {
+        question: "What does the woman offer to do?",
+        options: [
+          "Find some other products",
+          "Give him a new card",
+          "Get her manager",
+          "Hold his products at the counter"
+        ],
+        answer: 3,
+        image: "/image/7.png"
+      },
+      {
+        question: "What is happening next month?",
+        options: [
+          "An annual software convention",
+          "Their software is being upgraded",
+          "The software will be sold early",
+          "The monthly hardware update"
+        ],
+        answer: 1,
+        image: "/image/8.png"
+      },
+      {
+        question: "Look at the graphic. Which department is on the 2nd floor?",
+        options: [
+          "Accounting",
+          "Human Resources Department",
+          "Research and Development",
+          "Customer Service Call Center"
+        ],
+        answer: 3,
+        image: "/image/8.png"
+      },
+      {
+        question: "What does the man suggest the woman do?",
+        options: [
+          "Call Human Resources",
+          "Call her manager",
+          "Call the sales department",
+          "Call the software company"
+        ],
+        answer: 1,
+        image: "/image/8.png"
+      },
+      {
+      question: "Why does the woman call?",
+      options: [
+        "To cancel a flight",
+        "To register a membership",
+        "To use her mileage points",
+        "To confirm an appointment"
+      ],
+      answer: 2,
+      image: "/image/9.png"
+    },
+    {
+      question: "Look at the graphic. How many points does the woman currently have?",
+      options: [
+        "20,000 points",
+        "40,000 points",
+        "50,000 points",
+        "70,000 points"
+      ],
+      answer: 2,
+      image: "/image/9.png"
+    },
+    {
+      question: "What does the man ask the woman to tell him?",
+      options: [
+        "Her plane ticket",
+        "Her membership number",
+        "Her cell phone number",
+        "Her flight itinerary"
+      ],
+      answer: 1,
+      image: "/image/9.png"
+    }
+      ];
+
+    let mode = "quiz";
+
+    // For quiz mode
+    let current = 0; // Current question index in quiz mode
+    let userAnswers = Array(questions.length).fill(null); // Saves user's selected answer for each question
+
+    // For review mode (will include only the *incorrect* questions)
+    let reviewIndices = [];
+    let currentReview = 0;
+
+    // ----- Element References -----
+    let questionNumberElem = document.getElementById("questionNumber");
+    let questionTextElem = document.getElementById("questionText");
+    let optionsContainer = document.getElementById("optionsContainer");
+    let previousBtn = document.getElementById("previousBtn");
+    let actionBtn = document.getElementById("actionBtn");
+    const quizCard = document.getElementById("quizCard");
+
+    // ----- Quiz Mode Functions -----
+
+    // Renders the current quiz question along with any previously saved answer.
+    function renderQuestion() {
+      mode = "quiz";
+      const q = questions[current];
+      questionNumberElem.textContent = `Câu ${current + 1}`;
+      questionTextElem.textContent = q.question;
+      optionsContainer.innerHTML = `<div class="question-block"></div>`;
+      const block = optionsContainer.querySelector(".question-block");
+
+      const imageContainer = document.getElementById("questionImage");
+      if (q.image) {
+        imageContainer.innerHTML = `<img src="${q.image}" alt="Question image">`;
+      } else {
+        imageContainer.innerHTML = "";
+      }
+
+      // Display options and pre-select if user already chose an answer.
+      q.options.forEach((option, idx) => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        // Highlight saved answer if exists.
+        if (userAnswers[current] === idx) {
+          btn.classList.add("selected");
+        }
+        btn.addEventListener("click", () => {
+          // Clear previous selection styling
+          Array.from(optionsContainer.children).forEach(b => b.classList.remove("selected"));
+          btn.classList.add("selected");
+          // Save answer
+          userAnswers[current] = idx;
+          actionBtn.disabled = false;
+        });
+      block.appendChild(btn);
+      });
+
+      // Only show Previous button if not on the first question.
+      previousBtn.style.display = (current === 0) ? "none" : "inline-block";
+
+      // Set button text: "Next" for non-final questions, "Submit" for the last.
+      actionBtn.textContent = (current === questions.length - 1) ? "Nộp bài" : "Tiếp tục";
+      // Disable action button unless an answer is chosen.
+      actionBtn.disabled = (userAnswers[current] === null);
+    }
+
+    // When the user clicks Next/Submit in quiz mode.
+    function quizActionHandler() {
+      if (current < questions.length - 1) {
+        // Simply move to the next question.
+        current++;
+        renderQuestion();
+      } else {
+        // Final submission: show result view.
+        finalResult();
+      }
+    }
+
+    // Allow navigating back in quiz mode.
+    function quizPreviousHandler() {
+      if (current > 0) {
+        current--;
+        renderQuestion();
+      }
+    }
+
+    // Bind quiz mode event handlers.
+    previousBtn.addEventListener("click", quizPreviousHandler);
+    actionBtn.addEventListener("click", quizActionHandler);
+
+    // ----- Result and Review Functions -----
+
+    // Shows the final result. If there are any questions answered incorrectly,
+    // it also displays a "Review Incorrect Questions" button.
+    function finalResult() {
+      let score = 0;
+      let mistakeIndices = [];
+      questions.forEach((q, i) => {
+        if (userAnswers[i] === q.answer) {
+          score++;
+        } else {
+          mistakeIndices.push(i);
+        }
+      });
+
+      let reviewButtonHtml = "";
+      if (mistakeIndices.length > 0) {
+        reviewButtonHtml = `<button id="reviewBtn" style="padding: 10px 20px;">Review đáp án</button>`;
+      }
+      quizCard.innerHTML = `
+        <div class="result">
+          <h3>Cảm ơn bạn đã làm bài!</h3>
+          <p>Điểm của bạn: ${score}/${questions.length}</p>
+          <div>${reviewButtonHtml}</div>
+          <button onclick="tryAgain()" style="padding: 10px 20px;">Thử lại</button>
+          <button onclick="goBack()" style="padding: 10px 20px;">Quay lại</button>
+        </div>
+      `;
+
+      // Bind the review button if it exists.
+      if (mistakeIndices.length > 0) {
+        document.getElementById("reviewBtn").addEventListener("click", () => {
+          // Switch to review mode with only the incorrect question indices.
+          mode = "review";
+          reviewIndices = mistakeIndices;
+          currentReview = 0;
+          buildReviewInterface();
+          renderReviewQuestion();
+        });
+      }
+    }
+
+    // Rebuild the quiz card interface for review mode.
+    function buildReviewInterface() {
+      quizCard.innerHTML = `
+        <div class="question-number" id="questionNumber"></div>
+        <div class="image-container" id="questionImage"></div>
+        <div class="question" id="questionText">Select the correct answer:</div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="btns">
+          <button id="previousBtn">Quay lại</button>
+          <button id="actionBtn">Tiếp tục</button>
+        </div>
+      `;
+      // Rebind element references and new event handlers for review mode.
+      questionNumberElem = document.getElementById("questionNumber");
+      questionTextElem = document.getElementById("questionText");
+      optionsContainer = document.getElementById("optionsContainer");
+      previousBtn = document.getElementById("previousBtn");
+      actionBtn = document.getElementById("actionBtn");
+
+      previousBtn.addEventListener("click", reviewPreviousHandler);
+      actionBtn.addEventListener("click", reviewActionHandler);
+    }
+
+    // Renders the current question in review mode (only the ones answered incorrectly).
+    function renderReviewQuestion() {
+      const qIndex = reviewIndices[currentReview];
+      const q = questions[qIndex];
+      
+      // Show review index and optionally mention the original question number.
+      questionNumberElem.textContent = `Review (${currentReview + 1}/${reviewIndices.length}) - (Câu ${qIndex + 1})`;
+      questionTextElem.textContent = q.question + " - Correct answer highlighted:";
+      const imageContainer = document.getElementById("questionImage");
+      if (q.image) {
+        imageContainer.innerHTML = `<img src="${q.image}" alt="Question image">`;
+      } else {
+        imageContainer.innerHTML = "";
+      }
+      optionsContainer.innerHTML = `<div class="question-block"></div>`;
+      const block = optionsContainer.querySelector(".question-block");
+
+
+      // Display each option in read-only mode with feedback:
+      q.options.forEach((option, idx) => {
+        const btn = document.createElement("button");
+        btn.textContent = option;
+        btn.disabled = true; // review mode is read-only.
+        // The correct answer is highlighted.
+        if (idx === q.answer) {
+          btn.classList.add("correct");
+        }
+        // Mark the user's (incorrect) answer with a red background.
+        if (userAnswers[qIndex] === idx && userAnswers[qIndex] !== q.answer) {
+          btn.classList.add("incorrect");
+        }
+        block.appendChild(btn);
+      });
+
+      // In review mode the Previous button is hidden for the first review question.
+      previousBtn.style.display = (currentReview === 0) ? "none" : "inline-block";
+
+      // The Next button becomes "Finish Review" on the last review question.
+      actionBtn.textContent = (currentReview === reviewIndices.length - 1) ? "Hoàn tất" : "Tiếp tục";
+    }
+
+    // Handler in review mode for the action button.
+    function reviewActionHandler() {
+      if (currentReview < reviewIndices.length - 1) {
+        currentReview++;
+        renderReviewQuestion();
+      } else {
+        // Finish review: return to the result view.
+        finalResult();
+      }
+    }
+
+    // Allow backward navigation in review mode.
+    function reviewPreviousHandler() {
+      if (currentReview > 0) {
+        currentReview--;
+        renderReviewQuestion();
+      }
+    }
+
+    // ----- Utility Functions -----
+
+    // Restart quiz state.
+    function tryAgain() {
+      mode = "quiz";
+      current = 0;
+      userAnswers = Array(questions.length).fill(null);
+      // Restore the original quiz card interface.
+      quizCard.innerHTML = `
+        <div class="question-number" id="questionNumber"></div>
+        <div class="image-container" id="questionImage"></div>
+        <div class="question" id="questionText">Select the correct answer:</div>
+        <div class="options" id="optionsContainer"></div>
+        <div class="btns">
+          <button id="previousBtn" style="display: none;">Quay lại</button>
+          <button id="actionBtn" disabled>Tiếp tục</button>
+        </div>
+      `;
+      // Rebind element references and event handlers for quiz mode.
+      questionNumberElem = document.getElementById("questionNumber");
+      questionTextElem = document.getElementById("questionText");
+      optionsContainer = document.getElementById("optionsContainer");
+      previousBtn = document.getElementById("previousBtn");
+      actionBtn = document.getElementById("actionBtn");
+      previousBtn.addEventListener("click", quizPreviousHandler);
+      actionBtn.addEventListener("click", quizActionHandler);
+      renderQuestion();
+    }
+
+    // Navigate back to the menu.
+    function goBack() {
+      window.location.href = "/index2";
+    }
+
+    // ----- Initial Render -----
+    renderQuestion();
+  </script>
+</body>
+</html>
