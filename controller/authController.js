@@ -20,15 +20,17 @@ exports.postLogin = (req, res) => {
 
 exports.getSignUp = (req, res) => {
   const username = req.query.username || '';
-  res.render('sign_up', { username });
+  res.render('sign_up', { username, message: null});
 };
 
 exports.postSignUp = (req, res) => {
   const { username, password } = req.body;
   const sql = 'INSERT INTO users (username, password) VALUES (?, ?)';
   connection.query(sql, [username, password], (err) => {
-    if (err) return res.send('Lỗi khi thêm tài khoản: ' + err.message);
-    res.redirect('/');
+    if (err) {
+      return res.render('sign_up', {username, message: 'Tên tài khoản đã tồn tại hoặc có lỗi xảy ra!' });
+    }
+    res.render('sign_up', {username, message: 'Thêm tài khoản thành công!' });
   });
 };
 

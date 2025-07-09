@@ -147,6 +147,9 @@
         <input type="text" name="username" placeholder="Tên đăng kí" required>
         <input type="password" name="password" placeholder="Mật khẩu" required>
         <button type="submit">Đăng kí</button>
+        <% if (message) { %>
+        <p><%= message %></p>
+        <% } %>
       </form>
       <div class="note">Đã có tài khoản? <a href="/auth/login">Đăng nhập</a></div>
     </div>
