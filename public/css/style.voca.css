@@ -41,9 +41,9 @@
 }
 /* Điều chỉnh lề trang chính để không bị đè */
 .section {
-  margin-left: 350px;
+  margin-left: 380px;
   margin-top: 20px;
-  width: 75%;
+  width: 70%;
   height: 585px;
   padding: 15px;
   display: none; /* Ẩn flashcard */
@@ -69,9 +69,7 @@
 
 /* Bảng */
 table {
-
   width: 100%;
-  
 }
 
 /* Cố định tiêu đề */
@@ -102,126 +100,110 @@ tbody tr:hover {
 }
 
 
-    /* Nút bấm */
-    button {
-      border: none;
-      border-radius: 8px;
-      padding: 14px 28px;
-      font-size: 16px;
-      font-weight: 600; /* Độ đậm chữ hơi đậm */
-      cursor: pointer; /* Khi hover hiện con trỏ tay (pointer) */
-      box-shadow: 0 4px 12px  rgb(243,144,126);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      margin: 0 auto 30px auto;
-      display: block;
-      width: fit-content;
-      display: inline-block;
-      background: transparent;  
-      color: rgb(246, 166, 152)
-    }
+/* Nút bấm chuyển đổi bảng và flashcard*/
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 600; /* Độ đậm chữ hơi đậm */
+  cursor: pointer; /* Khi hover hiện con trỏ tay (pointer) */
+  box-shadow: 0 4px 12px  rgb(243,144,126);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin: 0 auto 30px auto;
+  display: block;
+  width: fit-content;
+  display: inline-block;
+  background: transparent;  
+  color: rgb(246, 166, 152)
+}
 
-    button:hover {
-      background-color:  rgb(249, 249, 249);
-      box-shadow: 0 8px 20px  rgb(246, 166, 152);
-    }
+button:hover {
+  background-color:  rgb(249, 249, 249);
+  box-shadow: 0 8px 20px  rgb(246, 166, 152);
+}
+/* Trang flashcard */
 
-    /* Trang flashcard */
-
-    .flashcard {
-      margin: 20px auto 30px;
-      width: 100%;
-      perspective: 1200px;
-      cursor: pointer;
-    }
-
-    .card-inner {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-      border-radius: 20px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-      background: #f9f6f6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      font-size: 45px;
-      font-weight: 700;
-      color: #222;
-      user-select: none;
-    }
-
-    .card-inner.flipped {
-      transform: rotateY(180deg);
-    }
-
-    .card-face {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg,rgb(90, 131, 91) 0%, rgb(111,155,112), rgb(144, 194, 144) 100%);
-      box-sizing: border-box;
-      
-      
-    }
-
-    .card-face.front {
-       
-  color: white;
-    }
-
-    .card-face.back {
-      
-  color: white;
-      transform: rotateY(180deg);
-      
-    }
-.flashcard-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.content-block {
+  width: 100%;
+  height:100%;
+  perspective: 1200px;
+  background-color:  rgb(249, 249, 249);
   
 }
-
-.flashcard {
-  width: 600px;
-  height: 350px;
-  perspective: 1000px;
-  position: relative;
+.flashcard-wrapper { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  margin-top: 50px;
 }
+
+.card-container { 
+  width: 520px; 
+  height: 280px; 
+  perspective: 1000px; 
+  position: relative; 
+  cursor: pointer; 
+}
+.card-inner { 
+  width: 100%; 
+  height: 100%; 
+  position: relative; 
+  transform-style: preserve-3d; 
+  transition: transform 0.7s; }
+.card-inner.flipped { transform: rotateY(180deg); 
+}
+.card { 
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  border-radius: 20px; 
+  background: linear-gradient(135deg, #fabf8c 0%, rgb(243,144,126) 100%); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  font-size: 45px; 
+  color: #fff; 
+  backface-visibility: hidden; 
+}
+.card.back { transform: rotateY(180deg); }
+
+/* nút loa*/
+.speaker-btn { 
+      position: absolute; 
+      top: 20px; right: 50px; 
+      z-index: 2; 
+      padding: 8px; 
+      border-radius: 50%; 
+      background: rgba(255,255,255,0.8); 
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
+}
+
 /* nút chuyển flashcard */
 .nav-button {
   background: transparent;
   color: rgb(111,155,112);
-  
   padding: 10px 16px;
+ 
   border-radius: 100px;
   cursor: pointer;
   font-size: 20px;
   transition: 0.3s;
-box-shadow: 0 4px 10px rgb(144, 194, 144);
+  box-shadow: 0 4px 10px rgb(101, 101, 101);
 }
 
 .nav-button:hover {
   background-color:  rgb(249, 249, 249);
-      box-shadow: 0 8px 20px rgb(111,155,112);
-  color:rgb(105, 142, 105);
+  box-shadow: 0 8px 20px rgb(147, 148, 147);
+  color:rgb(103, 104, 103);
 }
 
 .nav-button.left {
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 .nav-button.right {
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 
