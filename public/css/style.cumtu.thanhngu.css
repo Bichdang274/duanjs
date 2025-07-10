@@ -4,37 +4,35 @@
   }
   /* Bảng từ vựng */
     .table-wrapper {
-  max-height: 450px; /* Chiều cao tối đa vùng chứa bảng */
-  overflow-y: auto;  /* Bật thanh cuộn dọc */
+  max-height: 450px; 
+  overflow-y: auto;  
   border-radius: 12px;
   background: #fff;
   margin-top: 20px;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 300px;
+  margin-right: 300px;
+  
 }
 /* Bảng */
 table {
   width: 100%;
-  
 }
 
-/* Cố định tiêu đề */
+/* tiêu đề */
 thead th {
   position: sticky;
   top: 0;
-  /*dùng để làm phần tử "dính" tại một vị trí cố định (thường là top hoặc bottom)*/
-  z-index: 10; /* Đảm bảo nằm trên nội dung khi cuộn */
   background: linear-gradient(135deg,rgb(90, 131, 91) 0%, rgb(111,155,112), rgb(144, 194, 144) 100%);
   color: white;
   padding: 14px 20px; 
-  text-shadow: 0.5px 0.5px 1px rgba(23, 1, 1, 0.916); /* Chữ nổi rõ hơn */
+  text-shadow: 0.5px 0.5px 1px rgba(23, 1, 1, 0.916); 
+  text-align: center;
 }
 
 
 /* Các ô dữ liệu */
 th, td {
-  padding: 10px 15px;
-  text-align: left;
+  padding: 10px 60px;
   border-bottom: 1px solid #eee;
   font-size: 15px;
 }
@@ -42,32 +40,35 @@ th, td {
 /* Hover dòng */
 tbody tr:hover {
   background-color:  rgb(212, 238, 212);
-  cursor: default;            /* Con trỏ chuột khi hover là kiểu mặc định (mũi tên thường) */
+  cursor: default;            /* chuột : mũi tên thường */
 }
+
+/* Thanh tìm kiếm */
 .search-container {
-  text-align: center;
-  margin-top: 5px; /* Đẩy xuống dưới để không bị che bởi thanh điều hướng cố định */
+  display: flex;
+  justify-content: center;  /* ngang */
+  margin-top: 5px; 
 }
 
 #searchInput {
   padding: 12px 18px;
   width: 320px;
   font-size: 16px;
-  border: 2px solid #fcbf49;        /* Cam nhạt pastel */
+  border: 2px solid #fcbf49;     
   border-radius: 12px;
-  outline: none;
-  background-color: #fff8ed;        /* Màu nền nhẹ, sáng */
-  color: #5c4333;                   /* Màu chữ nâu trầm */
-  box-shadow: 0 4px 6px rgba(252, 191, 73, 0.2); /* bóng mờ cam nhạt */
+  outline: none; /* Tắt outline xanh mặc định trên một số trình duyệt.*/
+  background-color: #fff8ed;        
+  color: #5c4333;                 
+  box-shadow: 0 4px 6px rgba(252, 191, 73, 0.2); 
   transition: all 0.3s ease;
 }
 
 #searchInput::placeholder {
-  color: #b6a996;                   /* Placeholder nhẹ nhàng */
+  color: #b6a996;                   
 }
 
 #searchInput:focus {
-  border-color: #ff9900;            /* Cam sáng khi focus */
-  background-color: #fff5dd;        /* Màu nền sáng hơn chút khi focus */
-  box-shadow: 0 0 8px rgba(255, 153, 0, 0.4); /* Hiệu ứng glow nhẹ */
+  border-color: #ff9900;           
+  background-color: #fff5dd;        
+  box-shadow: 0 0 8px rgba(255, 153, 0, 0.4); 
 }

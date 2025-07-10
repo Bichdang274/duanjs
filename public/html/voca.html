@@ -81,13 +81,20 @@
   </table>
   </div>
   <div id="phan1-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
+      <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
     </div>
-  </div>
 </div>
+
 
 <!-- PHẦN 2 -->
 <div id="phan2" class="section">
@@ -129,11 +136,17 @@
   </table>
   </div>
   <div id="phan2-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -177,11 +190,17 @@
   </table>
   </div>
   <div id="phan3-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -226,11 +245,17 @@
   </table>
   </div>
   <div id="phan4-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -275,11 +300,17 @@
   </table>
   </div>
   <div id="phan5-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -324,11 +355,17 @@
   </table>
   </div>
   <div id="phan6-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -361,7 +398,7 @@
     <tr><td>Subject</td><td>/ˈsʌbdʒɪkt/</td><td>noun</td><td>Chủ đề</td><td>The subject of the email is the upcoming meeting.</td></tr>
     <tr><td>Attach</td><td>/əˈtætʃ/</td><td>verb</td><td>Đính kèm</td><td>Please attach the file before sending the email.</td></tr>
     <tr><td>Formal</td><td>/ˈfɔːməl/</td><td>adjective</td><td>Chính thức</td><td>This letter requires a formal tone.</td></tr>
-    <tr><td>Informal</td><td>/ɪnˈfɔːməl/</td><td>adjective</td><td>Thân mật</td><td>The email was written in an informal /css/style.</td></tr>
+    <tr><td>Informal</td><td>/ɪnˈfɔːməl/</td><td>adjective</td><td>Thân mật</td><td>The email was written in an informal style.</td></tr>
     <tr><td>Copy</td><td>/ˈkɒpi/</td><td>noun</td><td>Bản sao</td><td>I need to make a copy of this letter for my records.</td></tr>
     <tr><td>Send</td><td>/sɛnd/</td><td>verb</td><td>Gửi</td><td>I will send the email as soon as I finish the report.</td></tr>
     <tr><td>Delivery</td><td>/dɪˈlɪvəri/</td><td>noun</td><td>Sự giao hàng</td><td>The delivery of the package was delayed.</td></tr>
@@ -373,11 +410,17 @@
   </table>
   </div>
   <div id="phan7-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -422,11 +465,17 @@
   </table>
   </div>
   <div id="phan8-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -471,11 +520,17 @@
   </table>
   </div>
   <div id="phan9-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -519,11 +574,17 @@
   </table>
   </div>
   <div id="phan10-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -569,11 +630,17 @@
   </table>
   </div>
   <div id="phan11-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -617,11 +684,17 @@
   </table>
   </div>
   <div id="phan12-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -667,11 +740,17 @@
   </table>
   </div>
   <div id="phan13-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -715,11 +794,17 @@
   </table>
   </div>
   <div id="phan14-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -764,11 +849,17 @@
   </table>
   </div>
   <div id="phan15-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
 
@@ -813,80 +904,22 @@
   </table>
   </div>
   <div id="phan16-flashcard" class="content-block" style="display:none">
-    <div class="flashcard-container">
-      <button class="nav-button" onclick="prevCard()">❮</button>
-      <div class="flashcard card" onclick="flipCard()">?</div>
-      <button class="nav-button" onclick="nextCard()">❯</button>
-    </div>
+    <div class="flashcard-wrapper">
+        <button class="speaker-btn" onclick="toggleAutoSpeak()">🔊</button>
+        <button class="nav-button left" onclick="prevCard()">❮</button>
+        <div class="card-container" onclick="flipCard()">
+          <div class="card-inner">
+            <div class="card front"></div>
+            <div class="card back"></div>
+          </div>
+        </div>
+        <button class="nav-button right" onclick="nextCard()">❯</button>
+      </div>
   </div>
 </div>
+
 <script src="/js/script.voca.data.js" ></script>
 <script src="/js/script.voca.js" ></script>
 
-
-  <script>
-
-
-    // Biến dùng chung
-    let currentPart = 'phan1';
-    let currentIndex = 0;
-    let isFlipped = false;
-
-    // Chuyển phần
-    function showSection(id) {
-  currentPart = id; 
-  document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-
-
-    // Bảng từ vựng
-    function showTable(section) {
-  currentPart = section;
-  document.getElementById(`${section}-table`).style.display = 'block';
-  document.getElementById(`${section}-flashcard`).style.display = 'none';
-  renderTable(section); // <- thêm dòng này để hiện bảng
-}
-
-
-    // Flashcard
-    function showFlashcards(section) {
-      currentPart = section;
-      currentIndex = 0;
-      isFlipped = false;
-      document.getElementById(`${section}-table`).style.display = 'none';
-      document.getElementById(`${section}-flashcard`).style.display = 'block';
-      renderCard();
-    }
-
-    function renderCard() {
-  const data = flashcardsData[currentPart];
-  const section = document.getElementById(currentPart);
-  const card = section.querySelector(".card"); // chọn đúng flashcard trong phần hiện tại
-
-  if (!card || !data) return;
-  card.textContent = isFlipped ? data[currentIndex].answer : data[currentIndex].question;
-}
-
-
-    function flipCard() {
-      isFlipped = !isFlipped;
-      renderCard();
-    }
-
-    function nextCard() {
-      const data = flashcardsData[currentPart];
-      currentIndex = (currentIndex + 1) % data.length;
-      isFlipped = false;
-      renderCard();
-    }
-
-    function prevCard() {
-      const data = flashcardsData[currentPart];
-      currentIndex = (currentIndex - 1 + data.length) % data.length;
-      isFlipped = false;
-      renderCard();
-    }
-  </script>
 </body>
 </html>
