@@ -1,6 +1,6 @@
 
 * {
-  box-sizing: border-box; /*Tổng kích thước phần tử luôn đúng khai báo.*/
+  box-sizing: border-box; 
 }
 
 :root {
@@ -20,7 +20,7 @@ body {
   color: var(--text);
   
 }
- /* thanh điều hướng bên trên */
+
 header {
   display: flex;
   justify-content: space-between;
