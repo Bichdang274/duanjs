@@ -6,13 +6,12 @@
   <link rel = "stylesheet" href = "/css/style.css">
  
   <style>
-    .box2 {
-    width: 300px;
-    padding: 20px;
-    border-right: 1px solid #ccc;
-    height: 500px;
-    overflow-y: auto;
-    scrollbar-width: none;        
+  .box2 {
+  width: 300px;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  height: 500px;
+  overflow-y: auto;       
   }
 
   .box2::-webkit-scrollbar {         
@@ -22,58 +21,52 @@
   h2{
     text-align: center;
   }
-    .box2 a {
-      display: block;
-      margin: 8px 0;
-      text-decoration: none;
-      color:rgb(255,254,249);
-      background-color:rgb(159,168,218);
-      height:auto;
-      width:250px;
-      cursor: pointer;
-      margin-bottom:10px ;
-      padding:15px;
-      border-radius: 10px; 
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
-      
-      
-    }
-
-
-    .section {
-      display: none;
-      background-color: #ffffff;
-      padding: 0 40px;
-      border-radius: 20px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
-    }
-    
-  .section.active {
+  .box2 a {
     display: block;
+    margin: 8px 0;
+    text-decoration: none;
+    color:rgb(255,254,249);
+    background-color:rgb(159,168,218);
+    height:auto;
+    width:250px;
+    cursor: pointer;
+    padding:15px;
+    border-radius: 10px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);    
+  }
+
+
+  .section {
+    display: none;
+    background-color: #ffffff;
+    padding: 0 40px;
+    border-radius: 20px;
     width: 1100px;
     height: 600px;
     overflow-y: auto;
-    scrollbar-width: none; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  }
+    
+  .section.active {
+    display: block;
   }
 
   .section.active::-webkit-scrollbar {
     display: none;
   }
 
+  .box{
+      display:flex;
+      gap: 40px;
+  }
 
-
-    .box{
-        display:flex;
-        gap: 40px;
-    }
-
-    h1,h2{
-      color:rgb(243,118,78);
-      font-family: "Brush Script MT", "Lucida Handwriting", cursive;
-    }
-    p,h3,ul,li,h4{
-      color:#3a3a3a;
-    }
+  h1,h2{
+    color:rgb(243,118,78);
+    font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+  }
+  p,h3,ul,li,h4{
+    color:#3a3a3a;
+  }
 
   </style>
 </head>
