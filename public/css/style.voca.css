@@ -1,44 +1,46 @@
 
-    * {
-      box-sizing: border-box; /*Tổng kích thước phần tử luôn đúng khai báo.*/
-    }
-
-/* Thanh điều hướng dọc bên trái  */
+ 
+/* MENU  */
 
   .side-nav {
     margin-top: 20px;
-    height: 585px;
     margin-left: 30px;
+    max-height: 585px;
+    overflow-y: auto;
     width: 20%;
     background: #fff;
     padding: 20px;
     border-radius: 16px;
-    overflow-y: auto;
     box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    position: fixed;
+    position: fixed; /* Đặt menu cố định bên trái */
   }
 
   .side-nav a {
-    display: block;
+    display: block;  /* mỗi mục chiếm 1 dòng */
     padding: 10px;
     margin-bottom: 5px;
     color: #333;
     text-decoration: none;
     border-radius: 5px;
-    font-weight: bold;
+    font-weight: 700;
     transition: background 0.2s;
   }
 
-  .side-nav a:hover {
-    background: #ddd;
+.side-nav a:hover {
+    background: #e2f0f9;
+    cursor: pointer;
+    color:rgb(246, 166, 152);
   }
-  .side-nav::-webkit-scrollbar {
-  width: 6px;              /* độ rộng thanh cuộn */
+
+/* thanh cuộn của menu */
+.side-nav::-webkit-scrollbar {
+  width: 6px;              
 }
 .side-nav::-webkit-scrollbar-thumb {
-  background-color: #cdcbcb;  /* màu của thanh cuộn */
+  background-color: #cdcbcb;  
   border-radius: 16px;
 }
+
 /* Điều chỉnh lề trang chính để không bị đè */
 .section {
   margin-left: 380px;
@@ -51,18 +53,17 @@
   border-radius: 16px;
 }
 
-    .active {
+ .active {
       display: block; /*hiện bảng*/
     }
-
 
  h2 {
    color:  rgb(243,144,126);
  }
     /* Bảng từ vựng */
-    .content-block {
-  max-height: 400px; /* Chiều cao tối đa vùng chứa bảng */
-  overflow-y: auto;  /* Bật thanh cuộn dọc */
+.content-block {
+  max-height: 400px; 
+  overflow-y: auto; 
   border-radius: 12px;
   background: rgb(255,251,245);
 }
@@ -76,18 +77,15 @@ table {
 thead th {
   position: sticky;
   top: 0;
-  /*dùng để làm phần tử "dính" tại một vị trí cố định (thường là top hoặc bottom)*/
-  z-index: 10; /* Đảm bảo nằm trên nội dung khi cuộn */
   background: linear-gradient(135deg,rgb(90, 131, 91) 0%, rgb(111,155,112), rgb(144, 194, 144) 100%);
   color: white;
-  padding: 14px 20px; 
-  text-shadow: 0.5px 0.5px 1px rgba(23, 1, 1, 0.916); /* Chữ nổi rõ hơn */
+  padding: 10px;
 }
 
 
 /* Các ô dữ liệu */
 th, td {
-  padding: 10px 15px;
+  padding: 10px 5px;
   text-align: left;
   border-bottom: 1px solid #eee;
   font-size: 15px;
@@ -96,7 +94,7 @@ th, td {
 /* Hover dòng */
 tbody tr:hover {
   background-color:rgb(216, 233, 216);
-  cursor: default;            /* Con trỏ chuột khi hover là kiểu mặc định (mũi tên thường) */
+  cursor: default;         
 }
 
 
@@ -106,15 +104,11 @@ button {
   border-radius: 8px;
   padding: 14px 28px;
   font-size: 16px;
-  font-weight: 600; /* Độ đậm chữ hơi đậm */
-  cursor: pointer; /* Khi hover hiện con trỏ tay (pointer) */
+  font-weight: 600; /* Độ đậm  */
+  cursor: pointer; 
   box-shadow: 0 4px 12px  rgb(243,144,126);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   margin: 0 auto 30px auto;
-  display: block;
-  width: fit-content;
-  display: inline-block;
-  background: transparent;  
+  background: white;  
   color: rgb(246, 166, 152)
 }
 
@@ -122,12 +116,12 @@ button:hover {
   background-color:  rgb(249, 249, 249);
   box-shadow: 0 8px 20px  rgb(246, 166, 152);
 }
-/* Trang flashcard */
 
+/* Trang flashcard */
 .content-block {
   width: 100%;
   height:100%;
-  perspective: 1200px;
+  perspective: 1200px; /*Hiệu ứng 3D*/
   background-color:  rgb(249, 249, 249);
   
 }
@@ -150,8 +144,10 @@ button:hover {
   height: 100%; 
   position: relative; 
   transform-style: preserve-3d; 
-  transition: transform 0.7s; }
-.card-inner.flipped { transform: rotateY(180deg); 
+  transition: transform 0.7s;
+ }
+.card-inner.flipped { 
+  transform: rotateY(180deg); 
 }
 .card { 
   position: absolute; 
@@ -166,7 +162,9 @@ button:hover {
   color: #fff; 
   backface-visibility: hidden; 
 }
-.card.back { transform: rotateY(180deg); }
+.card.back { 
+  transform: rotateY(180deg); 
+}
 
 /* nút loa*/
 .speaker-btn { 
