@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="/css/styleMainvoca.css" />
 </head>
 <body>
-      
+  <!--thanh điều hướng-->
   <header>
     <div class="abc">
         <div><img src="image/owl.png" width="50"></div>
@@ -25,6 +25,7 @@
       <a href="/auth/login" id="loginLink">Login</a>
       <a href="#" id="logoutLink" onclick="logout()" style="display: none;">Log out</a>
       <div class="circle" id="circleDisplay"style="display: none;"> 
+        <%= username ? username.charAt(0).toUpperCase() : '' %>
       </div>
 
     <script>
@@ -45,8 +46,10 @@
 
   </nav>
   </header>
+
+<!--Nội dung-->
 <div class="container"> 
-  
+
   <div class="left-box">
     <h1 >Phương pháp học từ vựng hiệu quả</h1>
       <h2>1. Học theo chủ đề</h2>
