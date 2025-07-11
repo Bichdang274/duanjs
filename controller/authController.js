@@ -8,15 +8,21 @@ exports.getLogin = (req, res) => {
 exports.postLogin = (req, res) => {
   const { username, password } = req.body;
   const query = 'SELECT * FROM users WHERE username = ? AND password = ?';
+  
   connection.query(query, [username, password], (err, results) => {
-    if (err) throw err;
+    if (err) {
+      console.error("Lỗi truy vấn:", err);
+      return res.status(500).send("Lỗi server");
+    }
+    console.log("Đăng nhập với:", username, password);
     if (results.length > 0) {
-      res.redirect(`/?username=${username}`);
+      res.send("Đăng nhập thành công"); 
     } else {
-      res.send('Sai tài khoản hoặc mật khẩu');
+      res.send("Sai tài khoản hoặc mật khẩu");
     }
   });
 };
+
 
 exports.getSignUp = (req, res) => {
   const username = req.query.username || '';

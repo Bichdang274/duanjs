@@ -145,30 +145,31 @@
     </div>
   </div> 
   <script>
-  function handleLogin(e) {
-    e.preventDefault(); 
+function handleLogin(e) {
+  e.preventDefault();
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
+  fetch('/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+  })
+  .then(res => res.text())  //
+  .then(text => {
+    if (text.includes("Sai tài khoản hoặc mật khẩu")) {
+      alert("Sai tên đăng nhập hoặc mật khẩu!");
+    } else {
+      localStorage.setItem("loggedInUser", username);
+      window.location.href = "/";
+    }
+  })
+  .catch(error => {
+    console.error("Lỗi khi gửi login:", error);
+  });
+}
 
-    fetch('/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-    })
-    .then(res => {
-      if (res.ok) {
-        localStorage.setItem("loggedInUser", username);
-        window.location.href = "/";
-      } else {
-        alert("Sai tên đăng nhập hoặc mật khẩu!");
-      }
-    })
-    .catch(error => {
-      console.error("Lỗi khi gửi login:", error);
-    });
-  }
   </script>
 
 </body>
